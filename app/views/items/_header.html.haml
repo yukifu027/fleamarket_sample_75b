@@ -1,1 +1,28 @@
-.test テスト
+%header.header
+  .header__inner
+    .header__main
+      %h1.header__main__icon 
+        %a.header__main__icon--a{ :href => '#'}
+      .header__main__searchBox
+        %form
+          %input{ :name => 'utf8', :type => 'hidden', :value => '#'}
+          %input.header__main__searchBox--input#searchInput{ :name => 'key', :placeholder => 'キーワードから探す'}
+        %button{type:'submit'}
+          .header__main__searchBox--icon
+            %img{ :src => '#'}
+        %input{ :type => 'hidden', :name => 'authenticity_token', :value => '#'}
+    .header__navi
+      %ul.header__navi__left
+        %li.header__navi__left--first
+          %a#categoryBtn{ :href => '#'} 
+            カテゴリ
+        %li.header__navi__left--second
+          %a#brandBtn{ :href => '#'}
+            ブランド
+      %ul.header__navi__right
+        %li.header__navi__right--first
+          %a{ :href => '#'}
+            ログイン
+        %li.header__navi__right--second
+          %a{ :href => '#'}
+            新規会員登録
