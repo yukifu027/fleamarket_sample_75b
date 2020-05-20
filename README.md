@@ -221,7 +221,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-## blandsテーブル
+## brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
