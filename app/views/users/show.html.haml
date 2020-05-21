@@ -1,0 +1,108 @@
+
+.mypage__main
+  .main__contents
+    .main__content__first
+      .mypage__user__image
+        = link_to "#" do
+          %figure
+            = image_tag 'material/icon/member_photo_noimage_thumb.png', alt: "user_noimage", width: "60px", height: "60px"
+        %h2.bold takeshi
+        .mypage__user__number
+          .mypage__user__number--left
+            評価
+            %span.bold 111
+          .mypage__user__number--right
+            出品数
+            %span.bold 111
+      .mypage__notification__todo
+        %ul.mypage__tabs
+          %li.choice__tab.on
+            %h3
+              お知らせ
+          %li.choice__tab
+            %h3
+              やることリスト
+        .mypage__tab__content
+          %ul
+            %li.mypage__main__list
+              = image_tag 'material/logo/logo1.png', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+              = link_to "#", class: "list__link" do
+                .mypage__main__list__text
+                  ああああああああああああああああああああああああああああああああああああああし
+              .icon__arrow--right
+                = icon('fas', 'chevron-right', class: "arrow on")
+            %li.mypage__main__list
+              = image_tag 'material/logo/logo1.png', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+              = link_to "#", class: "list__link" do
+                .mypage__main__list__text
+                  いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいね
+              .icon__arrow--right
+                = icon('fas', 'chevron-right', class: "arrow on")
+            %li.mypage__main__list
+              = image_tag 'material/logo/logo1.png', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+              = link_to "#", class: "list__link" do
+                .mypage__main__list__text
+                  うううううううううううううううううううううううううううううううううううううううううううううううん
+              .icon__arrow--right
+                = icon('fas', 'chevron-right', class: "arrow on")
+            %li.mypage__main__list
+              = image_tag 'material/logo/logo1.png', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+              = link_to "#", class: "list__link" do
+                .mypage__main__list__text
+                  ええええええええええええええええええええええええええええええええええええええええええええええき
+              .icon__arrow--right
+                = icon('fas', 'chevron-right', class: "arrow on")
+            %li.mypage__main__list
+              = image_tag 'material/logo/logo1.png', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+              = link_to "#", class: "list__link" do
+                .mypage__main__list__text
+                  おおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおと
+              .icon__arrow--right
+                = icon('fas', 'chevron-right', class: "arrow on")
+            %li.mypage__main__list--bottom
+              = link_to "#", class: "list__link" do
+                .maypage__main__list__index
+                  一覧を見る
+    .main__content__second
+      %h2.mypage__tab__head 
+        購入した商品
+      %ul.mypage__tabs
+        %li.choice__tab
+          取引中
+        %li.choice__tab.on
+          過去の取引
+      .mypage__tab__content
+        %ul
+          %li.mypage__main__list
+            = image_tag 'material/pict/pict-reason-02.jpg', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+            = link_to "#", class: "list__link" do
+              .mypage__main__list__text
+                ああああああああああああああああああああああああああああああああああああああああああああああ
+            .icon__arrow--right
+              = icon('fas', 'chevron-right', class: "arrow on")
+          %li.mypage__main__list
+            = image_tag 'material/pict/pict-reason-02.jpg', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+            = link_to "#", class: "list__link" do
+              .mypage__main__list__text
+                ああああああああああああああああああああああああああああああああああああああああああああああ
+            .icon__arrow--right
+              = icon('fas', 'chevron-right', class: "arrow on")
+          %li.mypage__main__list
+            = image_tag 'material/pict/pict-reason-02.jpg', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+            = link_to "#", class: "list__link" do
+              .mypage__main__list__text
+                ああああああああああああああああああああああああああああああああああああああああああああああ
+            .icon__arrow--right
+              = icon('fas', 'chevron-right', class: "arrow on")
+          %li.mypage__main__list
+            = image_tag 'material/pict/pict-reason-02.jpg', alt: 'logo', height: '25px', width: '25px', class: 'mypage__main__list__logo'
+            = link_to "#", class: "list__link" do
+              .mypage__main__list__text
+                ああああああああああああああああああああああああああああああああああああああああああああああ
+            .icon__arrow--right
+              = icon('fas', 'chevron-right', class: "arrow on")
+          %li.mypage__main__list--bottom
+            = link_to "#", class: "list__link" do
+              .maypage__main__list__index
+                一覧を見る
+  = render "mypage_side"
