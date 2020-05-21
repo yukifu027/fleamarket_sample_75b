@@ -4,13 +4,13 @@
       %h1.TP-header__main__icon 
         %a.TP-header__main__icon--a{ :href => '#'}
       .TP-header__main__searchBox
-        %form
-          %input{ :name => 'utf8', :type => 'hidden', :value => '#'}
-          %input.TP-header__main__searchBox--input#TP-searchInput{ :name => 'key', :placeholder => 'キーワードから探す'}
-        %button{type:'submit'}
+        %form.TP-form
+          %input.TP-input{ :name => 'utf8', :type => 'hidden', :value => '#'}
+          %input.TP-input#TP-searchInput{ :name => 'key', :placeholder => 'キーワードから探す'}
+        %button.TP-button{type:'submit'}
           .TP-header__main__searchBox--icon
             %img{ :src => '#'}
-        %input{ :type => 'hidden', :name => 'authenticity_token', :value => '#'}
+        %input.TP-input{ :type => 'hidden', :name => 'authenticity_token', :value => '#'}
     .TP-header__navi
       %ul.TP-header__navi__left
         %li.TP-header__navi__left--first
