@@ -10,16 +10,16 @@
         = image_tag 'material/icon/icon-search 1.png', alt: 'SearchIcon', class: 'TP-header__main__searchBox--icon2'
     .TP-header__navi
       %ul.TP-header__navi__left
-        %li.TP-header__navi__left--first
-          = link_to '' do
+        %li
+          = link_to '', class: 'TP-header__navi__left--links' do
             カテゴリー
-        %li.TP-header__navi__left--second
-          = link_to ''do
+        %li
+          = link_to '', class: 'TP-header__navi__left--links', id: 'TPbrandBtm' do
             ブランド
       %ul.TP-header__navi__right
-        %li.TP-header__navi__right--first
-          = link_to '', class: 'TP-links' do
+        %li
+          = link_to '', class: 'TP-header__navi__right--links' do
             ログイン
-        %li.TP-header__navi__right--second
-          = link_to '', class: 'TP-links' do
+        %li
+          = link_to '', class: 'TP-header__navi__right--links' do
             新規会員登録
