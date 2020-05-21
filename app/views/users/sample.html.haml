@@ -1,0 +1,148 @@
+%main.l-container.clearfix
+  .l-content
+    %section.mypage-user-icon
+      %a{:href => "https://www.mercari.com/jp/u/194512139/"}
+        %figure
+          %img{:alt => "", :height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+        %h2.bold はくふ
+        .mypage-number
+          %div
+            評価
+            %span.bold 121
+          %div
+            出品数
+            %span.bold 88
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-notification"}
+              お知らせ
+              %span.mypage-nav-number.hidden-large
+                99+
+        %li
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+              やることリスト
+      .tab-content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                %time
+                  %i.icon-time
+                  %span 2 時間前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 《メルペイ登録でおトクなクーポンプレゼント》ローソンのMACHIメガアイスラテが¥160で買える！
+                %time
+                  %i.icon-time
+                  %span 7 日前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{:href => "/jp/mypage/notification/"} 一覧を見る
+        %ul#mypage-tab-todo.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 現在、やることリストはありません
+    -# %aside.modal{"data-close" => "modal", "data-modal" => "banner"}
+      .modal-inner.modal-banner
+        .modal-banner-eye-catch
+          %img{:alt => "", :src => "//pcweb-assets.mercdn.net/assets/img/common/jp/top/main_content_pc.png?3889715696"}/
+          %img{:alt => "", :src => "//pcweb-assets.mercdn.net/assets/img/common/common/logo.svg?3889715696"}/
+        .modal-banner-body
+          %h2 今すぐ無料ダウンロード！
+          %p.bold 全ての機能を使えるスマホアプリはこちら！
+          .modal-banner-app.clearfix
+            %a.pull-left{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+              %img{:alt => "", :src => "//pcweb-assets.mercdn.net/assets/img/common/common/app-store.svg?3889715696"}/
+            %a.pull-left{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+              %img{:alt => "", :src => "//pcweb-assets.mercdn.net/assets/img/common/common/google-play.svg?3889715696"}/
+          %a.modal-banner-app-open{"data-action" => "app/launch", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://", :href => ""}
+            アプリで開く
+        %i.icon-close{"data-close" => "modal"}
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+              取引中
+        %li
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
+              過去の取引
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m69520613524/"}
+              %figure
+                %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m69520613524_1.jpg?1584017426"}/
+              .mypage-item-body
+                .mypage-item-text
+                  「ラスト1点　新品　アウトドアプロダクツ　メンズ腹巻　ロゴ柄ブラック」 を購入しました。
+                  %span 取引が完了しました
+                .mypage-item-status.bold.done
+                  取引完了
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m62460066984/"}
+              %figure
+                %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m62460066984_1.jpg?1581863547"}/
+              .mypage-item-body
+                .mypage-item-text
+                  「HORI リアルアーケードPro V3 SA  アケコン」 を購入しました。
+                  %span 取引が完了しました
+                .mypage-item-status.bold.done
+                  取引完了
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{:href => "/jp/mypage/purchased/"} 一覧を見る
+  .l-side
+    %nav.mypage-nav
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item.active{:href => "/jp/mypage/"}
+            マイページ
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/notification/"}
+            お知らせ
+            %span.mypage-nav-number
+              99+
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/todo/"}
+            やることリスト
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/support/"}
+            お問い合わせ
+            %i.icon-arrow-right
+      %h3.mypage-nav-head メルペイ
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/sales/"}
+            売上・振込申請
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/point/"}
+            ポイント
+            %i.icon-arrow-right
+      %h3.mypage-nav-head 設定
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/profile/"}
+            プロフィール
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/deliver_address/"}
+            発送元・お届け先住所変更
+            %i.icon-arrow-right
