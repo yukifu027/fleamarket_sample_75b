@@ -1,0 +1,92 @@
+.items-new
+  .items
+    .items__picture
+      .picture
+        出品画像
+        %span
+          必須
+      .note
+        最大10枚までアップロードできます
+      .camera
+        = link_to "#" do
+          = image_tag "material/icon/icon_camera.png",height: "40px",width: "40px",class: "camera-pic"
+    .items__name
+      .name
+        商品名
+        %span
+          必須
+      .word
+        枕
+      .detail
+        商品の説明
+        %span
+          必須
+      .word
+        柔らかいよ〜
+    .items__detail
+      .category
+        カテゴリー
+        %span
+          必須
+      .word
+        住まい
+      .brand
+        ブランド
+      .word
+        シャネル
+      .status
+        商品の状態
+      .word
+        全体的に状態が悪い
+    .items__delivery
+      .title
+        = link_to "#", class: "link" do
+          配送について
+      .fee
+        配送料の負担
+        %span
+          必須
+      .word
+        着払い(購入者負担)
+      .area
+        発送元の地域
+        %span
+          必須
+      .word
+        東京都
+      .days
+        発送までの日数
+        %span
+          必須
+      .word
+        ４〜７日で発送
+    .items__price
+      .title
+        = link_to "#", class: "link" do
+          価格設定について
+      .price
+        販売価格
+        %span
+          必須
+      .word
+        ¥20,000
+      .charge
+        販売手数料（10％）
+      .word
+        ¥2,000
+      .gain
+        販売利益
+      .word
+        ¥18,000
+    .items__exhibit
+      .exibit-btn
+        = link_to "#",class: "link" do
+          出品する
+      .draft-btn
+        = link_to "#",class: "link" do
+          下書きに保存
+      .back-btn
+        = link_to "#",class: "link" do
+          戻る
+    .items__attention
+      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
