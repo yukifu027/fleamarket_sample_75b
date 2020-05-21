@@ -164,7 +164,6 @@ Things you may want to cover:
 |introduction|text|null: false|
 |price|integer|null: false|
 |bland_id|references|foreign_key:true|
-|item_condition_id|references|null: false, foreign_key:true|
 |postage_payer_id|references|null: false, foreign_key:true|
 |prefecture_code|integer|null: false|
 |size_id|references|null: false, foreign_key:true|
@@ -172,6 +171,7 @@ Things you may want to cover:
 |item_img_id|references|null: false, foreign_key:true|
 |category_id|references|null: false, foreign_key:true|
 |trading_status|enum|null: false|
+|item_condition|enum|null: false|
 |seller_id|references|null: false, foreign_key:true|
 |buyer_id|references|foreign_key:true|
 |deal_closed_date|timestamp|-------|
@@ -226,15 +226,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|-------|
-
-### Association
-- has_many :items
-
-## item_conditionsテーブル(active_hash)
-
-|Column|Type|Options|
-|------|----|-------|
-|item_condition|string|null: false|
 
 ### Association
 - has_many :items
