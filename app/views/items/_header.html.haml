@@ -1,28 +1,25 @@
 %header.TP-header
   .TP-header__inner
     .TP-header__main
-      %h1.TP-header__main__icon 
-        %a.TP-header__main__icon--a{ :href => '#'}
+      = image_tag 'material/logo/logo.png', alt:'TopPageIcon', class: 'TP-header__main__icon'
+      = link_to ''
       .TP-header__main__searchBox
-        %form.TP-form
-          %input.TP-input{ :name => 'utf8', :type => 'hidden', :value => '#'}
-          %input.TP-input#TP-searchInput{ :name => 'key', :placeholder => 'キーワードから探す'}
-        %button.TP-button{type:'submit'}
-          .TP-header__main__searchBox--icon
-            %img{ :src => '#'}
-        %input.TP-input{ :type => 'hidden', :name => 'authenticity_token', :value => '#'}
+        = form_with url: '#', class: 'TP-header__main__searchBox--form', local: true do |f|
+          = f.text_field :text, placeholder: 'キーワードから探す', rows: '1', class: 'TP-header__main__searchBox--textfield'
+          = f.submit class: 'TP-header__main__searchBox--button'
+        = image_tag 'material/icon/icon-search 1.png', alt: 'SearchIcon', class: 'TP-header__main__searchBox--icon2'
     .TP-header__navi
       %ul.TP-header__navi__left
         %li.TP-header__navi__left--first
-          %a.TP-links#TP-categoryBtn{ :href => '#'} 
-            カテゴリ
+          = link_to '' do
+            カテゴリー
         %li.TP-header__navi__left--second
-          %a.TP-links#TP-brandBtn{ :href => '#'}
+          = link_to ''do
             ブランド
       %ul.TP-header__navi__right
         %li.TP-header__navi__right--first
-          %a.TP-links#TP-loginBtn{ :href => '#'}
+          = link_to '', class: 'TP-links' do
             ログイン
         %li.TP-header__navi__right--second
-          %a.TP-links#TP-signupBtn{ :href => '#'}
+          = link_to '', class: 'TP-links' do
             新規会員登録
