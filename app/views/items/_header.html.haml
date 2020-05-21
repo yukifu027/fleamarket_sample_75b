@@ -1,28 +1,28 @@
-%header.header
-  .header__inner
-    .header__main
-      %h1.header__main__icon 
-        %a.header__main__icon--a{ :href => '#'}
-      .header__main__searchBox
+%header.TP-header
+  .TP-header__inner
+    .TP-header__main
+      %h1.TP-header__main__icon 
+        %a.TP-header__main__icon--a{ :href => '#'}
+      .TP-header__main__searchBox
         %form
           %input{ :name => 'utf8', :type => 'hidden', :value => '#'}
-          %input.header__main__searchBox--input#searchInput{ :name => 'key', :placeholder => 'キーワードから探す'}
+          %input.TP-header__main__searchBox--input#TP-searchInput{ :name => 'key', :placeholder => 'キーワードから探す'}
         %button{type:'submit'}
-          .header__main__searchBox--icon
+          .TP-header__main__searchBox--icon
             %img{ :src => '#'}
         %input{ :type => 'hidden', :name => 'authenticity_token', :value => '#'}
-    .header__navi
-      %ul.header__navi__left
-        %li.header__navi__left--first
-          %a#categoryBtn{ :href => '#'} 
+    .TP-header__navi
+      %ul.TP-header__navi__left
+        %li.TP-header__navi__left--first
+          %a.TP-links#TP-categoryBtn{ :href => '#'} 
             カテゴリ
-        %li.header__navi__left--second
-          %a#brandBtn{ :href => '#'}
+        %li.TP-header__navi__left--second
+          %a.TP-links#TP-brandBtn{ :href => '#'}
             ブランド
-      %ul.header__navi__right
-        %li.header__navi__right--first
-          %a{ :href => '#'}
+      %ul.TP-header__navi__right
+        %li.TP-header__navi__right--first
+          %a.TP-links#TP-loginBtn{ :href => '#'}
             ログイン
-        %li.header__navi__right--second
-          %a{ :href => '#'}
+        %li.TP-header__navi__right--second
+          %a.TP-links#TP-signupBtn{ :href => '#'}
             新規会員登録
