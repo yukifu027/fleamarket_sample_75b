@@ -163,7 +163,7 @@ Things you may want to cover:
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|bland_id|references|foreign_key:true|
+|brand_id|references|foreign_key:true|
 |postage_payer_id|references|null: false, foreign_key:true|
 |prefecture_code|integer|null: false|
 |size_id|references|null: false, foreign_key:true|
@@ -183,7 +183,6 @@ Things you may want to cover:
 - has_one :user_evaluation
 - belongs_to :category
 - belongs_to_active_hash :size
-- belongs_to_active_hash :item_condition
 - belongs_to_active_hash :postage_payer
 - belongs_to_active_hash :preparation_day
 - belongs_to_active_hash :postage_type
