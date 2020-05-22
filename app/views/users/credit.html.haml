@@ -12,18 +12,18 @@
               = f.text_field :card_number, name: "card_number", type: "text", placeholder: '半角数字のみ', class: 'card__number', maxlength: "16"
             %ol
               %li
-                = image_tag 'credit_logo/visa.gif', alt: 'visa', height: '35', width: '40', class: 'visa__card'
+                = image_tag 'credit_logo/visa.gif', alt: 'visa', height: '25', width: '35', class: 'visa__card'
               %li
-                = image_tag 'credit_logo/master.png', alt: 'master', height: '35', width: '40', class: 'master__card'
+                = image_tag 'credit_logo/master.png', alt: 'master', height: '25', width: '35', class: 'master__card'
               %li
-                = image_tag 'credit_logo/jcb.gif', alt: 'jcb', height: '35', width: '40', class: 'jcb__card'
+                = image_tag 'credit_logo/jcb.gif', alt: 'jcb', height: '25', width: '35', class: 'jcb__card'
               %li
-                = image_tag 'credit_logo/amex.gif', alt: 'amex', height: '35', width: '35', class: 'amex__card'
+                = image_tag 'credit_logo/amex.gif', alt: 'amex', height: '25', width: '25', class: 'amex__card'
               %li
-                = image_tag 'credit_logo/diners.gif', alt: 'diners', height: '35', width: '40', class: 'diners__card'
+                = image_tag 'credit_logo/diners.gif', alt: 'diners', height: '25', width: '35', class: 'diners__card'
               %li
-                = image_tag 'credit_logo/discover.gif', alt: 'discover', height: '35', width: '40', class: 'discover__card'
-          .form__top__group.exp
+                = image_tag 'credit_logo/discover.gif', alt: 'discover', height: '25', width: '35', class: 'discover__card'
+          .form__top__group
             .name
               = f.label :有効期限
               %span.form__require 必須
@@ -36,11 +36,8 @@
             %span.form__require 必須
             %p
               = f.text_field :cvc, name: "cvc", id:"cvc", class:"input__cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "16"
-          .form__top__group
-            %p.about
-              = icon('fa', 'question-circle', class: "question__circle")
-              %span
-              = link_to 'カード裏面の番号とは？', "#", class:'about__registered'
-          .form__top__group
-            = f.submit '次へ進む', class: 'btn__default', id: "charge-form"
+          %p.about
+            = icon('fa', 'question-circle', class: "question__circle")
+            = link_to 'カード裏面の番号とは？', "#", class:'about__registered'
+          = f.submit '追加する', class: 'credit__btn', id: "charge-form"
   = render "mypage_side"
