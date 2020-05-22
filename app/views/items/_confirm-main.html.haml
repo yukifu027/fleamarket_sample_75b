@@ -1,0 +1,48 @@
+.confirm-main
+  .confirm
+    .confirm__title
+      .text
+        購入内容の確認
+    .confirm__item
+      .content
+        = image_tag "material/pict/pict-reason-01.jpg", alt: "商品写真", class: "image"
+        .detail
+          .item-name
+            UNIQLOジーンズ
+          .item-price
+            ￥1,000（税込）送料込み
+    .confirm__price
+      .content
+        .text
+          支払い金額
+        .buy-price
+          ￥1,000
+      .user-point
+        = check_box_tag :check1 
+        = label_tag :check1, 'ポイントを使用（所持ポイント: P0）'
+    .confirm__pay
+      .content
+        .text
+          支払い方法
+        = link_to "#", class: "register-btn" do
+          = icon('fas', 'plus-circle')
+          登録してください
+    .confirm__destination
+      .send-title
+        .text
+          配送先
+        = link_to "#", class: 'change-btn' do
+          変更する
+      .address
+        〒123-4567
+        %br
+        東京都 千代田区 丸の内１丁目 TECHCAMPビルディング303
+        %br
+        山田 太郎
+    .confirm__buy
+      .alert-text
+        郵便局/コンビニ受取をご希望の方は、購入後に
+        %b取引画面
+        から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+      = link_to "#", class: "purchase-btn" do
+        購入する

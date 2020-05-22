@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root "items#index"
   resources :users
-  resources :items
+  resources :items do
+    collection do 
+      get 'confirm'
+    end
+  end
 end
