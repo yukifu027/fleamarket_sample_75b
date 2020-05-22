@@ -13,3 +13,41 @@
           = image_tag 'material/button/btn-AppStore.png', alt:'mainVisualAppStore', class: 'TP-main__mainVisual__content__btn--AppStore'
         = link_to '' do
           = image_tag 'material/button/btn-GooglePlay.png', alt:'mainVisualGoogle', class: 'TP-main__mainVisual__content__btn--Google'  
+  %section.TP-main__topIntro
+    %h2.TP-main__topIntro__subtitle
+      FURIMAが選ばれる３つの理由
+      #afterLine
+    %ul.TP-main__topIntro__lists
+      %li.TP-main__topIntro__list
+        .TP-main__topIntro__list__pic
+          %span.TP-main__topIntro__list__pic--num 
+            1
+          = image_tag 'material/pict/pict-reason-01.jpg', alt: 'TopIntroPic1', class: 'TP-main__topIntro__list__pic--jpg'
+        %h3.TP-main__topIntro__list__text
+          %span#TPspan
+            3分
+          ですぐに出品
+        %p.TP-main__topIntro__list__desc
+          スマホで入力するだけでかんたんに出品できる！
+      %li.TP-main__topIntro__list
+        .TP-main__topIntro__list__pic
+          %span.TP-main__topIntro__list__pic--num 
+            2
+          = image_tag 'material/pict/pict-reason-02.jpg', alt: 'TopIntroPic1', class: 'TP-main__topIntro__list__pic--jpg'
+        %h3.TP-main__topIntro__list__text
+          %span#TPspan
+            シンプル
+          で使いやすい
+        %p.TP-main__topIntro__list__desc
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.TP-main__topIntro__list#TPIntroListLast
+        .TP-main__topIntro__list__pic
+          %span.TP-main__topIntro__list__pic--num 
+            3
+          = image_tag 'material/pict/pict-reason-03.jpg', alt: 'TopIntroPic1', class: 'TP-main__topIntro__list__pic--jpg'
+        %h3.TP-main__topIntro__list__text
+          手数料
+          %span#TPspan
+            業界最安
+        %p.TP-main__topIntro__list__desc
+          最大3%でお得に出品＆購入！
