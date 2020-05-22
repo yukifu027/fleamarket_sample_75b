@@ -66,3 +66,40 @@
           = image_tag 'material/button/btn-AppStore.png', alt:'topMiddleAppStore', class: 'TP-main__topMiddle__inner__btn--AppStore'
         = link_to '' do
           = image_tag 'material/button/btn-GooglePlay.png', alt:'topMiddleGoogle', class: 'TP-main__topMiddle__inner__btn--Google' 
+  %section.TP-main__topKeyFeatures 
+    %h2.TP-main__topKeyFeatures__head
+      FURIMAの特徴
+      #afterLine
+    .TP-main__topKeyFeatures__items
+      %section.TP-main__topKeyFeatures__item
+        %figure.TP-main__topKeyFeatures__item--img 
+          = image_tag 'material/icon/icon-01.png', alt: 'TPKeyFeaturesImg1', class: 'TP-main__topKeyFeatures__item--png'
+        %h3.TP-main__topKeyFeatures__item--subtitle
+          簡単に売り買いできる
+        %p.TP-main__topKeyFeatures__item--detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.TP-main__topKeyFeatures__item
+        %figure.TP-main__topKeyFeatures__item--img 
+          = image_tag 'material/icon/icon-03.png', alt: 'TPKeyFeaturesImg2', class: 'TP-main__topKeyFeatures__item--png'
+        %h3.TP-main__topKeyFeatures__item--subtitle
+          売上金は即日振込みに対応
+        %p.TP-main__topKeyFeatures__item--detail
+          午前９時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      %section.TP-main__topKeyFeatures__item
+        %figure.TP-main__topKeyFeatures__item--img 
+          = image_tag 'material/icon/icon-04.png', alt: 'TPKeyFeaturesImg3', class: 'TP-main__topKeyFeatures__item--png'
+        %h3.TP-main__topKeyFeatures__item--subtitle
+          様々な支払い対応
+        %p.TP-main__topKeyFeatures__item--detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.TP-main__appBanner 
+    .TP-main__appBanner__inner 
+      %h2.TP-main__appBanner__inner__title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.TP-main__appBanner__inner__text
+        今すぐダウンロード！
+      .TP-main__appBanner__inner__icon
+        = link_to '' do
+          = image_tag 'material/button/btn-AppStore.png', alt:'appBannerAppStore', class: 'TP-main__appBanner__inner__icon--png'
+        = link_to '' do
+          = image_tag 'material/button/btn-GooglePlay.png', alt:'appBannerGoogle', class: 'TP-main__appBanner__inner__icon--png' 

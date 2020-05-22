@@ -94,10 +94,6 @@
   }
 }
 
-#TPbrandBtm {
-  padding-left: 40px;
-}
-
 .TP-main {
   background: #f8f8f8;
   &__mainVisual {
@@ -242,23 +238,85 @@
       }
     }
   }
-}
-
-#afterLine {
-  background-color: #3CCACE;
-  width: 70px;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  left: 47%;
-}
-
-#TPspan {
-  color: #3CCACE;
-}
-
-#TPIntroListLast {
-  margin: 16px 0 0;
+  &__topKeyFeatures {
+    background-color: #fff;
+    padding: 60px 100px;
+    &__head {
+      margin: 0 0 40px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      font-size: 27px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+    }
+    &__items {
+      max-width: 1060px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__item {
+      width: calc(1/3 * 100%);
+      padding: 0 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      &--img {
+        width: 70%;
+        margin: 0 auto;
+        line-height: 120px;
+      }
+      &--png {
+        width: 220px;
+        height: 338px;
+      }
+      &--subtitle {
+        margin: 38px 0 10px;
+        font-size: 19px;
+        font-weight: bold;
+      }
+      &--detail {
+        margin: 0 0 40px;
+        font-size: 17px;
+        font-weight: 200;
+        text-align: left;
+      }
+    }
+  }
+  &__appBanner {
+    background-image: url('material/pict/bg-appBanner-pict.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 40px;
+    position: relative;
+    &__inner {
+      color: #fff;
+      text-align: center;
+      &__title {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      &__text {
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+      &__icon {
+        width: 100%;
+        margin: 20px auto 0;
+        display: flex;
+        justify-content: center;
+        &--png {
+          width: 180px;
+          height: 54px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }
 
 .TP-footer {
@@ -303,3 +361,25 @@
     font-size: 14px;
   }
 }
+
+#TPbrandBtm {
+  padding-left: 40px;
+}
+
+#afterLine {
+  background-color: #3CCACE;
+  width: 70px;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 47%;
+}
+
+#TPspan {
+  color: #3CCACE;
+}
+
+#TPIntroListLast {
+  margin: 16px 0 0;
+}
+
