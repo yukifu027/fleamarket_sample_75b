@@ -30,7 +30,7 @@ Things you may want to cover:
 |------|----|-------|
 |nickname|string|null: false|
 |password|string|null: false|
-|email|string|null: false, unique: true, index: true|
+|email|string|null: false, unique: true|
 
 ### Association
 - has_many :comments, dependent: :destroy
@@ -57,7 +57,7 @@ Things you may want to cover:
 |birth_month|date|null: false|
 |birth_day|date|null: false|
 |introduction|text|-------|
-|avatar|string|-------|
+|avatar|text|-------|
 |user_id|references|null:false, foreign_key: true|
 
 ### Association
@@ -71,12 +71,12 @@ Things you may want to cover:
 |destination_family_name|string|null: false|
 |destination_first_name_kana|string|null: false|
 |destination_family_name_kana|string|null: false|
-|post_code|integer(7)|null: false|
+|post_code|integer|null: false|
 |prefecture_code|integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string|--------|
-|phone_number|integer|unique: true|
+|phone_number|string|unique: true|
 |user_id|references|null: false, foreign_key :true|
 
 ### Association
