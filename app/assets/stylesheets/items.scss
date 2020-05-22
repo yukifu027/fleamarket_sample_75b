@@ -425,6 +425,27 @@
   }
 }
 
+.TP-purchaseBtn {
+  background-color: #3CCACE;
+  width: 120px;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+  }
+  &__icon {
+    width: 60%;
+  }
+}
+
 #TPbrandBtm {
   padding-left: 40px;
 }
