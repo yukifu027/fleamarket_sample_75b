@@ -203,6 +203,45 @@
       }
     }
   }
+  &__topMiddle {
+    background-image: url('material/pict/bg-topMiddleDl-pict.jpg');
+    background-position: bottom right;
+    width: 100vw;
+    height: 400px;
+    background-size: cover;
+    align-items: center;
+    display: flex;
+    &__inner {
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: left;
+      &__subtitle {
+        line-height: 1.4;
+        font-weight: bold;
+        font-size: 27px;
+      }
+      &__text {
+        margin: 20px 0 30px;
+        line-height: 1.5;
+        font-size: 18px;
+      }
+      &__btn {
+        display: flex;
+        &--AppStore {
+          width: 180px;
+          height: 53px;
+          margin-right: 10px;
+        }
+        &--Google {
+          width: 180px;
+          height: 53px;
+        }
+      }
+    }
+  }
 }
 
 #afterLine {
