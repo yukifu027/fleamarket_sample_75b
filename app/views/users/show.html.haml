@@ -1,0 +1,23 @@
+%main.single-main
+  .login-panel
+    .login-no-account
+      %p アカウントをお持ちでない方はこちら
+      = link_to "#", class: "contents__btn" do 
+        新規会員登録
+    .login-form-inner
+      %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+        %i.icon-facebook
+        Facebookでログイン
+      %button#google-login.btn-default.btn-sns.btn-sns-google
+        Googleでログイン
+    %form{:action => "https://www.mercari.com/jp/login/", :method => "POST", :novalidate => "novalidate"}
+      .login-form-inner
+        .form-group
+          %input.login-input-text.input-default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
+        .form-group
+          %input.login-input-text.input-default{:name => "password", :placeholder => "パスワード", :type => "password"}/
+        .form-group
+        %button.login-submit.btn-default.btn-red{:type => "submit"} ログイン
+        = link_to "#", class: "contents__btn" do
+          パスワードをお忘れの方
+ 
