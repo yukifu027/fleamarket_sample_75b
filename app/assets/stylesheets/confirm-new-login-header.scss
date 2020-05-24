@@ -1,0 +1,14 @@
+.confirmOrnew-header{
+  height: 130px;
+  width: 100%;
+  background-color: #EEEEEE;
+  &__logo{
+    text-align:center;
+    .logo{
+      height: 50px;
+      width: 185px;
+      object-fit: cover;
+      margin-top: 40px;
+    }
+  }
+}
