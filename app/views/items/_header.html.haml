@@ -1,0 +1,25 @@
+%header.TP-header
+  .TP-header__inner
+    .TP-header__main
+      = image_tag 'material/logo/logo.png', alt:'TopPageIcon', class: 'TP-header__main__icon'
+      = link_to ''
+      .TP-header__main__searchBox
+        = form_with url: '#', class: 'TP-header__main__searchBox--form', local: true do |f|
+          = f.text_field :text, placeholder: 'キーワードから探す', rows: '1', class: 'TP-header__main__searchBox--textfield'
+          = f.submit class: 'TP-header__main__searchBox--button'
+        = image_tag 'material/icon/icon-search 1.png', alt: 'SearchIcon', class: 'TP-header__main__searchBox--icon2'
+    .TP-header__navi
+      %ul.TP-header__navi__left
+        %li
+          = link_to '', class: 'TP-header__navi__left--links' do
+            カテゴリー
+        %li
+          = link_to '', class: 'TP-header__navi__left--links', id: 'TPbrandBtm' do
+            ブランド
+      %ul.TP-header__navi__right
+        %li
+          = link_to '', class: 'TP-header__navi__right--links' do
+            ログイン
+        %li
+          = link_to '', class: 'TP-header__navi__right--links' do
+            新規会員登録
