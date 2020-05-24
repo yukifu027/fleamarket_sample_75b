@@ -1,0 +1,43 @@
+.credit__main
+  .main__contents
+    .main__content__title
+      クレジットカード情報入力
+    .main__content__form
+      .form__top
+        = form_with url:"#", class:"credit__form" do |f|
+          .form__top__group
+            = f.label :カード番号
+            %span.form__require 必須
+            %p
+              = f.text_field :card_number, name: "card_number", type: "text", placeholder: '半角数字のみ', class: 'card__number', maxlength: "16"
+            %ol
+              %li
+                = image_tag 'credit_logo/visa.gif', alt: 'visa', height: '25', width: '35', class: 'visa__card'
+              %li
+                = image_tag 'credit_logo/master.png', alt: 'master', height: '25', width: '35', class: 'master__card'
+              %li
+                = image_tag 'credit_logo/jcb.gif', alt: 'jcb', height: '25', width: '35', class: 'jcb__card'
+              %li
+                = image_tag 'credit_logo/amex.gif', alt: 'amex', height: '25', width: '25', class: 'amex__card'
+              %li
+                = image_tag 'credit_logo/diners.gif', alt: 'diners', height: '25', width: '35', class: 'diners__card'
+              %li
+                = image_tag 'credit_logo/discover.gif', alt: 'discover', height: '25', width: '35', class: 'discover__card'
+          .form__top__group
+            .name
+              = f.label :有効期限
+              %span.form__require 必須
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: 'input__default harf', name: "exp_month", id:"exp_month"
+            %span 月
+            = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]], {}, class: 'input__default harf', name: "exp_year", id:"exp_year"
+            %span 年
+          .form__top__group
+            = f.label :セキュリティーコード
+            %span.form__require 必須
+            %p
+              = f.text_field :cvc, name: "cvc", id:"cvc", class:"input__cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "16"
+          %p.about
+            = icon('fa', 'question-circle', class: "question__circle")
+            = link_to 'カード裏面の番号とは？', "#", class:'about__registered'
+          = f.submit '追加する', class: 'credit__btn', id: "charge-form"
+  = render "mypage_side"

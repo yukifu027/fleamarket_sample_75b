@@ -1,0 +1,213 @@
+.TP-main
+  %section.TP-main__mainVisual
+    .TP-main__mainVisual__content
+      %h2.TP-main__mainVisual__content__subtitle
+        %br
+        人生を変えるフリマアプリ
+      %p.TP-main__mainVisual__content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .TP-main__mainVisual__content__btn
+        = link_to '' do
+          = image_tag 'material/button/btn-AppStore.png', alt:'mainVisualAppStore', class: 'TP-main__mainVisual__content__btn--AppStore'
+        = link_to '' do
+          = image_tag 'material/button/btn-GooglePlay.png', alt:'mainVisualGoogle', class: 'TP-main__mainVisual__content__btn--Google'  
+  %section.TP-main__topIntro
+    %h2.TP-main__topIntro__subtitle
+      FURIMAが選ばれる３つの理由
+      #afterLine
+    %ul.TP-main__topIntro__lists
+      %li.TP-main__topIntro__list
+        .TP-main__topIntro__list__pic
+          %span.TP-main__topIntro__list__pic--num 
+            1
+          = image_tag 'material/pict/pict-reason-01.jpg', alt: 'TopIntroPic1', class: 'TP-main__topIntro__list__pic--jpg'
+        %h3.TP-main__topIntro__list__text
+          %span#TPspan
+            3分
+          ですぐに出品
+        %p.TP-main__topIntro__list__desc
+          スマホで入力するだけでかんたんに出品できる！
+      %li.TP-main__topIntro__list
+        .TP-main__topIntro__list__pic
+          %span.TP-main__topIntro__list__pic--num 
+            2
+          = image_tag 'material/pict/pict-reason-02.jpg', alt: 'TopIntroPic1', class: 'TP-main__topIntro__list__pic--jpg'
+        %h3.TP-main__topIntro__list__text
+          %span#TPspan
+            シンプル
+          で使いやすい
+        %p.TP-main__topIntro__list__desc
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.TP-main__topIntro__list#TPIntroListLast
+        .TP-main__topIntro__list__pic
+          %span.TP-main__topIntro__list__pic--num 
+            3
+          = image_tag 'material/pict/pict-reason-03.jpg', alt: 'TopIntroPic1', class: 'TP-main__topIntro__list__pic--jpg'
+        %h3.TP-main__topIntro__list__text
+          手数料
+          %span#TPspan
+            業界最安
+        %p.TP-main__topIntro__list__desc
+          最大3%でお得に出品＆購入！
+  %section.TP-main__topMiddle 
+    .TP-main__topMiddle__inner
+      %h2.TP-main__topMiddle__inner__subtitle
+        会員数日本一位
+      %p.TP-main__topMiddle__inner__text
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br 
+        ほしかったあの商品に出会えるかもしれません。
+      .TP-main__topMiddle__inner__btn
+        = link_to '' do
+          = image_tag 'material/button/btn-AppStore.png', alt:'topMiddleAppStore', class: 'TP-main__topMiddle__inner__btn--AppStore'
+        = link_to '' do
+          = image_tag 'material/button/btn-GooglePlay.png', alt:'topMiddleGoogle', class: 'TP-main__topMiddle__inner__btn--Google' 
+  %section.TP-main__topKeyFeatures 
+    %h2.TP-main__topKeyFeatures__head
+      FURIMAの特徴
+      #afterLine
+    .TP-main__topKeyFeatures__items
+      %section.TP-main__topKeyFeatures__item
+        %figure.TP-main__topKeyFeatures__item--img 
+          = image_tag 'material/icon/icon-01.png', alt: 'TPKeyFeaturesImg1', class: 'TP-main__topKeyFeatures__item--png'
+        %h3.TP-main__topKeyFeatures__item--subtitle
+          簡単に売り買いできる
+        %p.TP-main__topKeyFeatures__item--detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.TP-main__topKeyFeatures__item
+        %figure.TP-main__topKeyFeatures__item--img 
+          = image_tag 'material/icon/icon-03.png', alt: 'TPKeyFeaturesImg2', class: 'TP-main__topKeyFeatures__item--png'
+        %h3.TP-main__topKeyFeatures__item--subtitle
+          売上金は即日振込みに対応
+        %p.TP-main__topKeyFeatures__item--detail
+          午前９時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      %section.TP-main__topKeyFeatures__item
+        %figure.TP-main__topKeyFeatures__item--img 
+          = image_tag 'material/icon/icon-04.png', alt: 'TPKeyFeaturesImg3', class: 'TP-main__topKeyFeatures__item--png'
+        %h3.TP-main__topKeyFeatures__item--subtitle
+          様々な支払い対応
+        %p.TP-main__topKeyFeatures__item--detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.TP-main__pickupItems
+    %h2.TP-main__pickupItems__head
+      ピックアップカテゴリー
+    .TP-main__pickupItems__productBox
+      .TP-main__pickupItems__productBox__productHead
+        = link_to '' do
+          %h3.TP-main__pickupItems__productBox__productHead--title
+            新規投稿商品
+      .TP-main__pickupItems__productBox__productLists
+        .TP-main__pickupItems__productBox__productList
+          = link_to '' do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag 'material/pickupCategory/pickupItem1.jpeg', alt: 'TPPickUpItem1', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+            .TP-main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                商品 1
+              .TP-main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    1000円
+                  %li 
+                  ★ 0
+                %p.TP-main__pickupItems__productBox__productList__details--tax
+                  （税込）
+        .TP-main__pickupItems__productBox__productList
+          = link_to '' do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag 'material/pickupCategory/pickupItem2.jpeg', alt: 'TPPickUpItem2', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+            .TP-main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                商品 2
+              .TP-main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    2000円
+                  %li 
+                  ★ 0
+                %p.TP-main__pickupItems__productBox__productList__details--tax
+                  （税込）
+        .TP-main__pickupItems__productBox__productList
+          = link_to '' do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag 'material/pickupCategory/pickupItem3.jpeg', alt: 'TPPickUpItem3', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+            .TP-main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                商品 3
+              .TP-main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    3000円
+                  %li 
+                  ★ 0
+                %p.TP-main__pickupItems__productBox__productList__details--tax
+                  （税込）
+  %section.TP-main__pickupItems
+    %h2.TP-main__pickupItems__head
+      ピックアップブランド
+    .TP-main__pickupItems__productBox
+      .TP-main__pickupItems__productBox__productHead
+        = link_to '' do
+          %h3.TP-main__pickupItems__productBox__productHead--title
+            アーカイバ
+      .TP-main__pickupItems__productBox__productLists
+        .TP-main__pickupItems__productBox__productList
+          = link_to '' do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag 'material/pickupBrand/pickupItem4.jpeg', alt: 'TPPickUpItem1', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+            .TP-main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                商品 1
+              .TP-main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    1000円
+                  %li 
+                  ★ 0
+                %p.TP-main__pickupItems__productBox__productList__details--tax
+                  （税込）
+        .TP-main__pickupItems__productBox__productList
+          = link_to '' do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag 'material/pickupBrand/pickupItem5.jpeg', alt: 'TPPickUpItem2', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+            .TP-main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                商品 2
+              .TP-main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    2000円
+                  %li 
+                  ★ 0
+                %p.TP-main__pickupItems__productBox__productList__details--tax
+                  （税込）
+        .TP-main__pickupItems__productBox__productList
+          = link_to '' do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag 'material/pickupBrand/pickupItem6.jpeg', alt: 'TPPickUpItem3', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+            .TP-main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                商品 3
+              .TP-main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    3000円
+                  %li 
+                  ★ 0
+                %p.TP-main__pickupItems__productBox__productList__details--tax
+                  （税込）
+  %section.TP-main__appBanner 
+    .TP-main__appBanner__inner 
+      %h2.TP-main__appBanner__inner__title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.TP-main__appBanner__inner__text
+        今すぐダウンロード！
+      .TP-main__appBanner__inner__icon
+        = link_to '' do
+          = image_tag 'material/button/btn-AppStore.png', alt:'appBannerAppStore', class: 'TP-main__appBanner__inner__icon--png'
+        = link_to '' do
+          = image_tag 'material/button/btn-GooglePlay.png', alt:'appBannerGoogle', class: 'TP-main__appBanner__inner__icon--png' 
