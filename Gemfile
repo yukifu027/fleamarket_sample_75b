@@ -71,6 +71,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'pry-rails'
+gem 'payjp'
+gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ancestry'
+gem 'enum_help'
 
 group :production do
   gem 'unicorn'
