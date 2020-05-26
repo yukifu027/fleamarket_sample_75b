@@ -18,8 +18,8 @@
             ブランド
       %ul.TP-header__navi__right
         %li
-          = link_to "/users/login", class: 'TP-header__navi__right--links' do
+          = link_to new_user_session_path, class: 'TP-header__navi__right--links' do
             ログイン
         %li
-          = link_to "/users/create", class: 'TP-header__navi__right--links' do
+          = link_to new_user_registration_path, class: 'TP-header__navi__right--links' do
             新規会員登録
