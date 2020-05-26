@@ -4,7 +4,6 @@
       %section.new-single-contents
         %h2.new-single-head.registration 会員情報入力
         %form#register-form.l-single-inner.registration-form{:action => "https://www.mercari.com/jp/signup/sms_confirmation/", :method => "POST", :novalidate => "novalidate"}
-          %input{:name => "__csrf_value", :type => "hidden", :value => "55638b2b600255823cce2d158e3a93d54988b332701b4580a3b1f78dab13692399edd128cc01267e493acc9460e082ba9e061f1d9702c27bc135e33624dfc4090"}/
           .l-single-content
             = form_with url:"#", class:"sign-up__form" do |f|
               .form-group
@@ -15,7 +14,6 @@
                 %label{:for => "email"} メールアドレス
                 %span.form-require 必須
                 =f.text_field :email, name: "email", placeholder: "PC・携帯どちらでも可",class: 'input-default'
-              %input{:name => "login_type", :type => "hidden", :value => ""}/
               .form-group.form-password-revelation
                 %label{:for => "password"} パスワード
                 %span.form-require 必須
@@ -28,7 +26,6 @@
                   ※ 英字と数字の両方を含めて設定してください
                 .form-password-revelation-toggle
                   .checkbox-default
-                    %input#reveal_password{:type => "checkbox"}
                     %i.icon-check
                     %label{:for => "reveal_password"} パスワードを表示する
                   .form-password-revelation-revealed-password-container
@@ -181,7 +178,7 @@
                     %select.select-default{:name => "day"}
                       %option{:value => ""} --
                   %span 日
-                %input{:name => "birthday", :type => "hidden", :value => ""}/
+                =f.text_field :email, name: "email", placeholder: "例) 山田",class: 'input-default'
                 .clearfix
               %p.form-info-text
                 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -222,10 +219,6 @@
                 %span.form-require-n 任意
                 =f.text_field :email, name: "email", placeholder: "例) 09012345678",class: 'input-default'
               .l-single-content
-                %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
-                %input#g-recaptcha-v3{:name => "g_recaptcha_response_v3", :type => "hidden"}/
-                %input#recaptcha-version{:name => "recaptcha_version", :type => "hidden", :value => "3"}/
-                %input#g-recaptcha-v3-site-key{:type => "hidden", :value => "6LelCcAUAAAAAGYBvpuT3hj7TOnrIElDM5ZsTuAy"}/
                 .form-group
                   %p.l-single-text.text-center
                     「次へ進む」のボタンを押すことにより、
