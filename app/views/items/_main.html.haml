@@ -117,6 +117,11 @@
                     ★ 0
                   %p.TP-main__pickupItems__productBox__productList__details--tax
                     （税込）
+            -# -if item.buyer_id.present? 
+            -if item.prefecture_code == 0
+              .itemSold
+                .itemSold__inner
+                  SOLD
   %section.TP-main__pickupItems
     %h2.TP-main__pickupItems__head
       ピックアップアイテム
@@ -142,36 +147,11 @@
                     ★ 0
                   %p.TP-main__pickupItems__productBox__productList__details--tax
                     （税込）
-        -# .TP-main__pickupItems__productBox__productList
-        -#   = link_to 'items/index' do
-        -#     %figure.TP-main__pickupItems__productBox__productList__img
-        -#       = image_tag 'material/pickupBrand/pickupItem5.jpeg', alt: 'TPPickUpItem2', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-        -#     .TP-main__pickupItems__productBox__productList__body
-        -#       %h3.TP-main__pickupItems__productBox__productList__name
-        -#         商品 2
-        -#       .TP-main__pickupItems__productBox__productList__details
-        -#         %ul#pickupItemPriceLikeSpace
-        -#           %li
-        -#             2000円
-        -#           %li 
-        -#           ★ 0
-        -#         %p.TP-main__pickupItems__productBox__productList__details--tax
-        -#           （税込）
-        -# .TP-main__pickupItems__productBox__productList
-        -#   = link_to 'items/index' do
-        -#     %figure.TP-main__pickupItems__productBox__productList__img
-        -#       = image_tag 'material/pickupBrand/pickupItem6.jpeg', alt: 'TPPickUpItem3', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-        -#     .TP-main__pickupItems__productBox__productList__body
-        -#       %h3.TP-main__pickupItems__productBox__productList__name
-        -#         商品 3
-        -#       .TP-main__pickupItems__productBox__productList__details
-        -#         %ul#pickupItemPriceLikeSpace
-        -#           %li
-        -#             3000円
-        -#           %li 
-        -#           ★ 0
-        -#         %p.TP-main__pickupItems__productBox__productList__details--tax
-        -#           （税込）
+              -# -if item.buyer_id.present? 
+              -if item.prefecture_code == 0
+                .itemSold
+                  .itemSold__inner
+                    SOLD
   %section.TP-main__appBanner 
     .TP-main__appBanner__inner 
       %h2.TP-main__appBanner__inner__title

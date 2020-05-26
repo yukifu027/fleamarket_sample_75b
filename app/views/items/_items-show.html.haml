@@ -5,6 +5,11 @@
     .detail
       .detail__picture
         = image_tag @item.item_imgs.find(@item.id).url, height: "200px", width: "250px", class: "camera-pic"
+        -# -if item.buyer_id.present? 
+        -if @item.prefecture_code == 0
+          .itemSold
+            .itemSold__inner
+              SOLD
       .detail__text
         %table
           %tr

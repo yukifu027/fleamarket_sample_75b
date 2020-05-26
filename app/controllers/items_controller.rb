@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
   end 
 
   def destroy
@@ -30,11 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-  end
-
-  private
-  def item_params
-    params.require(:item).permit(:name, :introduction, :price)
   end
   
 end
