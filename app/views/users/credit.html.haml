@@ -5,7 +5,7 @@
       クレジットカード情報入力
     .main__content__form
       .form__top
-        = form_with url:"#", class:"credit__form" do |f|
+        = form_with model: @card, class:"credit__form" do |f|
           .form__top__group
             = f.label :カード番号
             %span.form__require 必須
@@ -41,6 +41,6 @@
             = icon('fa', 'question-circle', class: "question__circle")
             = link_to 'カード裏面の番号とは？', "#", class:'about__registered'
           = f.submit '追加する', class: 'credit__btn', id: "charge-form"
-  = render "mypage_side"
+= render "mypage_side"
 = render "/items/footer"
 = render "/items/purchaseBtn"
