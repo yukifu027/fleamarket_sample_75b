@@ -1,0 +1,13 @@
+ja: 
+  enum:
+    item:
+      item_condition:
+        new: "新品未使用"
+        like_new: "未使用に近い"
+        good: "目立った傷や汚れなし"
+        fair: "やや傷や汚れあり"
+        poor: "傷や汚れあり"
+        bad: "全体的に状態が悪い"
+      trading_status:
+        selling: "出品中"
+        sold: "売却済み"
