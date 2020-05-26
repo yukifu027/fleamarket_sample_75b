@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
+    @items = Item.all 
+    @items_img = ItemImg.url
   end
 
   def new
