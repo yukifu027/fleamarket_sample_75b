@@ -75,13 +75,16 @@ body {
     
 
       .form-group .input-default {
-        width: 92%;
+        width: 90%;
       }
 
       .login-form-content .form-group {
         margin: 24px 0 0;
       }
-
+      .contents__btn--icon {
+        content: '\e014';
+        font-family: 'icon-font';
+      }
       .login-panel a {
         display: block;
         margin: 40px 0 0;
@@ -115,3 +118,228 @@ body {
       }
   }
 }
+
+.new-contents {
+  padding: 0 0 220px;
+
+
+    .signup-bar.progress-bar {
+      padding: 40px 0 0 44px;
+      border: 0;
+    }
+
+    main {
+      display: block;
+    }
+
+    .new-single-head {
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .new-single-contents{
+      width: 700px;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    .new-single-head.registration, .l-chapter-head.registration {
+      font-size: 22px;
+      padding: 32px;
+    }
+
+    .l-single-inner.registration-form {
+      padding: 24px 16px 40px;
+    }
+    .l-single-inner {
+      border-top: 1px solid #f5f5f5;
+    }
+    input {
+      border: 0;
+      outline: 0;
+      font-family: inherit;
+      -webkit-appearance: none;
+    }
+
+    .l-single-inner.registration-form .l-single-content {
+      max-width: 343px;
+    }
+
+    .l-single-content {
+      margin: 0 auto;
+    }
+
+    .form-group {
+
+      &__label {
+        font-weight: 600;
+      }
+    }
+    button, input, select, textarea {
+      background-color: transparent;
+    }
+    .form-require {
+      background: #ea352d;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+    }
+    .checkbox-default label {
+      position: relative;
+      z-index: 2;
+      padding: 0 0 0 28px;
+      font-size: 14px;
+      font-weight: 400;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .form-arbitrary, .message-is-seller, .news-private {
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+      display: flex;
+    }
+    .select-default {
+      width: 48px;
+      position: relative;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .birthday-select-wrap{
+      display: flex;
+      height: 58px;
+      padding-top: 10px;
+    }
+    .birthday-select-wrap .select-wrap .select-default {
+      padding: 0 10px;
+      width: 65px;
+    }
+    .form-group .input-default {
+      width: 100%;
+      margin: 8px 0 0;
+    }
+
+    .input-default {
+      height: 28px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .input-default.half {
+      width: calc(50% - 6px);
+    }
+    .btn-red {
+        margin: 24px 0 0;
+    }
+
+    .l-single-content p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+
+    .l-chapter-sub-head {
+      font-size: 16px;
+    }
+
+    .l-single-inner.registration-form {
+      .form-group:not(:first-of-type), .btn-red {
+        margin: 24px 0 0;
+      }
+    }
+
+    .birthday-select-wrap .select-wrap .select-default {
+      padding: 0 10px;
+    }
+
+    .form-group select {
+      width: 100%;
+    }
+
+    .l-single-content p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+
+    .l-single-inner.registration-form .l-single-content {
+      max-width: 343px;
+    }
+
+    .form-group {
+      margin: 40px 0 0;
+    }
+
+    .btn-red {
+      background: #3ccace;
+      border: 1px solid #3ccace;
+      color: #fff;
+    }
+
+    .btn-default {
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
+    .input-default-area {
+      height: 51px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .recaptcha_term {
+      background-color: #f5f5f5;
+      padding: 8px 16px;
+    }
+    .recaptcha_term>p {
+      color: #888888;
+      font-size: 12px;
+    }
+    .form-info-text {
+      margin: 8px 0 0;
+      color: #888;
+      line-height: 1.5;
+    }
+    .l-chapter-sub-head {
+      font-size: 16px;
+      font-weight: 600px;
+    }
+    .birthday-select-wrap .select-wrap+span {
+      margin: 0 2px;
+      padding-top: 17px;
+    }
+    .l-single-inner.registration-form {
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+    .form-require-n {
+      background: #ccc;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+    }
+  }

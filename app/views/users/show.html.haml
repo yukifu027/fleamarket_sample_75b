@@ -5,14 +5,14 @@
       = link_to "#", class: "contents__btn" do 
         新規会員登録
     .login-form-up
-      .facebook-login.btn-default
-        = link_to "#", class: "facebook__link" do
-          = icon('fab', 'facebook-square')
-        Facebookでログイン
-      .google-login.btn-default
-        = link_to "#", class: "google__link" do
-          = icon('fab', 'google')
-        Googleでログイン
+      -# .facebook-login.btn-default
+      -#   = link_to "#", class: "facebook__link" do
+      -#     = icon('fab', 'facebook-square', class: "contents__btn--icon")
+      -#   Facebookでログイン
+      -# .google-login.btn-default
+      -#   = link_to "#", class: "google__link" do
+      -#     = icon('fab', 'google', class: "contents__btn--icon")
+      -#   Googleでログイン
     = form_with url:"#", class:"login__form" do |f|
       .login-form-content
         .form-group
