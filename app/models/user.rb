@@ -14,4 +14,6 @@ class User < ApplicationRecord
   # - has_one :sns_authentication, dependent: :destroy
   # - has_one :sending_destination, dependent: :destroy
   has_one :credit_card, dependent: :destroy
+
+  validates :nickname, presence: true
 end
