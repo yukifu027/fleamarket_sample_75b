@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_075318) do
+ActiveRecord::Schema.define(version: 2020_05_27_090546) do
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card_number", null: false
+    t.integer "expiration_year", null: false
+    t.integer "expiration_month", null: false
+    t.integer "security_code", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "customer_id"
-    t.string "card_id"
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_075318) do
     t.integer "prefecture_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "buyer_id"
+    t.integer "seller_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

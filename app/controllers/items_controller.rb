@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   def index
 
     # Itemから未購入商品だけを取り出して配列sellingに入れる
-    selling = Item.all.select { |s| s.users_id == nil }
+    selling = Item.all.select { |s| s.buyer_id == nil }
     
     # 新着商品の最新の３つを表示
     @newestItems = selling.last(3)
