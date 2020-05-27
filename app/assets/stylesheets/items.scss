@@ -3,6 +3,20 @@
   text-decoration: none;
 }
 
+$main-color: #3CCACE;
+$text-shadow: 0 0 5px rgba(0,0,0,0.4);
+
+@mixin navi-links {
+  color: #333;
+  line-height: 38px;
+  padding-left: 16px;
+}
+
+@mixin btnSize {
+  width: 180px;
+  height: 53px;
+}
+
 .TP-header { 
   display: block;
   width: 100%;
@@ -43,13 +57,13 @@
       &--button {
         width: 36px;
         border: 0;
-        background-color: #3CCACE;
+        background-color: $main-color;
         padding: 8px;
         height: 35px;
         position: relative;
       }
       &--icon2 {
-        background-color: #3CCACE;
+        background-color: $main-color;
         height: 35px;
         width: 37px;
         padding: 8px;
@@ -76,19 +90,13 @@
       margin-left: auto;
       display: flex;
       &--links {
-        color: #333;
-        line-height: 38px;
-        padding-left: 16px;
+        @include navi-links;
       }
       &--first {
-        color: #333;
-        line-height: 38px;
-        padding-left: 16px;
+        @include navi-links;
       }
       &--second {
-        color: #333;
-        line-height: 38px;
-        padding-left: 16px;
+        @include navi-links;
       }
     }
   }
@@ -99,7 +107,7 @@
   &__mainVisual {
     width: 100%;
     height: 560px;
-    background-image: url('material/pict/bg-mainVisual-pict_pc.jpg');
+    background-image: image-url('material/pict/bg-mainVisual-pict_pc.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -113,13 +121,13 @@
       margin: 0 auto;
       padding-top: 35px;
       &__subtitle {
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-shadow: $text-shadow;
       font-size: 60px;
       line-height: 1.2;
       color: #fff;
       }
       &__text {
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        text-shadow: $text-shadow;
         font-size: 18px;
         color: #fff;
         line-height: 1.77778;
@@ -130,12 +138,10 @@
         margin-top: 24px;
         &--AppStore {
           margin-right: 10px;
-          width: 180px;
-          height: 53px;
+          @include btnSize;
         }
         &--Google {
-          width: 180px;
-          height: 53px;
+          @include btnSize;
         }
       }
     }
@@ -169,7 +175,7 @@
         margin-bottom: 20px;
         position: relative;
         &--num {
-          background-color: #3CCACE;
+          background-color: $main-color;
           color: #fff;
           margin: 0 5px 0 0;
           padding: 10px 20px;
@@ -200,7 +206,7 @@
     }
   }
   &__topMiddle {
-    background-image: url('material/pict/bg-topMiddleDl-pict.jpg');
+    background-image: image-url('material/pict/bg-topMiddleDl-pict.jpg');
     background-position: bottom right;
     width: 100vw;
     height: 400px;
@@ -212,7 +218,7 @@
       width: 100%;
       margin: 0 auto;
       color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-shadow: $text-shadow;
       text-align: left;
       &__subtitle {
         line-height: 1.4;
@@ -227,13 +233,11 @@
       &__btn {
         display: flex;
         &--AppStore {
-          width: 180px;
-          height: 53px;
+          @include btnSize;
           margin-right: 10px;
         }
         &--Google {
-          width: 180px;
-          height: 53px;
+          @include btnSize;
         }
       }
     }
@@ -300,7 +304,7 @@
       &__productHead {
         text-align: center;
         &--title {
-          color: #3CCACE;
+          color: $main-color;
           font-weight: bold;
           font-size: 24px;
         }
@@ -350,7 +354,7 @@
     }
   }
   &__appBanner {
-    background-image: url('material/pict/bg-appBanner-pict.jpg');
+    background-image: image-url('material/pict/bg-appBanner-pict.jpg');
     background-size: cover;
     background-position: center;
     padding: 100px 40px;
@@ -359,14 +363,14 @@
       color: #fff;
       text-align: center;
       &__title {
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        text-shadow: $text-shadow;
         font-size: 24px;
         font-weight: bold;
         line-height: 1.4;
       }
       &__text {
         font-size: 35px;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        text-shadow: $text-shadow;
       }
       &__icon {
         width: 100%;
@@ -374,8 +378,7 @@
         display: flex;
         justify-content: center;
         &--png {
-          width: 180px;
-          height: 54px;
+          @include btnSize;
           margin-right: 10px;
         }
       }
@@ -427,7 +430,7 @@
 }
 
 .TP-purchaseBtn {
-  background-color: #3CCACE;
+  background-color: $main-color;
   width: 120px;
   text-align: center;
   border-radius: 4%;
@@ -452,7 +455,7 @@
 }
 
 #afterLine {
-  background-color: #3CCACE;
+  background-color: $main-color;
   width: 70px;
   height: 4px;
   position: absolute;
@@ -461,7 +464,7 @@
 }
 
 #TPspan {
-  color: #3CCACE;
+  color: $main-color;
 }
 
 #pickupItemPriceLikeSpace {
