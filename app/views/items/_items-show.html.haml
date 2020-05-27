@@ -1,10 +1,14 @@
 .items-show
   .show
     .title
-      まくらカバー
+      = "#{@item.name}"
     .detail
       .detail__picture
-        = image_tag "material/icon/icon_brand.png",height: "200px",width: "250px",class: "camera-pic"
+        = image_tag @item.item_imgs.find(@item.id).url, height: "200px", width: "250px", class: "camera-pic"
+        -if @item.users_id.present? 
+          .itemSold
+            .itemSold__inner
+              SOLD
       .detail__text
         %table
           %tr
@@ -21,8 +25,8 @@
             %td ブランド
             %td シャネル
           %tr
-            %td 商品の状態
-            %td 全体的に状態が悪い
+            %td 商品の状態：
+            %td 少し汚れあり
           %tr
             %td 配送料の負担
             %td 着払い(購入者負担)
@@ -34,15 +38,15 @@
             %td ４〜７日で発送
     .price
       .price__pay
-        ¥20,000
+        = "#{@item.price}円"
       .price__fee
         (税込)送料別
     .buy-btn
       = link_to "#",class: "buy-btn" do
         購入画面に進む
     .explanation
-      汚れあり
-      %p クリーニング済み
+      %p 
+        = "#{@item.introduction}"
     .evaluation
       .evaluation__good-btn
         = link_to "#",class: "evaluation-btn" do
