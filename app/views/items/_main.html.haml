@@ -94,110 +94,70 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   %section.TP-main__pickupItems
     %h2.TP-main__pickupItems__head
-      ピックアップカテゴリー
+      新着アイテム
     .TP-main__pickupItems__productBox
       .TP-main__pickupItems__productBox__productHead
         = link_to '' do
           %h3.TP-main__pickupItems__productBox__productHead--title
             新規投稿商品
       .TP-main__pickupItems__productBox__productLists
-        .TP-main__pickupItems__productBox__productList
-          = link_to '' do
-            %figure.TP-main__pickupItems__productBox__productList__img
-              = image_tag 'material/pickupCategory/pickupItem1.jpeg', alt: 'TPPickUpItem1', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-            .TP-main__pickupItems__productBox__productList__body
-              %h3.TP-main__pickupItems__productBox__productList__name
-                商品 1
-              .TP-main__pickupItems__productBox__productList__details
-                %ul#pickupItemPriceLikeSpace
-                  %li
-                    1000円
-                  %li 
-                  ★ 0
-                %p.TP-main__pickupItems__productBox__productList__details--tax
-                  （税込）
-        .TP-main__pickupItems__productBox__productList
-          = link_to '' do
-            %figure.TP-main__pickupItems__productBox__productList__img
-              = image_tag 'material/pickupCategory/pickupItem2.jpeg', alt: 'TPPickUpItem2', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-            .TP-main__pickupItems__productBox__productList__body
-              %h3.TP-main__pickupItems__productBox__productList__name
-                商品 2
-              .TP-main__pickupItems__productBox__productList__details
-                %ul#pickupItemPriceLikeSpace
-                  %li
-                    2000円
-                  %li 
-                  ★ 0
-                %p.TP-main__pickupItems__productBox__productList__details--tax
-                  （税込）
-        .TP-main__pickupItems__productBox__productList
-          = link_to '' do
-            %figure.TP-main__pickupItems__productBox__productList__img
-              = image_tag 'material/pickupCategory/pickupItem3.jpeg', alt: 'TPPickUpItem3', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-            .TP-main__pickupItems__productBox__productList__body
-              %h3.TP-main__pickupItems__productBox__productList__name
-                商品 3
-              .TP-main__pickupItems__productBox__productList__details
-                %ul#pickupItemPriceLikeSpace
-                  %li
-                    3000円
-                  %li 
-                  ★ 0
-                %p.TP-main__pickupItems__productBox__productList__details--tax
-                  （税込）
+        - @newestItems.each do |item|
+          .TP-main__pickupItems__productBox__productList
+            = link_to "/items/#{item.id}" do
+              %figure.TP-main__pickupItems__productBox__productList__img
+                = image_tag item.item_imgs.find(item.id).url, alt: 'TPPickUpItem', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+              .TP-main__pickupItems__productBox__productList__body
+                %h3.TP-main__pickupItems__productBox__productList__name
+                  = "#{item.name}"
+                .TP-main__pickupItems__productBox__productList__details
+                  %ul#pickupItemPriceLikeSpace
+                    %li
+                      = "#{item.price}円"
+                    %li 
+                    ★ 0
+                  %p.TP-main__pickupItems__productBox__productList__details--tax
+                    （税込）
+            -if item.users_id.present? 
+              .itemSold
+                .itemSold__inner
+                  SOLD
   %section.TP-main__pickupItems
     %h2.TP-main__pickupItems__head
-      ピックアップブランド
+      ピックアップアイテム
     .TP-main__pickupItems__productBox
       .TP-main__pickupItems__productBox__productHead
         = link_to '' do
           %h3.TP-main__pickupItems__productBox__productHead--title
             アーカイバ
       .TP-main__pickupItems__productBox__productLists
-        .TP-main__pickupItems__productBox__productList
-          = link_to '' do
-            %figure.TP-main__pickupItems__productBox__productList__img
-              = image_tag 'material/pickupBrand/pickupItem4.jpeg', alt: 'TPPickUpItem1', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-            .TP-main__pickupItems__productBox__productList__body
-              %h3.TP-main__pickupItems__productBox__productList__name
-                商品 1
-              .TP-main__pickupItems__productBox__productList__details
-                %ul#pickupItemPriceLikeSpace
-                  %li
-                    1000円
-                  %li 
-                  ★ 0
-                %p.TP-main__pickupItems__productBox__productList__details--tax
-                  （税込）
-        .TP-main__pickupItems__productBox__productList
-          = link_to '' do
-            %figure.TP-main__pickupItems__productBox__productList__img
-              = image_tag 'material/pickupBrand/pickupItem5.jpeg', alt: 'TPPickUpItem2', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-            .TP-main__pickupItems__productBox__productList__body
-              %h3.TP-main__pickupItems__productBox__productList__name
-                商品 2
-              .TP-main__pickupItems__productBox__productList__details
-                %ul#pickupItemPriceLikeSpace
-                  %li
-                    2000円
-                  %li 
-                  ★ 0
-                %p.TP-main__pickupItems__productBox__productList__details--tax
-                  （税込）
-        .TP-main__pickupItems__productBox__productList
-          = link_to '' do
-            %figure.TP-main__pickupItems__productBox__productList__img
-              = image_tag 'material/pickupBrand/pickupItem6.jpeg', alt: 'TPPickUpItem3', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
-            .TP-main__pickupItems__productBox__productList__body
-              %h3.TP-main__pickupItems__productBox__productList__name
-                商品 3
-              .TP-main__pickupItems__productBox__productList__details
-                %ul#pickupItemPriceLikeSpace
-                  %li
-                    3000円
-                  %li 
-                  ★ 0
-                %p.TP-main__pickupItems__productBox__productList__details--tax
-                  （税込）
-  
+        - @pickupItems.each do |item|
+          .TP-main__pickupItems__productBox__productList
+            = link_to "/items/#{item.id}" do
+              %figure.TP-main__pickupItems__productBox__productList__img
+                = image_tag item.item_imgs.find(item.id).url, alt: 'TPPickUpItem1', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+              .TP-main__pickupItems__productBox__productList__body
+                %h3.TP-main__pickupItems__productBox__productList__name
+                  = "#{item.name}"
+                .TP-main__pickupItems__productBox__productList__details
+                  %ul#pickupItemPriceLikeSpace
+                    %li
+                      = "#{item.price}円"
+                    %li 
+                    ★ 0
+                  %p.TP-main__pickupItems__productBox__productList__details--tax
+                    （税込）
+              -if item.users_id.present? 
+                .itemSold
+                  .itemSold__inner
+                    SOLD
+  %section.TP-main__appBanner 
+    .TP-main__appBanner__inner 
+      %h2.TP-main__appBanner__inner__title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.TP-main__appBanner__inner__text
+        今すぐダウンロード！
+      .TP-main__appBanner__inner__icon
+        = link_to '' do
+          = image_tag 'material/button/btn-AppStore.png', alt:'appBannerAppStore', class: 'TP-main__appBanner__inner__icon--png'
+        = link_to '' do
+          = image_tag 'material/button/btn-GooglePlay.png', alt:'appBannerGoogle', class: 'TP-main__appBanner__inner__icon--png' 
