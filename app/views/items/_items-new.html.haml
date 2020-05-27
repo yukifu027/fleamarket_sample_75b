@@ -1,6 +1,6 @@
 .items-new
   .items
-    = form_with url:"#", class:"name__form" do |f|
+    = form_with model:@item do |f|
       .items__picture
         .picture
           出品画像
@@ -9,8 +9,9 @@
         .note
           最大10枚までアップロードできます
         .camera
-          = link_to "#" do
-            = image_tag "material/icon/icon_camera.png",height: "40px",width: "40px",class: "camera-pic"
+          = f.fields_for :item_imgs do |i|
+            = i.file_field :url
+            -#   = image_tag "material/icon/icon_camera.png",height: "40px",width: "40px",class: "camera-pic"
       .items__name
         .name
           = f.label :商品名
