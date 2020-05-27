@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     selling = []
 
     # 未購入商品を取り出して配列sellingに入れる
-    allItems.each do |product|
+    allItems.map do |product|
       if product.users_id.present?
         #何もしない
       else  
