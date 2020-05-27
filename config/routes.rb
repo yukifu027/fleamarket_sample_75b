@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
-    collection do 
+    member do 
       get 'confirm'
+      post 'pay'
     end
   end
   resources :credit_cards

@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
 
   def confirm
     # 購入する商品を引っ張ってきます。
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
     @images = @item.images.all
 
@@ -91,7 +91,7 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:id])
     @images = @product.images.all
 
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
@@ -102,26 +102,20 @@ class ItemsController < ApplicationController
       # 同時に2人が同時に購入し、二重で購入処理がされることを防ぐための記述
       @product.with_lock do
         if current_user.credit_card.present?
-          # ログインユーザーがクレジットカード登録済みの場合の処理
-          # ログインユーザーのクレジットカード情報を引っ張ってきます。
+            # ログインユーザーがクレジットカード登録済みの場合の処理
+            # ログインユーザーのクレジットカード情報を引っ張ってきます。
           @card = CreditCard.find_by(user_id: current_user.id)
-          # 前前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+            # 前前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
           Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-          #登録したカードでの、クレジットカード決済処理
+            #登録したカードでの、クレジットカード決済処理
           charge = Payjp::Charge.create(
-          # 商品(product)の値段を引っ張ってきて決済金額(amount)に入れる
+            # 商品(product)の値段を引っ張ってきて決済金額(amount)に入れる
           amount: @item.price,
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
           )
         else
-          # ログインユーザーがクレジットカード登録されていない場合(Checkout機能による処理を行います)
-          # APIの「Checkout」ライブラリによる決済処理の記述
-          Payjp::Charge.create(
-          amount: @item.price,
-          card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
-          currency: 'jpy'
-          )
+          redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
         end
       #購入テーブルに登録処理(今回の実装では言及しませんが一応、、、)
       @purchase = Item.create(user_id: current_user.id)
