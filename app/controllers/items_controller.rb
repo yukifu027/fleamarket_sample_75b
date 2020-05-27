@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  require "payjp"
+
   def index
 
     # Itemから未購入商品だけを取り出して配列sellingに入れる
