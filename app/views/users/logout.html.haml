@@ -1,0 +1,9 @@
+= render "/items/header"
+.logout__main
+  .main__contents
+    .main__content__logout
+      = link_to "/", class: "logout__btn" do
+        ログアウト
+  = render "mypage_side"
+= render "/items/footer"
+= render "/items/purchaseBtn"
