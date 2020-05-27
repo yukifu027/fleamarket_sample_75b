@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
     # 購入する商品を引っ張ってきます。
     @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
-    @images = @item.images.all
+    @image = @item.item_imgs.find(@item.id).url
 
     # まずはログインしているか確認
     if user_signed_in?
@@ -92,15 +92,15 @@ class ItemsController < ApplicationController
 
   def pay
     @item = Item.find(params[:id])
-    @images = @product.images.all
+    # @images = @item.images.all
 
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
     # (２重で決済されることを防ぐ)
-    if @item.purchase.present?
+    if @item.buyer_id.present?
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
       # 同時に2人が同時に購入し、二重で購入処理がされることを防ぐための記述
-      @product.with_lock do
+      @item.with_lock do
         if current_user.credit_card.present?
             # ログインユーザーがクレジットカード登録済みの場合の処理
             # ログインユーザーのクレジットカード情報を引っ張ってきます。
@@ -114,11 +114,13 @@ class ItemsController < ApplicationController
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
           )
+          Item.update(buyer_id: current_user.id)
+          redirect_to root_path, alert: "購入が完了しました。"
         else
           redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
         end
       #購入テーブルに登録処理(今回の実装では言及しませんが一応、、、)
-      @purchase = Item.create(user_id: current_user.id)
+      # @purchase = Item.create(buyer_id: current_user.id)
       end
     end
   end
