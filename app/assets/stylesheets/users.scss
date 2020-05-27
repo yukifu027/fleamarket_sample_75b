@@ -146,6 +146,7 @@ body {
     .new-single-head.registration, .l-chapter-head.registration {
       font-size: 22px;
       padding: 32px;
+      font-weight: 600;
     }
 
     .l-single-inner.registration-form {
@@ -164,7 +165,6 @@ body {
     .l-single-inner.registration-form .l-single-content {
       max-width: 343px;
     }
-
     .l-single-content {
       margin: 0 auto;
     }
@@ -177,6 +177,9 @@ body {
     }
     button, input, select, textarea {
       background-color: transparent;
+    }
+    label-pass {
+      font-weight: 400;
     }
     .form-require {
       background: #ea352d;
@@ -281,7 +284,7 @@ body {
     }
 
     .form-group {
-      margin: 40px 0 0;
+      margin: 24px 0 0;
     }
 
     .btn-red {
@@ -301,6 +304,7 @@ body {
     }
     .input-default-area {
       height: 51px;
+      margin-top: 8px;
       padding: 10px 16px 8px;
       border-radius: 4px;
       border: 1px solid #ccc;
@@ -323,7 +327,7 @@ body {
     }
     .l-chapter-sub-head {
       font-size: 16px;
-      font-weight: 600px;
+      font-weight: 600;
     }
     .birthday-select-wrap .select-wrap+span {
       margin: 0 2px;
@@ -342,4 +346,7 @@ body {
       font-size: 12px;
       vertical-align: top;
     }
+    .form-group label {
+      font-weight: 600;
+  }
   }
