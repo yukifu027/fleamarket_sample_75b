@@ -117,8 +117,7 @@
                     ★ 0
                   %p.TP-main__pickupItems__productBox__productList__details--tax
                     （税込）
-            -# -if item.buyer_id.present? 
-            -if item.prefecture_code == 0
+            -if item.users_id.present? 
               .itemSold
                 .itemSold__inner
                   SOLD
@@ -147,8 +146,7 @@
                     ★ 0
                   %p.TP-main__pickupItems__productBox__productList__details--tax
                     （税込）
-              -# -if item.buyer_id.present? 
-              -if item.prefecture_code == 0
+              -if item.users_id.present? 
                 .itemSold
                   .itemSold__inner
                     SOLD

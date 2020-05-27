@@ -5,8 +5,7 @@
     .detail
       .detail__picture
         = image_tag @item.item_imgs.find(@item.id).url, height: "200px", width: "250px", class: "camera-pic"
-        -# -if item.buyer_id.present? 
-        -if @item.prefecture_code == 0
+        -if @item.users_id.present? 
           .itemSold
             .itemSold__inner
               SOLD
@@ -26,8 +25,8 @@
             %td ブランド
             %td シャネル
           %tr
-            %td 商品の状態
-            %td 全体的に状態が悪い
+            %td 商品の状態：
+            %td 少し汚れあり
           %tr
             %td 配送料の負担
             %td 着払い(購入者負担)
@@ -46,7 +45,6 @@
       = link_to "#",class: "buy-btn" do
         購入画面に進む
     .explanation
-      商品状態：汚れあり
       %p 
         = "#{@item.introduction}"
     .evaluation
