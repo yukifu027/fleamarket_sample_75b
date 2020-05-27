@@ -2,18 +2,9 @@ class ItemsController < ApplicationController
 
   def index
 
-    allItems = Item.all
-    selling = []
-
-    # 未購入商品を取り出して配列sellingに入れる
-    allItems.select do |product|
-      if product.users_id.present?
-        #何もしない
-      else  
-        selling << product
-      end
-    end
-
+    # Itemから未購入商品だけを取り出して配列sellingに入れる
+    selling = Item.all.select { |s| s.users_id == nil }
+    
     # 新着商品の最新の３つを表示
     @newestItems = selling.last(3)
     # item_imgテーブルから上記と適した画像を取得
