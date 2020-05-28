@@ -2,8 +2,7 @@
 .logout__main
   .main__contents
     .main__content__logout
-      = link_to "/", class: "logout__btn" do
-        ログアウト
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout__btn"
   = render "mypage_side"
 = render "/items/footer"
 = render "/items/purchaseBtn"

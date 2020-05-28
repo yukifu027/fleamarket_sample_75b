@@ -2,129 +2,105 @@
   .side__contents
     %nav.mypage__nav
       %h3.mypage__nav__head.top
-        = link_to "#", class: "list__link" do
-          マイページ
+        = link_to "マイページ", user_path(current_user.id), class: "list__link"
         .icon__arrow--right
           = icon('fas', 'chevron-right', class: "arrow on")
       %ul
         %li.side__list
-          = link_to "#", class: "list__link" do
-            お知らせ
+          = link_to "お知らせ", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            やることリスト
+          = link_to "やることリスト", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            いいね一覧
+          = link_to "いいね一覧", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            出品する
+          = link_to "出品する", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            下書き一覧
+          = link_to "下書き一覧", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            出品した商品-出品中
+          = link_to "出品した商品-出品中", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            出品した商品-取引中
+          = link_to "出品した商品-取引中", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            出品した商品-売却済み
+          = link_to "出品した商品-売却済み", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            購入した商品-取引中
+          = link_to "購入した商品-取引中", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            購入した商品-過去の取引
+          = link_to "購入した商品-過去の取引", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            ニュース一覧
+          = link_to "ニュース一覧", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            評価一覧
+          = link_to "評価一覧", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            ガイド
+          = link_to "ガイド", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            お問い合わせ
+          = link_to "お問い合わせ", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
       %h3.mypage__nav__head
         メルペイ
       %ul
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            売上・振込申請
+          = link_to "売上・振込申請", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            ポイント
+          = link_to "ポイント", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
       %h3.mypage__nav__head
         設定
       %ul
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            プロフィール
+          = link_to "プロフィール", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            発送元・お届け先住所変更
+          = link_to "発送元・お届け先住所変更", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            支払い方法
+          = link_to "支払い方法", new_credit_card_path, class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            メール/パスワード
+          = link_to "メール/パスワード", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            本人情報
+          = link_to "本人情報", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            電話番号の確認
+          = link_to "電話番号の確認", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")
         %li.side__list
-          = link_to "#", class: "list__link"  do
-            ログアウト
+          = link_to "ログアウト", "#", class: "list__link"
           .icon__arrow--right
             = icon('fas', 'chevron-right', class: "arrow")

@@ -1,3 +1,207 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+.login-main {
+  display: block;
+  &-panel {
+  max-width: none;
+  width: 456px;
+  margin: 0 auto;
+  background: #fff;
+    .login-account {
+    padding: 40px 64px;
+    text-align: center;
+    font-size: 14px;
+      .contents__btn {
+          display: block;
+          margin: 8px 0 0;
+          border: 1px solid #0099e8;
+          background: #0099e8;
+          color: #fff;
+          line-height: 40px;
+          text-decoration: none;
+      }
+    }
+    .login-form  {
+      padding: 0 64px 32px;
+      border-top: 1px solid #eee;
+        &-group {
+          margin: 28px 0 0;
+        }
+        .btn-default {
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+        }
+        .input-default {
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 100%;
+        }
+        .btn-blue {
+          background: #3ccace;
+          border: 1px solid #3ccace;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          margin: 44px 0 0;
+          text-decoration: none;
+        }
+      .content__btn {
+        color: #0099e8;
+        text-decoration: none;
+        display: block;
+        margin: 40px 0 0;
+      }
+    }
+  }
+}
+
+.new__main {
+  &--content {
+    display: block;
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding-bottom: 24px;
+    .new__single__head.registration {
+      font-size: 22px;
+      padding: 32px;
+      font-weight: 600;
+      padding-left: 290px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .sign-up__form {
+      margin: 0 auto;
+      max-width: 343px;
+      .form-group {
+        margin: 24px 0 0;
+        label {
+          font-weight: 600;
+        }
+        .form-require {
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          &-n {
+            background: #ccc;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+        }
+        .input-default {
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 100%;
+          margin: 8px 0 0;
+          &-area {
+            height: 51px;
+            margin-top: 8px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            width: 100%;
+          }
+        }
+        .checkbox-default {
+          position: relative;
+          z-index: 2;
+          padding: 0 0 0 28px;
+          font-size: 14px;
+          font-weight: 400;
+          vertical-align: middle;
+          cursor: pointer;
+          label-pass {
+            font-weight: 400;
+          }
+        }
+        .chapter-sub-head {
+          font-size: 16px;
+          font-weight: 700;
+        }
+        .birthday-select-wrap{
+          display: flex;
+          height: 58px;
+          padding-top: 10px;
+          span {
+            padding-top: 17px;
+          }
+          .select-default {
+            width: 70px;
+            position: relative;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+          }
+        }
+      }
+      .form-info-text {
+        margin: 8px 0 0;
+        color: #888;
+        line-height: 1.5;
+      }
+      .btn-blue {
+        display: block;
+        margin-top: 24px;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        background: #3ccace;
+        border: 1px solid #3ccace;
+        color: #fff;
+      }
+      .recaptcha_term {
+        background-color: #f5f5f5;
+        padding: 8px 16px;
+      }
+    }
+  }
+}

@@ -10,12 +10,14 @@ class Item < ApplicationRecord
   # belongs_to_active_hash :postage_type
   # belongs_to :brand
   # belongs_to :seller, class_name: "User"
-  # belongs_to :buyer, class_name: "User"
+  belongs_to :buyer, class_name: "User"
 
   # enum item_condition: [:new, :like_new, :good, :fair, :poor, :bad]
   # enum trading_status: [:selling, :sold]
 
+
   accepts_nested_attributes_for :item_imgs
   
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
+
 end
