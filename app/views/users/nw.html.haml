@@ -1,0 +1,47 @@
+= render "/items/confirm-new-login-header"
+%body
+  .new__main
+    .new__main--content
+      .new__main--content-center
+        %h2.new__single__head.registration 会員情報入力
+        = form_with model: @user, url: user_registration_path, class:"sign-up__form" do |f|
+          .l__single__content
+            .form-group
+              %label ニックネーム
+              %span.form-require 必須
+              =f.text_field :nickname, placeholder: "例）フリマ太郎",class: 'input-default'
+            .form-group
+              %label メールアドレス
+              %span.form-require 必須
+              =f.email_field :email, placeholder: "PC・携帯どちらでも可",class: 'input-default'
+            .form-group
+              %label パスワード
+              %span.form-require 必須
+              =f.password_field :password , placeholder: "7文字以上の半角英数字",class: 'input-default'
+              .form-group
+              %label パスワード確認用
+              %span.form-require 必須
+              =f.password_field :password_confirmation, placeholder: "7文字以上の半角英数字",class: 'input-default'
+              %p.form-info-text
+                ※ 英字と数字の両方を含めて設定してください
+              .form-password-revelation-toggle
+                .checkbox-default
+                  %icon-check
+                  %label-pass パスワードを表示する
+                .form-password-revelation-revealed-password-container
+                  %span.form-password-revelation-revealed-password
+                  = f.submit "次へ進む", class: 'btn-blue'
+                  .form-group.text-right
+                    %p
+                      = link_to "#", class: "new_account" do
+                        本人情報の登録について
+                        %i.icon-arrow-right
+                  .form-group.recaptcha_term
+                    %p
+                      This site is protected by reCAPTCHA and the Google
+                      Privacy Policy
+                      and
+                      = link_to "#", class: "new_account" do
+                        Terms of Service
+                      apply.
+= render "/items/confirm-new-login-footer"

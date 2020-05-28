@@ -1,200 +1,46 @@
+= render "/items/confirm-new-login-header"
 %body
-  .new-contents
-    %main.new-main
-      %section.new-single-contents
-        %h2.new-single-head.registration 会員情報入力
-        %form#register-form.l-single-inner.registration-form{:action => "https://www.mercari.com/jp/signup/sms_confirmation/", :method => "POST", :novalidate => "novalidate"}
-          .l-single-content
-            = form_with url:"#", class:"sign-up__form" do |f|
-              .form-group
-                %label ニックネーム
-                %span.form-require 必須
-                =f.text_field :nickname, name: "email", placeholder: "例）フリマ太郎",class: 'input-default'
-              .form-group
-                %label メールアドレス
-                %span.form-require 必須
-                =f.text_field :email, name: "email", placeholder: "PC・携帯どちらでも可",class: 'input-default'
-              .form-group.form-password-revelation
-                %label パスワード
-                %span.form-require 必須
-                =f.password_field :password	, name: "email", placeholder: "7文字以上の半角英数字",class: 'input-default'
-                .form-group.form-password-revelation
-                %label パスワード確認用
-                %span.form-require 必須
-                =f.password_field :email, name: "email", placeholder: "7文字以上の半角英数字",class: 'input-default'
-                %p.form-info-text
-                  ※ 英字と数字の両方を含めて設定してください
-                .form-password-revelation-toggle
-                  .checkbox-default
-                    %icon-check
-                    %label-pass パスワードを表示する
-                  .form-password-revelation-revealed-password-container
-                    %span.form-password-revelation-revealed-password
-              .form-group
-                %h3.text-left.l-chapter-sub-head 本人確認
-                %p.l-single-text
-                  安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-              .form-group
-                %div
-                  %label お名前(全角)
-                  %span.form-require 必須
-                =f.text_field :family_name, name: "family_name_kanji", placeholder: "例) 山田",class: 'input-default'
-                =f.text_field :first_name, name: "family_name_kanji", placeholder: "例) 太朗",class: 'input-default'
-              .form-group
-                %div
-                  %label お名前カナ(全角)
-                  %span.form-require 必須
-                =f.text_field :first_name_kana, name: "email", placeholder: "例) ヤマダ",class: 'input-default'
-                =f.text_field :family_name_kana, name: "email", placeholder: "例) ヤマダ",class: 'input-default'
-              .form-group
-                %label 生年月日
-                %span.form-require 必須
-                .birthday-select-wrap
-                  .select-wrap
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option --
-                      %option 2020
-                      %option 2019
-                      %option 2018
-                      %option 2017
-                      %option 2016
-                      %option 2015
-                      %option 2014
-                      %option 2013
-                      %option 2012
-                      %option 2011
-                      %option 2010
-                      %option 2009
-                      %option 2008
-                      %option 2007
-                      %option 2006
-                      %option 2005
-                      %option 2004
-                      %option 2003
-                      %option 2002
-                      %option 2001
-                      %option 2000
-                      %option 1999
-                      %option 1998
-                      %option 1997
-                      %option 1996
-                      %option 1995
-                      %option 1994
-                      %option 1993
-                      %option 1992
-                      %option 1991
-                      %option 1990
-                      %option 1989
-                      %option 1988
-                      %option 1987
-                      %option 1986
-                      %option 1985
-                      %option 1984
-                      %option 1983
-                      %option 1982
-                      %option 1981
-                      %option 1980
-                      %option 1979
-                      %option 1978
-                      %option 1977
-                      %option 1976
-                      %option 1975
-                      %option 1974
-                      %option 1973
-                      %option 1972
-                      %option 1971
-                      %option 1970
-                      %option 1969
-                      %option 1968
-                      %option 1967
-                      %option 1966
-                      %option 1965
-                      %option 1964
-                      %option 1963
-                      %option 1962
-                      %option 1961
-                      %option 1960
-                      %option 1959
-                      %option 1958
-                      %option 1957
-                      %option 1956
-                      %option 1955
-                      %option 1954
-                      %option 1953
-                      %option 1952
-                      %option 1951
-                      %option 1950
-                      -# = f.select :prefecture_code, [["--",0],["1921",1],["1922",2],["1923",3],["1924",4],["1925",5],["1926",6],["1927",7],["1928",8],["1929",9],["1930",10],["1931",11],["千葉県",12],["東京都",13],["神奈川県",14],["新潟県",15],["富山県",16],["石川県",17],["福井県",18],["山梨県",19],["長野県",20],["岐阜県",21],["静岡県",22],["愛知県",23],["三重県",24],["滋賀県",25],["京都府",26],["大阪府",27],["兵庫県",28],["奈良県",29],["和歌山県",30],["鳥取県",31],["島根県",32],["岡山県",33],["広島県",34],["山口県",35],["徳島県",36],["香川県",37],["愛媛県",38],["高知県",39],["福岡県",40],["佐賀県",41],["長崎県",42],["熊本県",43],["大分県",44],["宮崎県",45],["鹿児島県",46],["沖縄県",47],["未定",48]],{},class: 'select-default'
-                  %span 年
-                  .select-wrap.select-wrap__month
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option --
-                      -# = f.select :prefecture_code, [["--",0],["北海道",1],["青森県",2],["岩手県",3],["宮城県",4],["秋田県",5],["山形県",6],["福島県",7],["茨城県",8],["栃木県",9],["群馬県",10],["埼玉県",11],["千葉県",12],["東京都",13],["神奈川県",14],["新潟県",15],["富山県",16],["石川県",17],["福井県",18],["山梨県",19],["長野県",20],["岐阜県",21],["静岡県",22],["愛知県",23],["三重県",24],["滋賀県",25],["京都府",26],["大阪府",27],["兵庫県",28],["奈良県",29],["和歌山県",30],["鳥取県",31],["島根県",32],["岡山県",33],["広島県",34],["山口県",35],["徳島県",36],["香川県",37],["愛媛県",38],["高知県",39],["福岡県",40],["佐賀県",41],["長崎県",42],["熊本県",43],["大分県",44],["宮崎県",45],["鹿児島県",46],["沖縄県",47],["未定",48]],{},class: 'select-default'
-                  %span 月
-                  .select-wrap.select-wrap__day
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option --
-                  %span 日
-                .clearfix
-              %p.form-info-text
-                ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-              .form-group
-                %div
-                  %label 送付先氏名(全角)
-                  %span.form-require 必須
-                =f.text_field :destination_first_name, name: "destination_first_name", placeholder: "例) 山田",class: 'input-default'
-                =f.text_field :destination_family_name, name: "destination_family_name", placeholder: "例) 太朗",class: 'input-default'
-              .form-group
-                %div
-                  %label 送付先氏名カナ(全角)
-                  %span.form-require 必須
-                =f.text_field :destination_first_name_kana, name: "destination_first_name_kana", placeholder: "例) ヤマダ",class: 'input-default'
-                =f.text_field :destination_family_name_kana, name: "destination_family_name_kana", placeholder: "例) タロウ",class: 'input-default'
-              .form-group
-                %label  郵便番号
-                %span.form-require 必須
-                =f.text_field :post_code, name: "post_code", placeholder: "例) 123-4567",class: 'input-default'
-              .form-group
-                %label 都道府県
-                %span.form-require 必須
-                = f.select :prefecture_code, [["選択してください",0],["北海道",1],["青森県",2],["岩手県",3],["宮城県",4],["秋田県",5],["山形県",6],["福島県",7],["茨城県",8],["栃木県",9],["群馬県",10],["埼玉県",11],["千葉県",12],["東京都",13],["神奈川県",14],["新潟県",15],["富山県",16],["石川県",17],["福井県",18],["山梨県",19],["長野県",20],["岐阜県",21],["静岡県",22],["愛知県",23],["三重県",24],["滋賀県",25],["京都府",26],["大阪府",27],["兵庫県",28],["奈良県",29],["和歌山県",30],["鳥取県",31],["島根県",32],["岡山県",33],["広島県",34],["山口県",35],["徳島県",36],["香川県",37],["愛媛県",38],["高知県",39],["福岡県",40],["佐賀県",41],["長崎県",42],["熊本県",43],["大分県",44],["宮崎県",45],["鹿児島県",46],["沖縄県",47],["未定",48]],{},class: 'input-default-area'
-              .form-group
-                %label 市区町村
-                %span.form-require 必須
-                =f.text_field :city, name: "city", placeholder: "例) 横浜市青区",class: 'input-default'
-              .form-group
-                %label 番地
-                %span.form-require 必須
-                =f.text_field :house_number, name: "house_numbe", placeholder: "例) 青山1-1-1",class: 'input-default'
-              .form-group
-                %label 建物名
-                %span.form-require-n 任意
-                =f.text_field :building_name, name: "building_name", placeholder: "例) 柳ビル103",class: 'input-default'
-              .form-group
-                %label  電話
-                %span.form-require-n 任意
-                =f.text_field :phone_number, name: "phone_number", placeholder: "例) 09012345678",class: 'input-default'
-              .l-single-content
-                .form-group
-                  %p.l-single-text.text-center
-                  「次へ進む」のボタンを押すことにより、
-                  = link_to '#', class: "new_account" do
-                    利用規約
-                  に同意したものとみなします
-                %button.btn-default.btn-red{:type => "submit"} 次へ進む
-                .form-group.text-right
-                  %p
-                    = link_to "#", class: "new_account" do
-                      本人情報の登録について
-                      %i.icon-arrow-right
-                .form-group.recaptcha_term
-                  %p
-                    This site is protected by reCAPTCHA and the Google
-                    Privacy Policy
-                    and
-                    = link_to "#", class: "new_account" do
-                      Terms of Service
-                    apply.
+  .new__main
+    .new__main--content
+      .new__main--content-center
+        %h2.new__single__head.registration 会員情報入力
+        = form_with model: @user, url: user_registration_path, class:"sign-up__form" do |f|
+          .form-group
+            %h3.chapter-sub-head 本人確認
+            %p.l-single-text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            %div
+              %label お名前(全角)
+              %span.form-require 必須
+            =f.text_field :family_name, placeholder: "例) 山田",class: 'input-default'
+            =f.text_field :first_name, placeholder: "例) 太朗",class: 'input-default'
+          .form-group
+            %div
+              %label お名前カナ(全角)
+              %span.form-require 必須
+            =f.text_field :first_name_kana, placeholder: "例) ヤマダ",class: 'input-default'
+            =f.text_field :family_name_kana, placeholder: "例) ヤマダ",class: 'input-default'
+          .form-group
+            %label 生年月日
+            %span.form-require 必須
+            .birthday-select-wrap
+              .select-wrap
+                %i.icon-arrow-bottom
+              = f.select :birth_year, [["--",0],["1921",1],["1922",2],["1923",3],["1924",4],["1925",5],["1926",6],["1927",7],["1928",8],["1929",9],["1930",10],["1931",11]],{},class: 'select-default'
+              -# 年は途中までしか配列に入力してないので追加でお願いします。
+              %span 年
+              .select-wrap.select-wrap__month
+                %i.icon-arrow-bottom
+              = f.select :birth_month, [["--",0],["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10],["11",11],["12",12]],{},class: 'select-default'
+              %span 月
+              .select-wrap.select-wrap__day
+                %i.icon-arrow-bottom
+              = f.select :birth_day, [["--",0],["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10],["11",11],["12",12]],{},class: 'select-default'
+              -# 日付は途中までしか配列に入れてないです。31日まで追加お願いします。
+              %span 日
+            .clearfix
+          %p.form-info-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          = f.submit "次へ進む", class: 'btn-blue'
+= render "/items/confirm-new-login-footer"
