@@ -14,4 +14,6 @@ class Item < ApplicationRecord
 
   # enum item_condition: [:new, :like_new, :good, :fair, :poor, :bad]
   # enum trading_status: [:selling, :sold]
+
+  
 end
