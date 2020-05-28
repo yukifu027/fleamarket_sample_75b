@@ -110,9 +110,9 @@ class ItemsController < ApplicationController
             #登録したカードでの、クレジットカード決済処理
           charge = Payjp::Charge.create(
             # 商品(product)の値段を引っ張ってきて決済金額(amount)に入れる
-          amount: @item.price,
-          customer: Payjp::Customer.retrieve(@card.customer_id),
-          currency: 'jpy'
+            amount: @item.price,
+            customer: Payjp::Customer.retrieve(@card.customer_id),
+            currency: 'jpy'
           )
           Item.update(buyer_id: current_user.id)
           redirect_to root_path, alert: "購入が完了しました。"
