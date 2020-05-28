@@ -1,6 +1,6 @@
 .items-new
   .items
-    = form_with model:@item do |f|
+    = form_with model:@item, local:true do |f|
       .items__picture
         .picture
           出品画像
@@ -9,9 +9,21 @@
         .note
           最大10枚までアップロードできます
         .camera
-          = f.fields_for :item_imgs do |i|
-            = i.file_field :url
-            -#   = image_tag "material/icon/icon_camera.png",height: "40px",width: "40px",class: "camera-pic"
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.item_imgs.each_with_index do |image, i|
+                  = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
+            = f.fields_for :item_imgs do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, class: 'js-file'
+                %span.js-remove 削除
+              - if @item.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
+                = file_field_tag :image, name: "item[item_imgs_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+                .js-remove 削除
       .items__name
         .name
           = f.label :商品名
