@@ -15,14 +15,14 @@ class CreditCardsController < ApplicationController
     if params["payjp_token"].blank?
       redirect_to action: "new"
     else
-    # 無事トークン作成された場合のアクション(こっちが本命のアクション)
+    # 無事トークン作成された場合のアクション
     # まずは生成したトークンから、顧客情報と紐付け、PAY.JP管理サイトに登録
       customer = Payjp::Customer.create(
         email: current_user.email,
         card: params["payjp_token"],
-        metadata: {user_id: current_user.id} #最悪なくてもOK！
+        metadata: {user_id: current_user.id} 
       )
-      # 今度はトークン化した情報を自アプリのCredit_cardsテーブルに登録！
+      # 今度はトークン化した情報を自アプリのCredit_cardsテーブルに登録
       @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       # 無事、トークン作成とともにcredit_cardsテーブルに登録された場合、createビューが表示されるように条件分岐
       @card.save
@@ -37,7 +37,7 @@ class CreditCardsController < ApplicationController
       # 未登録なら新規登録画面に
       redirect_to action: "new" 
     else
-      # 前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+      # credentials.yml.encに記載したAPI秘密鍵を呼び出します。
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       # ログインユーザーのクレジットカード情報からPay.jpに登録されているカスタマー情報を引き出す
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -78,7 +78,7 @@ class CreditCardsController < ApplicationController
       # 未登録なら新規登録画面に
       redirect_to action: "new"
     else
-      # 前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+      # credentials.yml.encに記載したAPI秘密鍵を呼び出します。
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       # ログインユーザーのクレジットカード情報からPay.jpに登録されているカスタマー情報を引き出す
       customer = Payjp::Customer.retrieve(@card.customer_id)

@@ -105,7 +105,7 @@ class ItemsController < ApplicationController
             # ログインユーザーがクレジットカード登録済みの場合の処理
             # ログインユーザーのクレジットカード情報を引っ張ってきます。
           @card = CreditCard.find_by(user_id: current_user.id)
-            # 前前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+            # credentials.yml.encに記載したAPI秘密鍵を呼び出します。
           Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
             #登録したカードでの、クレジットカード決済処理
           charge = Payjp::Charge.create(
@@ -119,8 +119,6 @@ class ItemsController < ApplicationController
         else
           redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
         end
-      #購入テーブルに登録処理(今回の実装では言及しませんが一応、、、)
-      # @purchase = Item.create(buyer_id: current_user.id)
       end
     end
   end
