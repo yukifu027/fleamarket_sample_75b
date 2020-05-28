@@ -127,6 +127,9 @@
       .link{
         text-decoration: none;
       }
+      &__picture {
+        position: relative;
+      }
     }
     .price{
       display: flex;
@@ -299,5 +302,24 @@
   }
   &__icon {
     width: 60%;
+  }
+}
+
+.itemSold {
+  width: 0;
+  height: 0;
+  border-top: 60px solid #ea352d ;
+  border-right: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid #ea352d ;
+  position: absolute;
+  top: 0;
+  &__inner {
+    transform: rotate(-45deg);
+    font-size: 28px;
+    margin:-25px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
   }
 }

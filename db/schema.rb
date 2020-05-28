@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_044421) do
     t.integer "prefecture_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "buyer_id"
+    t.integer "seller_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
