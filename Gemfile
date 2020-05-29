@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -77,6 +78,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'enum_help'
+gem "jquery-rails"
 
 group :production do
   gem 'unicorn'

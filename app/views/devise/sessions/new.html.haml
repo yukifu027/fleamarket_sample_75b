@@ -1,17 +1,29 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+= render "/items/confirm-new-login-header"
+.login-main
+  .login-main-panel
+    .login-account
+      %p アカウントをお持ちでない方はこちら
+      = link_to new_user_registration_path, class: "contents__btn" do 
+        新規会員登録
+    -# .login-form-up
+      -# .facebook-login.btn-default
+      -#   = link_to "#", class: "facebook__link" do
+      -#     = icon('fab', 'facebook-square', class: "contents__btn--icon")
+      -#   Facebookでログイン
+      -# .google-login.btn-default
+      -#   = link_to "#", class: "google__link" do
+      -#     = icon('fab', 'google', class: "contents__btn--icon")
+      -#   Googleでログイン
+    = form_with model: @user, url: user_session_path, class:"login__form" do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .login-form
+        .login-form-group
+          = f.email_field :email, placeholder: "メールアドレス",class: 'input-default'
+        .login-form-group
+          = f.password_field :password, placeholder: "パスワード",class: 'input-default'
+        .login-form-group
+          = f.submit "ログイン", class: "btn-blue"
+        .login-form-group
+        = link_to "#", class: "content__btn" do
+          パスワードをお忘れの方
+= render "/items/confirm-new-login-footer"
