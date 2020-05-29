@@ -48,9 +48,14 @@
         = link_to "#",class: "deleteBtn" do
           商品を削除
       -else
-        = link_to confirm_items_url do
-          %p.buyerBtn
-            購入画面に進む
+        -if user_signed_in?
+          = link_to confirm_items_url do
+            %p.buyerBtn
+              購入画面に進む
+        -else 
+          = link_to new_user_session_path do
+            %p.buyerBtn
+              購入画面に進む
     .explanation
       %p 
         = "#{@item.introduction}"
