@@ -1,0 +1,26 @@
+= render "/items/header"
+.credit-show
+  .contents
+    .contents__title
+      登録クレジットカード情報
+    .contents__main
+      .card-info
+        .card-info__brand
+          -# # showメソッドで定義した@card_srcを呼び出し
+          -# # 画像をcardsというフォルダを作り、入れておく
+          = image_tag "credit_logo/#{@card_src}", class: "card_info__brand__img", alt: @card_brand
+        .card-info__content
+          .number
+            -# # Pay.jpから取得したカード番号の末尾４桁を取得
+            = "**** **** **** " + @customer_card.last4
+          .exp-date
+            .exp-date__title
+              有効期限
+            .exp-date__info
+              -# # showメソッドで定義した有効期限の年と月を取得
+              = @exp_month + " / " + @exp_year
+      = link_to credit_card_path, method: :delete, class: "destroy-btn" do 
+        削除する
+  = render "/users/mypage_side"
+= render "/items/footer"
+= render "/items/purchaseBtn"

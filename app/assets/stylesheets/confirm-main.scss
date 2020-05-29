@@ -87,6 +87,28 @@
           font-size: 14px;
           color: #3399FF;
         }
+        .confirm-credit-show {
+          margin-left: 75px;
+          .contents {
+            width: 46vw;
+            &__main{
+              .card-info{
+                display: flex;
+                &__content{
+                  .number{
+                    margin-left: 20px;
+                  }
+                  .exp-date{
+                    display: flex;
+                    &__title{
+                      margin: 0 20px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
     &__destination{

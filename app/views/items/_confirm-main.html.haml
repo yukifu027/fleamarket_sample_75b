@@ -5,18 +5,18 @@
         購入内容の確認
     .confirm__item
       .content
-        = image_tag "material/pict/pict-reason-01.jpg", alt: "商品写真", class: "image"
+        = image_tag @image, alt: "商品写真", class: "image"
         .detail
           .item-name
-            UNIQLOジーンズ
+            = @item.name
           .item-price
-            ￥1,000（税込）送料込み
+            = "￥#{@item.price}（税込）送料込み"
     .confirm__price
       .content
         .text
           支払い金額
         .buy-price
-          ￥1,000
+          = "￥#{@item.price}"
       .user-point
         = check_box_tag :check1 
         = label_tag :check1, 'ポイントを使用（所持ポイント: P0）'
@@ -24,9 +24,29 @@
       .content
         .text
           支払い方法
-        = link_to "#", class: "register-btn" do
-          = icon('fas', 'plus-circle')
-          登録してください
+        - if @user.credit_card.present?
+          .confirm-credit-show
+            .contents
+              .contents__main
+                .card-info
+                  .card-info__brand
+                    -# # showメソッドで定義した@card_srcを呼び出し
+                    -# # 画像をcardsというフォルダを作り、入れておく
+                    = image_tag "credit_logo/#{@card_src}", class: "card_info__brand__img", alt: @card_brand
+                  .card-info__content
+                    .number
+                      -# # Pay.jpから取得したカード番号の末尾４桁を取得
+                      = "**** **** **** " + @customer_card.last4
+                    .exp-date
+                      .exp-date__title
+                        有効期限
+                      .exp-date__info
+                        -# # showメソッドで定義した有効期限の年と月を取得
+                        = @exp_month + " / " + @exp_year
+        - else
+          = link_to new_credit_card_path, class: "register-btn" do
+            = icon('fas', 'plus-circle')
+            登録してください
     .confirm__destination
       .send-title
         .text
@@ -44,5 +64,5 @@
         郵便局/コンビニ受取をご希望の方は、購入後に
         %b取引画面
         から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
-      = link_to "#", class: "purchase-btn" do
+      = link_to pay_item_path(@item.id), method: :post, class: "purchase-btn" do
         購入する
