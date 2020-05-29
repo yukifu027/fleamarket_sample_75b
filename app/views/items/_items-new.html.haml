@@ -1,29 +1,21 @@
 .items-new
-  .items
+  %section.items
     = form_with model:@item, local:true do |f|
       .items__picture
         .picture
           出品画像
-          %span
+          %span 
             必須
-        .note
+        %p 
           最大10枚までアップロードできます
         .camera
-          #image-box
-            #previews
-              - if @item.persisted?
-                - @item.item_imgs.each_with_index do |image, i|
-                  = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
-            = f.fields_for :item_imgs do |image|
-              .js-file_group{"data-index" => "#{image.index}"}
-                = image.file_field :image, class: 'js-file'
-                %span.js-remove 削除
-              - if @item.persisted?
-                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-            - if @item.persisted?
-              .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
-                = file_field_tag :image, name: "item[item_imgs_attributes][#{@item.item_images.count}][image]", class: 'js-file'
-                .js-remove 削除
+          #image-box-1
+            .item-num-0#image-box__container
+              = f.fields_for :item_imgs do |i|
+                .input-area
+                  = i.file_field :url, type: 'file', name: "item[item_imgs_attributes][][url]", value:"", style: "display:none", id:"img-file"
+                  %label{for: "img-file"}
+                    %i.fas.fa-camera
       .items__name
         .name
           = f.label :商品名
@@ -36,7 +28,7 @@
           %span
             必須
           %p
-            = f.text_area :detail, class: 'items__name__text', type: "text", placeholder: '商品の説明 （1000字以内で）', maxlength: "1000"
+            = f.text_area :introduction, class: 'items__name__text', type: "text", placeholder: '商品の説明 （1000字以内で）', maxlength: "1000"
       .items__detail
         .title
           商品の詳細
@@ -49,7 +41,7 @@
         .brand
           = f.label :ブランド
           %p
-            = f.text_field :name, class: 'items__detail__select', type: "text", placeholder: '例：シャネル'
+            = f.text_field :brand, class: 'items__detail__select', type: "text", placeholder: '例：シャネル'
         .status
           = f.label :商品の状態
           %p
@@ -69,7 +61,7 @@
           %span
             必須
           %p
-            = f.select :area, [["選択してください",0],["北海道",1],["青森県",2],["岩手県",3],["宮城県",4],["秋田県",5],["山形県",6],["福島県",7],["茨城県",8],["栃木県",9],["群馬県",10],["埼玉県",11],["千葉県",12],["東京都",13],["神奈川県",14],["新潟県",15],["富山県",16],["石川県",17],["福井県",18],["山梨県",19],["長野県",20],["岐阜県",21],["静岡県",22],["愛知県",23],["三重県",24],["滋賀県",25],["京都府",26],["大阪府",27],["兵庫県",28],["奈良県",29],["和歌山県",30],["鳥取県",31],["島根県",32],["岡山県",33],["広島県",34],["山口県",35],["徳島県",36],["香川県",37],["愛媛県",38],["高知県",39],["福岡県",40],["佐賀県",41],["長崎県",42],["熊本県",43],["大分県",44],["宮崎県",45],["鹿児島県",46],["沖縄県",47],["未定",48]],{},class: 'items__delivery__select'
+            = f.select :prefecture_code, [["選択してください",0],["北海道",1],["青森県",2],["岩手県",3],["宮城県",4],["秋田県",5],["山形県",6],["福島県",7],["茨城県",8],["栃木県",9],["群馬県",10],["埼玉県",11],["千葉県",12],["東京都",13],["神奈川県",14],["新潟県",15],["富山県",16],["石川県",17],["福井県",18],["山梨県",19],["長野県",20],["岐阜県",21],["静岡県",22],["愛知県",23],["三重県",24],["滋賀県",25],["京都府",26],["大阪府",27],["兵庫県",28],["奈良県",29],["和歌山県",30],["鳥取県",31],["島根県",32],["岡山県",33],["広島県",34],["山口県",35],["徳島県",36],["香川県",37],["愛媛県",38],["高知県",39],["福岡県",40],["佐賀県",41],["長崎県",42],["熊本県",43],["大分県",44],["宮崎県",45],["鹿児島県",46],["沖縄県",47],["未定",48]],{},class: 'items__delivery__select'
         .day
           = f.label :発送までの日数
           %span
@@ -101,8 +93,7 @@
             円
       .items__exhibit
         .exibit-btn
-          = link_to "#",class: "link" do
-            出品する
+          = f.submit "出品する",class: "link"
         .draft-btn
           = link_to "#",class: "link" do
             下書きに保存

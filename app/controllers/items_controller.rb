@@ -16,22 +16,10 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
-    else
+    else 
       render :new
     end
   end 
-
-  private
-
-  def item_params
-    params.require(:item).permit(:name, :price, item_imgs_attributes: [:url])
-  end
-
-
-  def destroy
-    @item.destroy
-    redirect_to root_path
-  end
 
   def show
   end
@@ -54,8 +42,13 @@ class ItemsController < ApplicationController
 
   private
 
+  def destroy
+    @item.destroy
+  end
+
+
   def item_params
-    params.require(:item).permit(:name, :price, item_imgs_attributes:  [:url, :_destroy, :id])
+    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
   end
 
   def set_product
