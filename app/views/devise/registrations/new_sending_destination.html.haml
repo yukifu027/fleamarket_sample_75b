@@ -5,7 +5,7 @@
       .new__main--content-center
         %h2.new__single__head.registration 会員情報入力
         = form_with model: @sending_destination, class:"sign-up__form", local: true do |f|
-          = render "devise/shared/error_messages", resource: resource
+          = render "users/error_messages"
           .form-group
             %div
               %label 送付先氏名(全角)

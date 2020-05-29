@@ -29,7 +29,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(profile_params)
     unless @profile.valid?
-      flash.now[:alert] = @profile.errors.full_messages
+      # ここのコメントアウトは詳細のエラーメッセージを表示するときに外す
+      # flash.now[:alert] = @profile.errors.full_messages
+      flash.now[:alert] = '入力された値が正しくないか、必須項目が入力されていません。'
       render :new_profile and return
     end
     @user.build_profile(@profile.attributes)
@@ -43,7 +45,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @profile = Profile.new(session["profile"])
     @sending_destination = SendingDestination.new(sending_destination_params)
     unless @sending_destination.valid?
-      flash.now[:alert] = @sending_destination.errors.full_messages
+      # flash.now[:alert] = @sending_destination.errors.full_messages
+      flash.now[:alert] = '入力された値が正しくないか、必須項目が入力されていません。'
       render :new_sending_destination and return
     end
     @user.build_profile(@profile.attributes)

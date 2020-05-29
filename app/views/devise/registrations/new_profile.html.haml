@@ -5,7 +5,7 @@
       .new__main--content-center
         %h2.new__single__head.registration 会員情報入力
         = form_with model: @profile, class:"sign-up__form", local: true do |f|
-          = render "devise/shared/error_messages", resource: resource
+          = render "users/error_messages"
           .form-group
             %h3.chapter-sub-head 本人確認
             %p.l-single-text
