@@ -1,6 +1,17 @@
 * {
   box-sizing: border-box;
 }
+
+@mixin sellerBtn {
+  background-color: #35c8cb;
+  text-decoration: none;
+  color: white;
+  padding: 3px 20px;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .TP-header { 
   display: block;
   width: 100%;
@@ -146,13 +157,8 @@
       }
     }
     .buy-btn{
-      color: white;
-      font-size: 30px;
-      font-weight: bold;
-      background: #35c8cb;
-      border-radius: 10px; 
+      height: 50px;
       text-align: center;
-      text-decoration: none;
       display: block; 
       padding: 5px;
       margin: 15px 70px;
@@ -160,7 +166,7 @@
     .explanation{
       padding: 10px;
       margin: 10px; 
-      border: 1px #35c8cb dotted
+      border: 1px #35c8cb dotted;
     }
     .evaluation{
       display: flex;
@@ -322,4 +328,19 @@
     letter-spacing: 1px;
     font-weight: 600;
   }
+}
+
+.editBtn {
+  margin-right: 20px;
+  @include sellerBtn;
+}
+
+.deleteBtn {
+  @include sellerBtn;
+}
+
+.buyerBtn {
+  @include sellerBtn;
+  font-size: 30px;
+  padding: 10px 0;
 }
