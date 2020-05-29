@@ -19,7 +19,7 @@
       %ul.TP-header__navi__right
         %li
           -if current_user 
-            = link_to new_user_session_path, class: 'TP-header__navi__right--links' do
+            = link_to destroy_user_session_path, method: :delete, class: 'TP-header__navi__right--links' do
               ログアウト
           -else
             = link_to new_user_session_path, class: 'TP-header__navi__right--links' do

@@ -42,7 +42,7 @@
       .price__fee
         (税込)送料別
     .buy-btn
-      -if current_user.id == @item.seller_id
+      -if user_signed_in? && current_user.id == @item.seller_id
         = link_to "#",class: "editBtn" do
           商品を編集
         = link_to "#",class: "deleteBtn" do
@@ -54,7 +54,7 @@
     .explanation
       %p 
         = "#{@item.introduction}"
-    -if current_user.id != @item.seller_id
+    -if user_signed_in? && current_user.id != @item.seller_id
       .evaluation
         .evaluation__good-btn
           = link_to "#",class: "evaluation-btn" do
