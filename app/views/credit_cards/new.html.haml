@@ -5,12 +5,12 @@
       クレジットカード情報入力
     .main__content__form
       .form__top
-        = form_with model: @card, class:"credit__form" do |f|
+        = form_with url: credit_cards_path, method: :post, class:"credit__form", id: "charge-form" do |f|
           .form__top__group
             = f.label :カード番号
             %span.form__require 必須
             %p
-              = f.text_field :card_number, name: "card_number", type: "text", placeholder: '半角数字のみ', class: 'card__number', maxlength: "16"
+              = f.text_field :card_number, name: "card_number", type: "text", placeholder: '半角数字のみ', class: 'card__number', id: "payment_card_no", maxlength: "16"
             %ol
               %li
                 = image_tag 'credit_logo/visa.gif', alt: 'visa', height: '25', width: '35', class: 'visa__card'
@@ -40,7 +40,7 @@
           %p.about
             = icon('fa', 'question-circle', class: "question__circle")
             = link_to 'カード裏面の番号とは？', "#", class:'about__registered'
-          = f.submit '追加する', class: 'credit__btn', id: "charge-form"
-= render "mypage_side"
+          = f.submit '追加する', class: 'credit__btn', id: "payment_card_submit-button"
+  = render "/users/mypage_side"
 = render "/items/footer"
 = render "/items/purchaseBtn"

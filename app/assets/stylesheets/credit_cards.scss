@@ -1,3 +1,43 @@
-// Place all the styles related to the credit_cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.credit-show {
+  background-color: #f8f8f8;
+  padding: 40px 0 40px;
+  overflow: scroll;
+  .contents {
+    width: 46vw;
+    float: right;
+    margin-right: 15vw;
+    background-color: white;
+    &__title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 20px 0;
+    }
+    &__main{
+      display: flex;
+      padding-bottom: 30px;
+      justify-content: space-around;
+      align-items: center;
+      .card-info{
+        display: flex;
+        &__content{
+          .number{
+            margin-left: 20px;
+          }
+          .exp-date{
+            display: flex;
+            &__title{
+              margin: 0 20px;
+            }
+          }
+        }
+      }
+      .destroy-btn{
+        padding: 5px 25px;
+        background-color: #3CCACE;
+        color: white;
+        border-radius: 30px;
+      }
+    }
+  }
+}

@@ -11,10 +11,8 @@ class User < ApplicationRecord
   has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
   # - has_one :point
   has_one :profile, dependent: :destroy
-  accepts_nested_attributes_for :profile
   # - has_one :sns_authentication, dependent: :destroy
   has_one :sending_destination, dependent: :destroy
-  accepts_nested_attributes_for :sending_destination
   has_one :credit_card, dependent: :destroy
 
   validates :nickname, presence: true
