@@ -18,8 +18,16 @@
             ブランド
       %ul.TP-header__navi__right
         %li
-          = link_to new_user_session_path, class: 'TP-header__navi__right--links' do
-            ログイン
+          -if current_user 
+            = link_to new_user_session_path, class: 'TP-header__navi__right--links' do
+              ログアウト
+          -else
+            = link_to new_user_session_path, class: 'TP-header__navi__right--links' do
+              ログイン
         %li
-          = link_to new_user_registration_path, class: 'TP-header__navi__right--links' do
-            新規会員登録
+          -if current_user
+            = link_to new_user_registration_path, class: 'TP-header__navi__right--links' do
+              マイページ
+          -else
+            = link_to new_user_registration_path, class: 'TP-header__navi__right--links' do
+              新規会員登録
