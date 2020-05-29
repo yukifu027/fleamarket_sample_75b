@@ -85,4 +85,4 @@ group :production do
 end
 
 gem 'jquery-rails'
-
+gem 'fog-aws'
