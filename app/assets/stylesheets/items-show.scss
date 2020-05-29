@@ -166,7 +166,7 @@
     .explanation{
       padding: 10px;
       margin: 10px; 
-      border: 1px #35c8cb dotted
+      border: 1px #35c8cb dotted;
     }
     .evaluation{
       display: flex;
@@ -341,5 +341,6 @@
 
 .buyerBtn {
   @include sellerBtn;
-  font-size: 40px;
+  font-size: 30px;
+  padding: 10px 0;
 }
