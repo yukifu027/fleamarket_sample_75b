@@ -4,5 +4,6 @@
     .main__content__logout
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout__btn"
   = render "mypage_side"
+= render "items/appBanner"
 = render "/items/footer"
 = render "/items/purchaseBtn"

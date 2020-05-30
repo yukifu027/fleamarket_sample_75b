@@ -88,3 +88,5 @@ group :production do
 end
 
 gem 'active_hash'
+gem 'jquery-rails'
+gem 'fog-aws'

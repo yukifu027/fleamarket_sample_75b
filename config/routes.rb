@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
   root "items#index"
+
   resources :users do
     member do
       get 'logout'

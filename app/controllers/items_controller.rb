@@ -1,9 +1,13 @@
 class ItemsController < ApplicationController
 
+  before_action :set_product, except: [:index, :new, :create]
+
   require "payjp"
 
   def index
 
+    @items = Item.includes(:item_imgs).order('created_at DESC')
+    
     # Itemから未購入商品だけを取り出して配列sellingに入れる
     selling = Item.all.select { |s| s.buyer_id == nil }
     
@@ -17,27 +21,38 @@ class ItemsController < ApplicationController
     # リロードすると違う商品が表示されるよう、配列をシャッフル
     random = last3deleted.shuffle
     @pickupItems = random.take(3)
+
   end
 
   def new
+    @item = Item.new
+    @item.item_imgs.new
   end
 
   def edit
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else 
+      render :new
+    end
   end 
-
-  def destroy
-  end
 
   def show
     @item = Item.find(params[:id])
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
-
+  
   def confirm
     # 購入する商品を引っ張ってきます。
     @item = Item.find(params[:id])
@@ -123,4 +138,18 @@ class ItemsController < ApplicationController
     end
   end
   
+  private
+
+  def destroy
+    @item.destroy
+  end
+
+
+  def item_params
+    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end 
 end
