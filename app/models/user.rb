@@ -15,5 +15,9 @@ class User < ApplicationRecord
   has_one :sending_destination, dependent: :destroy
   has_one :credit_card, dependent: :destroy
 
-  validates :nickname, presence: true
+  validates :nickname, :password, presence: true
+  validates :password, length: { minimum: 7 } 
+  validates :email,    uniqueness: {case_sensitive: false},
+                       format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
+
 end

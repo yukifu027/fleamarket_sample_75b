@@ -47,6 +47,9 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -83,3 +86,5 @@ gem "jquery-rails"
 group :production do
   gem 'unicorn'
 end
+
+gem 'active_hash'
