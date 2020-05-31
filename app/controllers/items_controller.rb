@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      @item.update(seller_id: current_user.id)
       redirect_to root_path
     else 
       render :new
@@ -131,7 +132,7 @@ class ItemsController < ApplicationController
             customer: Payjp::Customer.retrieve(@card.customer_id),
             currency: 'jpy'
           )
-          Item.update(buyer_id: current_user.id)
+          @item.update(buyer_id: current_user.id)
           redirect_to root_path, alert: "購入が完了しました。"
         else
           redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
