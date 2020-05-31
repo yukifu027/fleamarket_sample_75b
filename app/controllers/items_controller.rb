@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
     # 購入する商品を引っ張ってきます。
     @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
-    @image = @item.item_imgs.find(@item.id).url
+    @image = @item.item_imgs.find(@item.id).url.url
 
     # まずはログインしているか確認
     if user_signed_in?
