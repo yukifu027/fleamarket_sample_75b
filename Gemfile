@@ -82,6 +82,7 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'enum_help'
 gem "jquery-rails"
+gem 'rails-i18n'
 
 group :production do
   gem 'unicorn'

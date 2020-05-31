@@ -20,4 +20,5 @@ class User < ApplicationRecord
   validates :email,    uniqueness: {case_sensitive: false},
                        format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
 
+
 end
