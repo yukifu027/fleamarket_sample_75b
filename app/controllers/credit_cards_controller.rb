@@ -6,7 +6,7 @@ class CreditCardsController < ApplicationController
     @card = CreditCard.where(user_id: current_user.id)
     redirect_to credit_card_path(current_user.id) if @card.exists?
   end
-
+  
   def create
     # 前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)

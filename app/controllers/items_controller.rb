@@ -31,35 +31,36 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(product_params)
+    @item = Item.new(item_params)
     if @item.save
+      @item.update(seller_id: current_user.id)
       redirect_to root_path
-    else
+    else 
       render :new
     end
   end 
-
-  private
-
-  def item_params
-    params.require(:item).permit(:name, :price, images_attributes: [:src])
-  end
-
-  def destroy
-  end
 
   def show
     @item = Item.find(params[:id])
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @item.destroy
   end
 
   def confirm
     # 購入する商品を引っ張ってきます。
     @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
-    @image = @item.item_imgs.find(@item.id).url
+    @image = @item.item_imgs.find(@item.id).url.url
 
     # まずはログインしているか確認
     if user_signed_in?
@@ -131,7 +132,7 @@ class ItemsController < ApplicationController
             customer: Payjp::Customer.retrieve(@card.customer_id),
             currency: 'jpy'
           )
-          Item.update(buyer_id: current_user.id)
+          @item.update(buyer_id: current_user.id)
           redirect_to root_path, alert: "購入が完了しました。"
         else
           redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
@@ -139,5 +140,10 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
+  end
+
 end
