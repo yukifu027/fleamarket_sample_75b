@@ -1,7 +1,5 @@
 class ItemsController < ApplicationController
 
-  before_action :set_product, except: [:index, :new, :create]
-
   require "payjp"
 
   def index
@@ -52,7 +50,11 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-  
+
+  def destroy
+    @item.destroy
+  end
+
   def confirm
     # 購入する商品を引っ張ってきます。
     @item = Item.find(params[:id])
@@ -137,19 +139,10 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
   private
-
-  def destroy
-    @item.destroy
-  end
-
-
   def item_params
     params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
   end
 
-  def set_product
-    @product = Product.find(params[:id])
-  end 
 end

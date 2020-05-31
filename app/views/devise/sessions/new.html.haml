@@ -14,7 +14,7 @@
       -#   = link_to "#", class: "google__link" do
       -#     = icon('fab', 'google', class: "contents__btn--icon")
       -#   Googleでログイン
-    = form_with model: @user, url: user_session_path, class:"login__form" do |f|
+    = form_with model: @user, url: user_session_path, class:"login__form", local: true do |f|
       = render "devise/shared/error_messages", resource: resource
       .login-form
         .login-form-group
