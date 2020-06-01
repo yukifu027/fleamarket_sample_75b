@@ -105,7 +105,7 @@
           .TP-main__pickupItems__productBox__productList
             = link_to "/items/#{item.id}" do
               %figure.TP-main__pickupItems__productBox__productList__img
-                = image_tag item.item_imgs[0].url.url.to_s, alt: 'TPPickUpItem', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+                = image_tag item.item_imgs[0].url.to_s, alt: 'TPPickUpItem', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
               .TP-main__pickupItems__productBox__productList__body
                 %h3.TP-main__pickupItems__productBox__productList__name
                   = "#{item.name}"
@@ -134,7 +134,7 @@
           .TP-main__pickupItems__productBox__productList
             = link_to "/items/#{item.id}" do
               %figure.TP-main__pickupItems__productBox__productList__img
-                = image_tag item.item_imgs[0].url.url.to_s, alt: 'TPPickUpItem1', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+                = image_tag item.item_imgs[0].url.to_s, alt: 'TPPickUpItem1', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
               .TP-main__pickupItems__productBox__productList__body
                 %h3.TP-main__pickupItems__productBox__productList__name
                   = "#{item.name}"

@@ -4,7 +4,7 @@
       = "#{@item.name}"
     .detail
       .detail__picture
-        = image_tag @item.item_imgs[0].url.url.to_s, height: "200px", width: "250px", class: "camera-pic"
+        = image_tag @item.item_imgs[0].url.to_s, height: "200px", width: "250px", class: "camera-pic"
         -if @item.buyer_id.present? 
           .itemSold
             .itemSold__inner
