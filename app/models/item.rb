@@ -16,5 +16,5 @@ class Item < ApplicationRecord
   # enum trading_status: [:selling, :sold]
   
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
-
+  belongs_to :category
 end
