@@ -322,13 +322,19 @@ $text-shadow: 0 0 5px rgba(0,0,0,0.4);
         float: left;
         position: relative;
         &__img {
-          width: 220px;
           height: 150px;
           position: relative;
           overflow: hidden;
-          margin: 0;
+          margin: auto;
           z-index: auto;
           &--jpeg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: auto;
             height: 150px;
             object-fit: cover;
           }
