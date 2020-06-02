@@ -79,24 +79,28 @@ $(function() {
     $(".parents_list").append(html);
   }
 
-  $("#TPcategoryBtn").on("mouseover", function() {
+  $(".TP-header__navi__left").on("mouseenter", function() {
     $.ajax({
       type: 'GET',
-      url: '/',//とりあえずここでは、newアクションに飛ばしてます
-      // data: {parent_id: id},//どの親の要素かを送ります　params[:parent_id]で送られる
+      url: '/',
       dataType: 'json'
     })
       .done(function(parents) {
-        console.log(parents)
         $('.parent_category').remove();
         parents.forEach(function (parent) {//帰ってきた子カテゴリー（配列）
           buildParentHTML(parent);//HTMLにして
         })
-        $(".TP-header__navi__left--links").on("mouseout", function () {
-          $(".parent_category").remove();
-        });
       });
   });
+
+  $(".TP-header__navi__left").on("mouseleave", function () {
+    $(".parent_category").remove();
+  });
+
+
+
+
+
   function buildChildHTML(child){
     var html =`<a class="li child_category" id="${child.id}" 
                 href="/category/${child.id}">${child.name}</a>`;
@@ -105,13 +109,13 @@ $(function() {
 
   $(".parent_category").on("mouseover", function() {
     var id = this.id//どのリンクにマウスが乗ってるのか取得します
-    $(".now-selected-red").removeClass("now-selected-red")//赤色のcssのためです
-    $('#' + id).addClass("now-selected-red");//赤色のcssのためです
-    $(".child_category").remove();//一旦出ている子カテゴリ消します！
-    $(".grand_child_category").remove();//孫、てめえもだ！
+    // $(".now-selected-red").removeClass("now-selected-red")//赤色のcssのためです
+    // $('#' + id).addClass("now-selected-red");//赤色のcssのためです
+    // $(".child_category").remove();//一旦出ている子カテゴリ消します！
+    // $(".grand_child_category").remove();//孫、てめえもだ！
     $.ajax({
       type: 'GET',
-      url: '/category/new',//とりあえずここでは、newアクションに飛ばしてます
+      url: '/',//とりあえずここでは、newアクションに飛ばしてます
       data: {parent_id: id},//どの親の要素かを送ります　params[:parent_id]で送られる
       dataType: 'json'
     }).done(function(children) {
