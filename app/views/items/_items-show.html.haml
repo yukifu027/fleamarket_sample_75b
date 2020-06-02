@@ -4,7 +4,7 @@
       = "#{@item.name}"
     .detail
       .detail__picture
-        = image_tag @item.item_imgs.find(@item.id).url, height: "200px", width: "250px", class: "camera-pic"
+        = image_tag @item_img.find(@item.id).url, height: "200px", width: "250px", class: "camera-pic"
         -if @item.buyer_id.present? 
           .itemSold
             .itemSold__inner
@@ -43,13 +43,13 @@
         (税込)送料別
     .buy-btn
       -if user_signed_in? && current_user.id == @item.seller_id
-        = link_to "#",class: "editBtn" do
+        = link_to edit_item_path, class: "editBtn" do
           商品を編集
         = link_to "#",class: "deleteBtn" do
           商品を削除
       -else
         -if user_signed_in?
-          = link_to confirm_items_url do
+          = link_to confirm_item_path do
             %p.buyerBtn
               購入画面に進む
         -else 

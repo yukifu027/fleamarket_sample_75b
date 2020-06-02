@@ -28,10 +28,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def create
-    @item = Item.new(product_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -39,20 +40,17 @@ class ItemsController < ApplicationController
     end
   end 
 
-  private
-
-  def item_params
-    params.require(:item).permit(:name, :price, images_attributes: [:src])
-  end
-
-  def destroy
-  end
-
   def show
     @item = Item.find(params[:id])
+    @item_img = ItemImg.all
   end
 
   def update
+    item = Item.find(params[:id])
+    item.update!(item_params)
+  end
+
+  def destroy
   end
 
   def confirm
@@ -139,5 +137,9 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :introduction, :price, :prefecture_code, item_imgs_attributes: [:id, :url])
+  end
 end
