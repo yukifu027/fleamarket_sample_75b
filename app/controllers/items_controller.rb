@@ -8,9 +8,13 @@ class ItemsController < ApplicationController
     
     # Itemから未購入商品だけを取り出して配列sellingに入れる
     selling = Item.all.select { |s| s.buyer_id == nil }
+    # Îtemから購入済の商品だけを取り出して配列soldに入れる
+    sold = Item.all.select { |s| s.buyer_id != nil }
     
-    # 新着商品の最新の３つを表示
+    # 新着商品の最新の３つを取得
     @newestItems = selling.last(3)
+    # 購入済み商品の最新３つを取得
+    @soldItems = sold.last(3)
     # item_imgテーブルから上記と適した画像を取得
     @item_img = ItemImg.all
 
