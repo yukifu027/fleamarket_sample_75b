@@ -20,6 +20,11 @@ class ItemsController < ApplicationController
     random = last3deleted.shuffle
     @pickupItems = random.take(3)
 
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
   end
 
   def new
