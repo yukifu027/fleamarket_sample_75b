@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.update-contents {
+  background-color: #EEEEEE;
+  &__success {
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    font-size: 20px;
+    height: 100vh;
+    width: 700px;
+    &--letters {
+      height: 40px;
+    }
+  }
+}
+
+.linkToTop {
+  background-color: #35c8cb;
+  color: white;
+  border-radius: 4px;
+  font-style: oblique;
+  font-size: 20px;
+  margin-top: 15px;
+  padding: 7px;
+}
