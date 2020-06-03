@@ -59,15 +59,14 @@
 $(function() {
   // 親カテゴリーを追加するための処理です。
   function buildParentHTML(parent){
-    let html =`<a class="li parent_category" id="${parent.id}" 
+    var html =`<a class="li parent_category" id="${parent.id}" 
                 href="/category/${parent.id}">${parent.name}</a>`;
     $(".parents_list").append(html);
   }
-  $(".TP-header__navi__left").on("mouseenter", function() {
+  $("#TPcategoryBtn").on("mouseenter", function() {
     $.ajax({
       type: 'GET',
       url: '/',
-      // data: {parent_id: id},//どの親の要素かを送ります　params[:parent_id]で送られる
       dataType: 'json'
     })
       .done(function(parents) {
@@ -77,6 +76,7 @@ $(function() {
         })
       });
   });
+
   $(".TP-header__navi__left").on("mouseleave", function () {
     $(".parent_category").remove();
   });
@@ -99,8 +99,10 @@ $(function() {
       dataType: 'json'
     }).done(function(children) {
       children.forEach(function (child) {//帰ってきた子カテゴリー（配列）
-        var html = buildChildHTML(child);//HTMLにして
-        $(".children_list").append(html);//リストに追加します
+        if (child.id != 1){
+          var html = buildChildHTML(child);//HTMLにして
+          $(".children_list").append(html);//リストに追加します
+        }
       })
     });
   });
