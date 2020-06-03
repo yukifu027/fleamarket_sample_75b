@@ -99,7 +99,7 @@ $(function() {
       dataType: 'json'
     }).done(function(children) {
       children.forEach(function (child) {//帰ってきた子カテゴリー（配列）
-        if (child.id != 1){
+        if (child.id != 1 && child.id != 200 && child.id != 346 && child.id != 481 && child.id != 625 && child.id != 685 && child.id != 798 && child.id != 898 && child.id != 984 && child.id != 1093 && child.id != 1147 && child.id != 1207 && child.id != 1270){
           var html = buildChildHTML(child);//HTMLにして
           $(".children_list").append(html);//リストに追加します
         }
@@ -128,8 +128,10 @@ $(function() {
       dataType: 'json'
     }).done(function(children) {
       children.forEach(function (child) {//帰ってきた子カテゴリー（配列）
-        var html = buildGrandChildHTML(child);//HTMLにして
-        $(".grand_children_list").append(html);//リストに追加します
+        if (child.id != 1 && child.id != 200 && child.id != 346 && child.id != 481 && child.id != 625 && child.id != 685 && child.id != 798 && child.id != 898 && child.id != 984 && child.id != 1093 && child.id != 1147 && child.id != 1207 && child.id != 1270){
+          var html = buildGrandChildHTML(child);//HTMLにして
+          $(".grand_children_list").append(html);//リストに追加します
+        }
       })
     });
   });
