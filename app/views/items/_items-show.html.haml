@@ -14,7 +14,7 @@
             %ul.photo-inner__list
               - @item.item_imgs.each do |image|
                 %li 
-                  = image_tag image.url, class: "photo-inner__list--pics"
+                  = image_tag image.url.url, class: "photo-inner__list--pics"
       .detail__text
         %table.detailsTable
           %tr
