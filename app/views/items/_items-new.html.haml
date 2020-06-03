@@ -1,21 +1,20 @@
 .items-new
-  %section.items
+  .items
     = form_with model:@item, local:true do |f|
       .items__picture
-        .picture
+        .title
           出品画像
           %span 
             必須
-        %p 
-          最大10枚までアップロードできます
-        .camera
-          #image-box-1
-            .item-num-0#image-box__container
-              = f.fields_for :item_imgs do |i|
-                .input-area
-                  = i.file_field :url, type: 'file', name: "item[item_imgs_attributes][][url]", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    %i.fas.fa-camera
+          %p 
+            最大5枚までアップロードできます
+        .image-box
+          .item-num-0#image-box__container
+            = f.fields_for :item_imgs do |i|
+              .input-area
+                = i.file_field :url, type: 'file', name: "item[item_imgs_attributes][][url]", style: "display:none", id:"img-file"
+                %label{for: "img-file"}
+                  %i.fas.fa-camera
       .items__name
         .name
           = f.label :商品名
@@ -45,7 +44,7 @@
         .status
           = f.label :商品の状態
           %p
-            = f.select :status, [["選択してください",0],["新品・未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]],{},class: 'items__detail__select'
+            = f.select :item_condition, [["選択してください",0],["新品・未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]],{},class: 'items__detail__select'
       .items__delivery
         .title
           = link_to "#", class: "link" do
@@ -55,7 +54,7 @@
           %span
             必須
           %p
-            = f.select :fee, [["選択してください",0],["送料込み(出品者負担)",1],["着払い(購入者負担)",2]],{},class: 'items__delivery__select'
+            = f.select :postage_payer, [["選択してください",0],["送料込み(出品者負担)",1],["着払い(購入者負担)",2]],{},class: 'items__delivery__select'
         .area
           = f.label :発送元の地域
           %span
@@ -67,7 +66,7 @@
           %span
             必須
           %p
-            = f.select :day, [["選択してください",0],["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]],{},class: 'items__delivery__select'
+            = f.select :preparation_day, [["選択してください",0],["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]],{},class: 'items__delivery__select'
       .items__price
         .title
           = link_to "#", class: "link" do

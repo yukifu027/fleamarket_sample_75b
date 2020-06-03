@@ -16,7 +16,7 @@
       height: 100%;
       border-bottom: 1px dashed;
       padding: 30px;
-      .picture{
+      .title{
         font-weight: bold;
         font-size: 16px;
         padding-top: 14px;
@@ -34,12 +34,54 @@
           font-size: 14px;
           padding: 14px 0;
         }
-       .camera{
-            margin: 20px 50px;
-            padding: 30px;
-            background: rgb(230, 221, 221);
-            border-radius: 10px; 
-            text-align: center;
+      }
+      
+      .image-box{     
+        display:flex;
+        .item-image{
+          padding: 10px;}
+        .item-image__operetion{
+          color :rgb(226, 76, 79);
+        }
+        .item-num-0#image-box__container{
+          margin: 10px ;
+          padding: 20px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width:100%;
+        }
+        .item-num-1#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
+        } 
+        .item-num-2#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
+        } 
+        .item-num-3#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
+        }
+        .item-num-4#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
         }
       }
     }
