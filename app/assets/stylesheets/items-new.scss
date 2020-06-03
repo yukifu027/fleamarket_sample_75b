@@ -4,7 +4,7 @@
 
 .items-new{
   width: 100%;
-  height: 1650px;
+  height: 100%;
   background-color: #eeeeee;
   .items{
     width: 700px;
@@ -87,9 +87,9 @@
     }
     &__name{
       width: 100%;
-      height: 200px;
+      height: 100%;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .name{
         font-weight: bold;
         font-size: 16px;
@@ -127,9 +127,9 @@
     }
     &__detail{
       width: 100%;
-      height: 320px;
+      height: 100%;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .title{
         font-size: 12px;
         padding-top: 14px;
@@ -157,6 +157,15 @@
         font-weight: bold;
         font-size: 16px;
         padding-top: 14px;
+        span{
+          color: white;
+          background-color: red;
+          border-radius: 2px;
+          display: inline-block;
+          font-weight: bold;
+          line-height: 18px; 
+          margin: 0;
+        }
       }
       .items__detail__select{
         font-weight: normal;
@@ -167,9 +176,9 @@
     }
     &__delivery{
       width: 100%;
-      height: 320px;
+      height: 100;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .title{
         font-size: 12px;
         padding-top: 14px;
@@ -228,9 +237,9 @@
     }
     &__price{
       width: 100%;
-      height: 200px;
+      height: 100%;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .title{
         font-size: 12px;
         padding-top: 14px;
@@ -275,15 +284,18 @@
     }  
     &__exhibit{
       width: 100%;
-      padding: 0 30px;
-      height: 260px;
+      height: 100%;
+      padding: 20px 30px;
       .link{
         text-decoration: none;
         display: block; 
         color: white;
       }
-      .exibit-btn{
-        margin: 30px 150px;
+      .submit-btn{
+        display: block; 
+        color: white;
+        width: 400px;
+        margin: 0 auto;
         padding: 15px;
         text-align:center;
         background: #3ccace;
@@ -299,7 +311,8 @@
         border-radius: 10px; 
       }
       .back-btn{
-        margin: 15px 270px;
+        width: 100px;
+        margin: 0 auto;
         padding: 5px;
         text-align:center;
         background: black;
@@ -308,7 +321,7 @@
     }
     &__attention{
       width: 100%;
-      padding: 0 70px;
+      padding: 20px 70px;
       height: 100px;
       font-size: 13px;
     }

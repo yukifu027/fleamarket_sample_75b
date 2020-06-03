@@ -1,6 +1,9 @@
+
 .items-new
   .items
     = form_with model:@item, local:true do |f|
+      .error-message
+        = render 'layouts/error_messages', model: f.object
       .items__picture
         .title
           出品画像
@@ -10,7 +13,7 @@
             最大5枚までアップロードできます
         .image-box
           .item-num-0#image-box__container
-            = f.fields_for :item_imgs do |i|
+            = f.fields_for :item_imgs,@item.item_imgs do |i|
               .input-area
                 = i.file_field :url, type: 'file', name: "item[item_imgs_attributes][][url]", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
@@ -43,6 +46,8 @@
             = f.text_field :brand, class: 'items__detail__select', type: "text", placeholder: '例：シャネル'
         .status
           = f.label :商品の状態
+          %span
+            必須
           %p
             = f.select :item_condition, [["選択してください",0],["新品・未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]],{},class: 'items__detail__select'
       .items__delivery
@@ -92,7 +97,7 @@
             円
       .items__exhibit
         .exibit-btn
-          = f.submit "出品する",class: "link"
+          = f.submit "出品する",class: "submit-btn"
         .draft-btn
           = link_to "#",class: "link" do
             下書きに保存

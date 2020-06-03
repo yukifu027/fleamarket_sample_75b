@@ -3,12 +3,12 @@ class Item < ApplicationRecord
   # has_many :favorites
   has_many :item_imgs, dependent: :destroy
   # has_one :user_evaluation
-  belongs_to :category
+  # belongs_to :category
   # belongs_to_active_hash :size
   # belongs_to_active_hash :postage_payer
   # belongs_to_active_hash :preparation_day
   # belongs_to_active_hash :postage_type
-  belongs_to :brand
+  # belongs_to :brand
   # belongs_to :seller, class_name: "User"
   # belongs_to :buyer, class_name: "User"
 
@@ -18,6 +18,16 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
 
 
-  # validates :item_img_id, :name, :introduction, :category_id, :item_condition, :postage_payer_id, :prefecture_code, :preparation_day_id, :price, presence: true
+
+
+  validates  :item_img_ids, :name, :introduction, :prefecture_code,  :price, :postage_payer, :preparation_day, :category, :item_condition, presence: true
   
+
+
+  module BoardApp
+    class Application < Rails::Application
+      config.i18n.default_locale = :ja
+    end
+  end
+
 end
