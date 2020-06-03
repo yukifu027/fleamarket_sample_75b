@@ -1,0 +1,15 @@
+.wrapper
+  = render "/items/header"
+  .search-result 検索結果
+  %ul.content_search
+    - @items.each do |item|
+      %li.search_item
+        = link_to item_path(item.id), method: :get, class: "link__group" do
+          .item_image
+            = image_tag item.item_imgs[0].url.to_s, width: '100%',height:'100%'
+          %ul.item_title
+            %li
+              = truncate(item.name, length: 14, omission: "..")
+  = render "/items/appBanner"
+  = render "/items/footer"
+  = render "/items/purchaseBtn"
