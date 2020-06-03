@@ -14,10 +14,7 @@ class Item < ApplicationRecord
 
   # enum item_condition: [:new, :like_new, :good, :fair, :poor, :bad]
   # enum trading_status: [:selling, :sold]
-
-
-  accepts_nested_attributes_for :item_imgs
   
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
-
+  # belongs_to :category
 end

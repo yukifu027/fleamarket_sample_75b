@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -47,6 +47,9 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -79,8 +82,14 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'enum_help'
 gem "jquery-rails"
-gem "rails-i18n"
+gem 'rails-i18n'
 
 group :production do
   gem 'unicorn'
 end
+
+gem 'active_hash'
+gem 'jquery-rails'
+gem 'fog-aws'
+gem 'rails-i18n'
+gem 'ancestry'

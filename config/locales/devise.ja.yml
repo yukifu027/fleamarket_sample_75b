@@ -1,4 +1,4 @@
-ja: 
+ja:
   activerecord:
     attributes:
       user:
@@ -25,6 +25,12 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        nickname: ニックネーム
+        first_name: 名
+        last_name: 姓
+        first_name_kana: 名カナ
+        last_name_kana: 姓カナ
+        birthday: 誕生日
     models:
       user: ユーザ
   devise:

@@ -8,9 +8,13 @@ class ItemsController < ApplicationController
     
     # Itemから未購入商品だけを取り出して配列sellingに入れる
     selling = Item.all.select { |s| s.buyer_id == nil }
+    # Îtemから購入済の商品だけを取り出して配列soldに入れる
+    sold = Item.all.select { |s| s.buyer_id != nil }
     
-    # 新着商品の最新の３つを表示
+    # 新着商品の最新の３つを取得
     @newestItems = selling.last(3)
+    # 購入済み商品の最新３つを取得
+    @soldItems = sold.last(3)
     # item_imgテーブルから上記と適した画像を取得
     @item_img = ItemImg.all
 
@@ -34,8 +38,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      @item.update(seller_id: current_user.id)
       redirect_to root_path
-    else
+    else 
       render :new
     end
   end 
@@ -51,13 +56,22 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
+
+  #def destroy
+    #@item.destroy
+  #end
 
   def confirm
     # 購入する商品を引っ張ってきます。
     @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
-    @image = @item.item_imgs.find(@item.id).url
+    @image = @item.item_imgs[0].url.to_s
 
     # まずはログインしているか確認
     if user_signed_in?
@@ -129,7 +143,7 @@ class ItemsController < ApplicationController
             customer: Payjp::Customer.retrieve(@card.customer_id),
             currency: 'jpy'
           )
-          Item.update(buyer_id: current_user.id)
+          @item.update(buyer_id: current_user.id)
           redirect_to root_path, alert: "購入が完了しました。"
         else
           redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
@@ -139,7 +153,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :prefecture_code, item_imgs_attributes: [:id, :url])
+    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
   end
+
 end
