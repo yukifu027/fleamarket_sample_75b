@@ -63,9 +63,18 @@ class ItemsController < ApplicationController
     end
   end
 
-  #def destroy
-    #@item.destroy
-  #end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to delete_items_path
+    else
+      redirect_to item_path(item)
+    end
+  end
+
+  def delete
+  end
 
   def confirm
     # 購入する商品を引っ張ってきます。
