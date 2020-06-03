@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
     random = last3deleted.shuffle
     @pickupItems = random.take(3)
 
-    # @children = Category.find(params[:parent_id]).children
     respond_to do |format|
       format.html
       format.json

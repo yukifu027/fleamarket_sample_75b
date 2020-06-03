@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
 
   def set_parents
     @parents = Category.where(ancestry: nil)
+    # @children = Category.children
+    # @children = Category.find(params[:parent_id]).children
   end
 
   def basic_auth

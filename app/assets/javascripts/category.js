@@ -55,21 +55,6 @@
 //   });  
 // });
 
-// $(function(){
-//   $('.category_list').hover(function(){
-//       $("ul:not(:animated)", this).slideDown();
-//   }, function(){
-//       $("ul.parents_list",this).slideUp();
-//   });
-// });
-
-
-// $(function(){
-//   $('.TP-header__navi__left--links').on("mouseover", function(e){
-
-//   });
-// });
-
 
 $(function() {
   // 親カテゴリーを追加するための処理です。
@@ -78,11 +63,11 @@ $(function() {
                 href="/category/${parent.id}">${parent.name}</a>`;
     $(".parents_list").append(html);
   }
-
   $(".TP-header__navi__left").on("mouseenter", function() {
     $.ajax({
       type: 'GET',
       url: '/',
+      // data: {parent_id: id},//どの親の要素かを送ります　params[:parent_id]で送られる
       dataType: 'json'
     })
       .done(function(parents) {
@@ -92,27 +77,21 @@ $(function() {
         })
       });
   });
-
   $(".TP-header__navi__left").on("mouseleave", function () {
     $(".parent_category").remove();
   });
-
-
-
-
 
   function buildChildHTML(child){
     var html =`<a class="li child_category" id="${child.id}" 
                 href="/category/${child.id}">${child.name}</a>`;
     return html;
   }
-
-  $(".parent_category").on("mouseover", function() {
-    var id = this.id//どのリンクにマウスが乗ってるのか取得します
+  $(document).on("mouseenter",".parent_category", function() {
+    var id = this.id;//どのリンクにマウスが乗ってるのか取得します
     // $(".now-selected-red").removeClass("now-selected-red")//赤色のcssのためです
     // $('#' + id).addClass("now-selected-red");//赤色のcssのためです
-    // $(".child_category").remove();//一旦出ている子カテゴリ消します！
-    // $(".grand_child_category").remove();//孫、てめえもだ！
+    $(".child_category").remove();//一旦出ている子カテゴリ消します！
+    $(".grand_child_category").remove();//孫、てめえもだ！
     $.ajax({
       type: 'GET',
       url: '/',//とりあえずここでは、newアクションに飛ばしてます
@@ -125,4 +104,35 @@ $(function() {
       })
     });
   });
+  $(".TP-header__navi__left").on("mouseleave", function () {
+    $(".child_category").remove();
+  });
+
+  function buildGrandChildHTML(child){
+    var html =`<a class="li grand_child_category" id="${child.id}" 
+                href="/category/${child.id}">${child.name}</a>`;
+    return html;
+  }
+  $(document).on("mouseover",".child_category", function() {
+    var id = this.id;//どのリンクにマウスが乗ってるのか取得します
+    // $(".now-selected-red").removeClass("now-selected-red")//赤色のcssのためです
+    // $('#' + id).addClass("now-selected-red");//赤色のcssのためです
+    // $(".child_category").remove();//一旦出ている子カテゴリ消します！
+    $(".grand_child_category").remove();//孫、てめえもだ！
+    $.ajax({
+      type: 'GET',
+      url: '/',//とりあえずここでは、newアクションに飛ばしてます
+      data: {parent_id: id},//どの親の要素かを送ります　params[:parent_id]で送られる
+      dataType: 'json'
+    }).done(function(children) {
+      children.forEach(function (child) {//帰ってきた子カテゴリー（配列）
+        var html = buildGrandChildHTML(child);//HTMLにして
+        $(".grand_children_list").append(html);//リストに追加します
+      })
+    });
+  });
+  $(".TP-header__navi__left").on("mouseleave", function () {
+    $(".grand_child_category").remove();
+  });
 }); 
+
