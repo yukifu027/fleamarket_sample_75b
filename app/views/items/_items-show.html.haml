@@ -14,7 +14,7 @@
             %ul.photo-inner__list
               - @item.item_imgs.each do |image|
                 %li 
-                  = image_tag image.url, class: "photo-inner__list--pics"
+                  = image_tag image.url.url, class: "photo-inner__list--pics"
       .detail__text
         %table.detailsTable
           %tr
@@ -51,7 +51,7 @@
       -if user_signed_in? && current_user.id == @item.seller_id
         = link_to "#",class: "editBtn" do
           商品を編集
-        = link_to "#",class: "deleteBtn" do
+        = link_to item_path(@item), method: :delete, class: "deleteBtn" do
           商品を削除
       -else
         -if user_signed_in?
