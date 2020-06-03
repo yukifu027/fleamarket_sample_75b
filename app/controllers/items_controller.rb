@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -46,9 +47,15 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_img = ItemImg.all
   end
 
   def update
+    item = Item.find(params[:id])
+    item.update!(item_params)
+  end
+
+  def destroy
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -56,9 +63,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    @item.destroy
-  end
+  #def destroy
+    #@item.destroy
+  #end
 
   def confirm
     # 購入する商品を引っ張ってきます。
@@ -146,6 +153,7 @@ class ItemsController < ApplicationController
   end
 
   private
+  
   def item_params
     params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
   end

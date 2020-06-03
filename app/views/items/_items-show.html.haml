@@ -49,7 +49,7 @@
         (税込)送料別
     .buy-btn
       -if user_signed_in? && current_user.id == @item.seller_id
-        = link_to "#",class: "editBtn" do
+        = link_to edit_item_path, class: "editBtn" do
           商品を編集
         = link_to "#",class: "deleteBtn" do
           商品を削除
