@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_parents
   require "payjp"
 
   def index
@@ -23,6 +23,11 @@ class ItemsController < ApplicationController
     # リロードすると違う商品が表示されるよう、配列をシャッフル
     random = last3deleted.shuffle
     @pickupItems = random.take(3)
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
 
   end
 
