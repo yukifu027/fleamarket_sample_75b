@@ -150,14 +150,6 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-## brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|-------|
-
-### Association
-- has_many :items
 
 ## postage_payersテーブル(active_hash)
 
