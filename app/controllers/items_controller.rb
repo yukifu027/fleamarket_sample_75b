@@ -45,7 +45,8 @@ class ItemsController < ApplicationController
     if @item.save
       @item.update(seller_id: current_user.id)
       redirect_to root_path
-    else 
+    else
+      @item.item_imgs.new
       render :new
     end
   end 
@@ -169,6 +170,7 @@ class ItemsController < ApplicationController
   private
   
   def item_params
+
     params.require(:item).permit(
       :name, 
       :price, 

@@ -20,5 +20,20 @@ class Item < ApplicationRecord
   # enum trading_status: [:selling, :sold]
   
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
-  # belongs_to :category
+
+
+
+
+
+  validates  :item_img_ids, :name, :introduction, :prefecture_code,  :price, :postage_payer, :preparation_day, :category, :item_condition, presence: true
+  
+
+
+  module BoardApp
+    class Application < Rails::Application
+      config.i18n.default_locale = :ja
+    end
+  end
+
+
 end

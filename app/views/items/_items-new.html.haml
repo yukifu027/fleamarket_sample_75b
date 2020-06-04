@@ -1,21 +1,23 @@
+
 .items-new
-  %section.items
+  .items
     = form_with model:@item, local:true do |f|
+      .error-message
+        = render 'layouts/error_messages', model: f.object
       .items__picture
-        .picture
+        .title
           出品画像
           %span 
             必須
-        %p 
-          最大10枚までアップロードできます
-        .camera
-          #image-box-1
-            .item-num-0#image-box__container
-              = f.fields_for :item_imgs do |i|
-                .input-area
-                  = i.file_field :url, type: 'file', name: "item[item_imgs_attributes][][url]", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    %i.fas.fa-camera
+          %p 
+            最大5枚までアップロードできます
+        .image-box
+          .item-num-0#image-box__container
+            = f.fields_for :item_imgs,@item.item_imgs do |i|
+              .input-area
+                = i.file_field :url, type: 'file', style: "display:none", id:"img-file"
+                %label{for: "img-file"}
+                  %i.fas.fa-camera
       .items__name
         .name
           = f.label :商品名
@@ -44,7 +46,10 @@
             = f.text_field :brand, class: 'items__detail__select', type: "text", placeholder: '例：シャネル'
         .status
           = f.label :商品の状態
+          %span
+            必須
           %p
+
             = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, prompt: "--", class: 'items__delivery__select'
       .items__delivery
         .title
@@ -55,7 +60,9 @@
           %span
             必須
           %p
+
             = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name, prompt: "--", class: 'items__delivery__select'
+
         .area
           = f.label :発送元の地域
           %span
@@ -67,7 +74,9 @@
           %span
             必須
           %p
+
             = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, prompt: "--", class: 'items__delivery__select'
+
       .items__price
         .title
           = link_to "#", class: "link" do
@@ -93,7 +102,7 @@
             円
       .items__exhibit
         .exibit-btn
-          = f.submit "出品する",class: "link"
+          = f.submit "出品する",class: "submit-btn"
         .draft-btn
           = link_to "#",class: "link" do
             下書きに保存
