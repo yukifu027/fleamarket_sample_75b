@@ -100,18 +100,13 @@ Things you may want to cover:
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-<!-- |brand_id|references|foreign_key:true| -->
 |postage_payer_id|integer|null: false|
 |prefecture_code|integer|null: false|
-<!-- |size_id|references|null: false, foreign_key:true| -->
 |preparation_day_id|integer|null: false|
-<!-- |item_img_id|references|null: false, foreign_key:true| -->
 |category_id|integer|null: false|
-<!-- |trading_status|enum|null: false| -->
 |item_condition_id|integer|null: false|
 |seller_id|integer|------|
 |buyer_id|integer|-------|
-<!-- |deal_closed_date|timestamp|-------| -->
 
 ### Association
 - has_many :item_imgs, dependent: :destroy
@@ -141,11 +136,11 @@ Things you may want to cover:
 - has_many :items
 - has_ancestry
 
-## sizesテーブル(active_hash)
+## item_conditionsテーブル(active_hash)
 
 |Column|Type|Options|
 |------|----|-------|
-|size|string|null: false|
+|item_condition|string|null: false|
 
 ### Association
 - has_many :items
