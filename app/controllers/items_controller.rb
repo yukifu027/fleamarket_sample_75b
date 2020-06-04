@@ -2,6 +2,10 @@ class ItemsController < ApplicationController
 
   require "payjp"
 
+  before_action :authenticate_user!,    only:[:edit]
+  before_action :set_items,             only:[:edit]
+  before_action :item_update_params,    only:[:update]
+
   def index
 
     @items = Item.includes(:item_imgs).order('created_at DESC')
@@ -31,10 +35,6 @@ class ItemsController < ApplicationController
     @item.item_imgs.new
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
-
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -50,10 +50,31 @@ class ItemsController < ApplicationController
     @item_img = ItemImg.all
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @images = @item.item_imgs.order(id: "DESC")
+  end
+
   def update
     item = Item.find(params[:id])
     item.update!(item_params)
+
+       #もし写真がnilだったら、item_update_paramsだけ更新、showへredirect
+    # if params[:item][:item_imgs_attributes] == nil
+    #    @item.update(item_update_params)
+    #    redirect_to action: 'show'
+       #それ以外は今までデーターにあるurlを一旦削除して
+    # else
+    #   @item.url.destroy_all
+    #   if @item.update!(item_params)
+    #      redirect_to action: 'show'
+    #   else
+    #     redirect_to(edit_item_path, notice: '編集できませんでした')
+    #   end
+    # end
   end
+
+  # @item.destroy if @item.user_id == current_user.id
 
   def destroy
     if @item.update(item_params)
@@ -62,10 +83,6 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
-  #def destroy
-    #@item.destroy
-  #end
 
   def confirm
     # 購入する商品を引っ張ってきます。
@@ -155,7 +172,15 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
+    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes: [:url, :_destroy, :id])
+  end
+
+  def item_update_params
+    params.require(:item).permit(:name, :price, :prefecture_code, :introduction).merge(user_id: current_user.id)
+  end
+
+  def set_items
+    @item = Item.find(params[:id])
   end
 
 end

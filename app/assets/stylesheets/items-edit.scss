@@ -43,6 +43,7 @@
     display: flex;
     &--order {
       width: 20%;
+      position: relative;
     }
     &--pics {
       width: 100%;
@@ -50,8 +51,17 @@
       object-fit: cover;
     }
     &--delete {
-      padding-top: 3px;
+      background-color: red;
+      color: white;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      z-index: auto;
       text-align: center;
+      font-size: 18px;
+      margin: 1px;
+      padding: 2px;
+      border-radius: 4px;
     }
   }
 }

@@ -1,7 +1,7 @@
 %header.TP-header
   .TP-header__inner
     .TP-header__main
-      = link_to "/items/" do
+      = link_to root_path do
         = image_tag 'material/logo/logo.png', alt:'TopPageIcon', class: 'TP-header__main__icon'
       .TP-header__main__searchBox
         = form_with url: '#', class: 'TP-header__main__searchBox--form', local: true do |f|

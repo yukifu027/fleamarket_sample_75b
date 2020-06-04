@@ -49,19 +49,26 @@
         (税込)送料別
     .buy-btn
       -if user_signed_in? && current_user.id == @item.seller_id
-        = link_to edit_item_path, class: "editBtn" do
-          商品を編集
+        -if @item.buyer_id == nil
+          = link_to edit_item_path, class: "editBtn" do
+            商品を編集
+        -else
         = link_to "#",class: "deleteBtn" do
           商品を削除
       -else
-        -if user_signed_in?
-          = link_to confirm_item_url do
+        - if @item.buyer_id == nil
+          -if user_signed_in?
+            = link_to confirm_item_url do
+              %p.buyerBtn
+                購入画面に進む
+          -else 
+            = link_to new_user_session_path do
+              %p.buyerBtn
+                購入画面に進む
+        - else 
+          = link_to root_path do
             %p.buyerBtn
-              購入画面に進む
-        -else 
-          = link_to new_user_session_path do
-            %p.buyerBtn
-              購入画面に進む
+              トップページへ戻る
     .explanation
       %p 
         = "#{@item.introduction}"
@@ -85,10 +92,3 @@
           .btn
             = link_to "#",class: "btn" do
               コメントする
-    .contents
-      = link_to "https://www.facebook.com/", class: "contents__btn contents__btn--facebook" do
-        = icon('fab', 'facebook-square',  class: "contents__btn--icon")
-      = link_to "https://twitter.com/", class: "contents__btn contents__btn--twitter" do
-        = icon('fab', 'twitter', class: "contents__btn--icon")
-      = link_to "https://www.instagram.com/", class: "contents__btn contents__btn--instagram" do
-        = icon('fab', 'instagram', class: "contents__btn--icon")

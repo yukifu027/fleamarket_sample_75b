@@ -74,6 +74,19 @@ $(function(){
   })
 });
 
+$(function() {
+
+  $('.photo-container__list--order').click(function(){
+    $(this).css('display','none');
+  });
+
+});
+
+// $(function(){
+//   $('#photoDelete').click.(function() {
+//     $('#photoContainer').remove();
+//   });
+// });
 
 
 

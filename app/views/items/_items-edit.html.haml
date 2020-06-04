@@ -1,6 +1,6 @@
 .items-new
   .items#itemPics
-    = form_with model: @item, local: true do |f|
+    = form_with model:@item, local:true do |f|
       .items__picture#space
         .picture
           出品画像
@@ -8,7 +8,9 @@
             編集
         .note
           最大5枚までアップロードできます
-        .photo-container
+        = fields_for :item_imgs do |img|
+          = img.file_field :url
+          .photo-container
           %ul.photo-container__list
             - @item.item_imgs.each do |image|
               %li.photo-container__list--order
