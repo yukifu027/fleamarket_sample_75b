@@ -25,19 +25,19 @@ Things you may want to cover:
 
 # ユーザー系
 
-## usersテーブル ok
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true|
 
-### Association ok
+### Association
 - has_one :profile, dependent: :destroy
 - has_one :sending_destination, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 
-## profilesテーブル ok
+## profilesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -50,10 +50,10 @@ Things you may want to cover:
 |birth_day|integer|null: false|
 |user_id|references|null:false, foreign_key: true|
 
-### Association ok
+### Association
 - belongs_to :user, optional: true
 
-## sending_destinationsテーブル ok 
+## sending_destinationsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -69,11 +69,11 @@ Things you may want to cover:
 |phone_number|string|unique: true|
 |user_id|references|null: false, foreign_key :true|
 
-### Association ok
+### Association
 - belongs_to :user, optional: true
 - belongs_to_active_hash :prefecture
 
-## credit_cardsテーブル(Pay.jp) ok 
+## credit_cardsテーブル(Pay.jp)
 
 |Column|Type|Options|
 |------|----|-------|
@@ -81,7 +81,7 @@ Things you may want to cover:
 |card_id|string|-------|
 |user_id|references|null: false, foreign_key :true|
 
-### Association ok
+### Association
 - belongs_to :user, optional: true
 
 
@@ -93,7 +93,7 @@ Things you may want to cover:
 
 # 商品系
 
-## itemsテーブル ok
+## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -101,43 +101,43 @@ Things you may want to cover:
 |introduction|text|null: false|
 |price|integer|null: false|
 <!-- |brand_id|references|foreign_key:true| -->
-|postage_payer|integer|null: false|
+|postage_payer_id|integer|null: false|
 |prefecture_code|integer|null: false|
 <!-- |size_id|references|null: false, foreign_key:true| -->
-|preparation_day|integer|null: false|
+|preparation_day_id|integer|null: false|
 <!-- |item_img_id|references|null: false, foreign_key:true| -->
-|category|integer|null: false|
+|category_id|integer|null: false|
 <!-- |trading_status|enum|null: false| -->
-|item_condition|integer|null: false|
+|item_condition_id|integer|null: false|
 |seller_id|integer|------|
 |buyer_id|integer|-------|
 <!-- |deal_closed_date|timestamp|-------| -->
 
-### Association ok
+### Association
 - has_many :item_imgs, dependent: :destroy
 - belongs_to_active_hash :category
 - belongs_to_active_hash :postage_payer
 - belongs_to_active_hash :preparation_day
 - belongs_to_active_hash :item_condition
 
-## itemImgsテーブル ok
+## itemImgsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
 |url|string|null: false|
 
-### Association ok 
+### Association
 - belongs_to :item
 
-## categoriesテーブル ok
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |ancestry|string|------|
 
-### Association ok
+### Association
 - has_many :items
 - has_ancestry
 
