@@ -8,9 +8,13 @@ class ItemsController < ApplicationController
     
     # Itemから未購入商品だけを取り出して配列sellingに入れる
     selling = Item.all.select { |s| s.buyer_id == nil }
+    # Îtemから購入済の商品だけを取り出して配列soldに入れる
+    sold = Item.all.select { |s| s.buyer_id != nil }
     
-    # 新着商品の最新の３つを表示
+    # 新着商品の最新の３つを取得
     @newestItems = selling.last(3)
+    # 購入済み商品の最新３つを取得
+    @soldItems = sold.last(3)
     # item_imgテーブルから上記と適した画像を取得
     @item_img = ItemImg.all
 
@@ -33,6 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -47,9 +52,15 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_img = ItemImg.all
   end
 
   def update
+    item = Item.find(params[:id])
+    item.update!(item_params)
+  end
+
+  def destroy
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -57,8 +68,17 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def destroy
-    @item.destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to delete_items_path
+    else
+      redirect_to item_path(item)
+    end
+  end
+
+  def delete
   end
 
   def confirm
@@ -147,8 +167,18 @@ class ItemsController < ApplicationController
   end
 
   private
+  
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes:  [:url, :_destroy, :id])
+    params.require(:item).permit(
+      :name, 
+      :price, 
+      :prefecture_code, 
+      :introduction, 
+      :postage_payer_id, 
+      :preparation_day_id,
+      :category_id, 
+      :item_condition_id, 
+      item_imgs_attributes:  [:url, :_destroy, :id])
   end
 
 end

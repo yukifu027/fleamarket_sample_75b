@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       get 'confirm'
       post 'pay'
     end
+    collection do
+      get 'delete'
+    end
   end
   resources :credit_cards
 end
