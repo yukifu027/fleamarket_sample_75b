@@ -25,27 +25,19 @@ Things you may want to cover:
 
 # ユーザー系
 
-## usersテーブル
+## usersテーブル ok
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true|
 
-### Association
-- has_many :comments, dependent: :destroy
-- has_many :favorites, dependent: :destroy
-- has_many :todo_lists
-- has_many :user_evaluations
-- has_many :seller_items, foreign_key: "seller_id", class_name: "items"
-- has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
-- has_one :point
+### Association ok
 - has_one :profile, dependent: :destroy
-- has_one :sns_authentication, dependent: :destroy
 - has_one :sending_destination, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 
-## profilesテーブル
+## profilesテーブル ok
 
 |Column|Type|Options|
 |------|----|-------|
@@ -53,17 +45,15 @@ Things you may want to cover:
 |family_name|string|null: false|
 |first_name_kana|string|null: false|
 |family_name_kana|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
-|introduction|text|-------|
-|avatar|text|-------|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 |user_id|references|null:false, foreign_key: true|
 
-### Association
-- belongs_to :user
+### Association ok
+- belongs_to :user, optional: true
 
-## sending_destinationsテーブル
+## sending_destinationsテーブル ok 
 
 |Column|Type|Options|
 |------|----|-------|
@@ -79,137 +69,77 @@ Things you may want to cover:
 |phone_number|string|unique: true|
 |user_id|references|null: false, foreign_key :true|
 
-### Association
-- belongs_to :user
-- Gem: jp_prefectureを使用して都道府県コードを取得
+### Association ok
+- belongs_to :user, optional: true
+- belongs_to_active_hash :prefecture
 
-## credit_cardsテーブル(Pay.jp)
+## credit_cardsテーブル(Pay.jp) ok 
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
+|customer_id|string|-------|
+|card_id|string|-------|
 |user_id|references|null: false, foreign_key :true|
 
-### Association
-- belongs_to :user
+### Association ok
+- belongs_to :user, optional: true
 
-## user_evaluationsテーブル
 
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
-|evaluation_id|references|null: false, foreign_key: true|
-|review|text|null: false|
 
-### Association
-- belongs_to :item
-- belongs_to :user
-- belongs_to_active_hash :evaluation
 
-## evaluationsテーブル(active_hash)
-
-|Column|Type|Options|
-|------|----|-------|
-|evaluation|string|null: false|
-
-### Association
-- has_many :user_evaluations
-
-## sns_authenticationsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|provider|string|null: false|
-|uid|string|null: false, unique: true|
-|token|text|-------|
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-
-## todo_listsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|list|text|null: false|
-
-### Association
-- belongs_to :user
-
-## pointsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|point|integer|-------|
-
-### Association
-- belongs_to :user
 
 
 
 
 # 商品系
 
-## itemsテーブル
+## itemsテーブル ok
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|brand_id|references|_key:true|
-|postage_payer_id|references|null: false, foreign_key:true|
+<!-- |brand_id|references|foreign_key:true| -->
+|postage_payer|integer|null: false|
 |prefecture_code|integer|null: false|
-|size_id|references|null: false, foreign_key:true|
-|preparation_day_id|references|null: false, foreign_key:true|
-|item_img_id|references|null: false, foreign_key:true|
-|category_id|references|null: false, foreign_key:true|
-|trading_status|enum|null: false|
-|item_condition|enum|null: false|
-|seller_id|references|null: false, foreign_key:true|
-|buyer_id|references|foreign_key:true|
-|deal_closed_date|timestamp|-------|
+<!-- |size_id|references|null: false, foreign_key:true| -->
+|preparation_day|integer|null: false|
+<!-- |item_img_id|references|null: false, foreign_key:true| -->
+|category|integer|null: false|
+<!-- |trading_status|enum|null: false| -->
+|item_condition|integer|null: false|
+|seller_id|integer|------|
+|buyer_id|integer|-------|
+<!-- |deal_closed_date|timestamp|-------| -->
 
-### Association
-- has_many :comments, dependent: :destroy
-- has_many :favorites
+### Association ok
 - has_many :item_imgs, dependent: :destroy
-- has_one :user_evaluation
-- belongs_to :category
-- belongs_to_active_hash :size
+- belongs_to_active_hash :category
 - belongs_to_active_hash :postage_payer
 - belongs_to_active_hash :preparation_day
-- belongs_to_active_hash :postage_type
-- belongs_to :brand
-- belongs_to :seller, class_name: "User"
-- belongs_to :buyer, class_name: "User"
-- Gem: jp_prefectureを使用して都道府県コードを取得
+- belongs_to_active_hash :item_condition
 
-## itemImgsテーブル
+## itemImgsテーブル ok
 
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
 |url|string|null: false|
 
-### Association
+### Association ok 
 - belongs_to :item
 
-## categoriesテーブル
+## categoriesテーブル ok
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null: false|
+|ancestry|string|------|
 
-### Association
+### Association ok
 - has_many :items
+- has_ancestry
 
 ## sizesテーブル(active_hash)
 
@@ -255,33 +185,3 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-
-
-
-
-# 中間テーブル
-
-## favoritesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :user
-
-
-## commentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
-|comment|text|null: false|
-|created_at|timestamp|null: false|
-
-### Association
-- belongs_to :item
-- belongs_to :user
