@@ -88,6 +88,7 @@ class ItemsController < ApplicationController
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
     @image = @item.item_imgs[0].url.to_s
     @sending_destination = SendingDestination.find_by(user_id: current_user.id)
+    @prefecture = Prefecture.find_by_id @sending_destination.prefecture_code
 
     # まずはログインしているか確認
     if user_signed_in?

@@ -56,7 +56,9 @@
       .address
         = "〒#{@sending_destination.post_code}"
         %br
-        = "東京都 #{@sending_destination.city} #{@sending_destination.house_number} #{@sending_destination.building_name}"
+        %br
+        = "#{@prefecture.name} #{@sending_destination.city} #{@sending_destination.house_number} #{@sending_destination.building_name}"
+        %br
         %br
         = "#{@sending_destination.destination_first_name} #{@sending_destination.destination_family_name}"
     .confirm__buy
