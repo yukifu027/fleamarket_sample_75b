@@ -37,7 +37,7 @@
           %span
             必須
           %p
-            = f.collection_select :category_category, Category.where(ancestry: nil), :id, :name, prompt: "--", class: 'items__delivery__select'
+            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, prompt: "--", class: 'items__delivery__select'
         .brand
           = f.label :ブランド
           %p
@@ -68,7 +68,6 @@
             必須
           %p
             = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, prompt: "--", class: 'items__delivery__select'
-            -# = f.select :day, [["選択してください",0],["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]],{},class: 'items__delivery__select'
       .items__price
         .title
           = link_to "#", class: "link" do

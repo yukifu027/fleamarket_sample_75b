@@ -11,5 +11,4 @@ class Category < ApplicationRecord
         {category: 13, name: 'その他'}
     ]
   end
-  
 end

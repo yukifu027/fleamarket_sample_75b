@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 2020_06_03_062530) do
     t.datetime "updated_at", null: false
     t.integer "buyer_id"
     t.integer "seller_id"
-    t.integer "postage_payer", null: false
-    t.integer "preparation_day", null: false
-    t.integer "category", null: false
-    t.integer "item_condition", null: false
+    t.integer "postage_payer_id", null: false
+    t.integer "preparation_day_id", null: false
+    t.integer "category_id", null: false
+    t.integer "item_condition_id", null: false
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
