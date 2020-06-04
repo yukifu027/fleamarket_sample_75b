@@ -163,7 +163,7 @@ Things you may want to cover:
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|brand_id|references|foreign_key:true|
+|brand_id|references|_key:true|
 |postage_payer_id|references|null: false, foreign_key:true|
 |prefecture_code|integer|null: false|
 |size_id|references|null: false, foreign_key:true|

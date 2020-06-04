@@ -11,11 +11,16 @@ class Item < ApplicationRecord
   # belongs_to :brand
   # belongs_to :seller, class_name: "User"
   # belongs_to :buyer, class_name: "User"
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :preparation_day
+  belongs_to_active_hash :postage_payer
+  belongs_to_active_hash :item_condition
+  belongs_to_active_hash :category
   # enum item_condition: [:new, :like_new, :good, :fair, :poor, :bad]
   # enum trading_status: [:selling, :sold]
   
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
+
 
 
 
@@ -29,5 +34,6 @@ class Item < ApplicationRecord
       config.i18n.default_locale = :ja
     end
   end
+
 
 end

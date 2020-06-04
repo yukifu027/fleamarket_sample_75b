@@ -4,18 +4,24 @@
       = "#{@item.name}"
     .detail
       .detail__picture
-        = image_tag @item.item_imgs[0].url.to_s, height: "200px", width: "250px", class: "camera-pic"
-        -if @item.buyer_id.present? 
-          .itemSold
-            .itemSold__inner
-              SOLD
+        %ul.photo-inner
+          %li
+            = image_tag @item.item_imgs.first.url.to_s, class: "photo-inner__main"
+            -if @item.buyer_id.present? 
+              .itemSold
+                .itemSold__inner
+                  SOLD
+            %ul.photo-inner__list
+              - @item.item_imgs.each do |image|
+                %li 
+                  = image_tag image.url.url, class: "photo-inner__list--pics"
       .detail__text
-        %table
+        %table.detailsTable
           %tr
             %td 出品者
             %td 
               = link_to "#", class: "link" do
-                おいも
+                Ron-Jeff
           %tr
             %td カテゴリー
             %td
@@ -23,7 +29,7 @@
                 インテリア・住まい・小物
           %tr
             %td ブランド
-            %td シャネル
+            %td 75-b
           %tr
             %td 商品の状態：
             %td 少し汚れあり
@@ -43,9 +49,9 @@
         (税込)送料別
     .buy-btn
       -if user_signed_in? && current_user.id == @item.seller_id
-        = link_to "#",class: "editBtn" do
+        = link_to edit_item_path, class: "editBtn" do
           商品を編集
-        = link_to "#",class: "deleteBtn" do
+        = link_to item_path(@item), method: :delete, class: "deleteBtn" do
           商品を削除
       -else
         -if user_signed_in?
