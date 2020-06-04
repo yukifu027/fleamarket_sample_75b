@@ -15,7 +15,7 @@
           .item-num-0#image-box__container
             = f.fields_for :item_imgs,@item.item_imgs do |i|
               .input-area
-                = i.file_field :url, type: 'file', name: "item[item_imgs_attributes][][url]", style: "display:none", id:"img-file"
+                = i.file_field :url, type: 'file', style: "display:none", id:"img-file"
                 %label{for: "img-file"}
                   %i.fas.fa-camera
       .items__name
