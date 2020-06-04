@@ -79,3 +79,159 @@
     left: 36px;
   }
 }
+
+.itemsEdit {
+  display: block;
+  &__mainContainer {
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+    .inner {
+      padding: 32px 16px;
+      font-size: 22px;
+      text-align: center;
+      border-bottom: 1px;
+      &__head {
+        font-weight: bold;
+        line-height: 1.5;
+      }
+    }
+    .edit-form {
+      border-top: 1px solid #eee;
+      padding: 0 40px;
+      &__photo {
+        width: 620px;
+        padding: 40px;
+        &--head {
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &--must {
+          background-color: red;
+          color: white;
+          margin-left: 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          font-size: 12px;
+          vertical-align: top;
+        }
+        &--text {
+          margin: 7px 0;
+        }
+        &--upload {
+          display: block;
+          width: 620px;
+          display: flex;
+          .preview-box {
+            margin-right: 5px;
+            width: 20%;
+            &__upper {
+              width: 100%;
+              height: 124px;
+            }
+            &__lower {
+              width: 92%;
+              display: flex;
+              &--btn {
+                display: inline-block;
+                width: 50%;
+                background-color: #35c8cb;
+                color: white;
+                line-height: 44px;
+                text-align: center;
+                border: 1px solid #eee;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__container {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    .moreInfo {
+      color: #35c8cb;
+      font-weight: bold;
+      padding-left: 40px;
+      text-decoration: underline;
+      font-style: italic;
+    }
+    .container-display {
+      padding: 10px 40px;
+      margin-bottom: 5px;
+      label {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__text {
+        width: 100%;
+        height: 40px;
+        margin-top: 5px;
+        padding: 10px;
+        &--price {
+          width: 95%;
+          height: 40px;
+          margin-top: 5px;
+          padding: 10px;
+        }
+      }
+      .otherPrice {
+        display: flex;
+        justify-content: space-between;
+        .charge {
+          text-align: center;
+          padding: 0 20px;
+          &__title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          &__value {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  .container-save {
+    text-align: center;
+    height: 75px;
+    margin-bottom: 10px;
+    &__btn {
+      margin: 10px 0;
+      padding: 8px;
+      width: 70%;
+      background: #35c8cb;
+      color: white;
+      border-bottom: solid 5px #146d6c;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    &__btn2 {
+      margin: 10px 0;
+      padding: 7px 35px;
+      width: 90px;
+      background: black;
+      color: white;
+      border-bottom: solid 5px gray;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+  }
+} 
+
+#yen {
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+}
+
+#gain {
+  padding-right: 50px;
+}
+
+#gainTotal {
+  font-weight: bolder;
+  border-bottom: 4px red solid;
+}

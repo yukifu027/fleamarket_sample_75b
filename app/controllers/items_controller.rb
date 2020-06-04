@@ -52,12 +52,12 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @images = @item.item_imgs.order(id: "DESC")
+    # @images = @item.item_imgs.order(id: "DESC")
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update!(item_params)
+    @item = Item.find(params[:id])
+    @item.update(item_params)
 
        #もし写真がnilだったら、item_update_paramsだけ更新、showへredirect
     # if params[:item][:item_imgs_attributes] == nil
@@ -172,7 +172,7 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, item_imgs_attributes: [:url, :_destroy, :id])
+    params.require(:item).permit(:name, :price, :prefecture_code, :introduction, [item_imgs_attributes: [:url, :_destroy, :id]])
   end
 
   def item_update_params
