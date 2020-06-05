@@ -15,32 +15,32 @@
             - @item.item_imgs.each do |image|
               .preview-box
                 .preview-box__upper
-                  = image_tag image.url.url, width: "112", height: "112", alt: "preview"
+                  = image_tag image.url.url, width: "119", height: "112", alt: "preview", id: "arrangePhotoSize"
                 .preview-box__lower
-                  .preview-box__lower--btn
-                    .edit-btn 
-                      %span 編集
-                  .preview-box__lower--btn
-                    .delete-btn
-                      %span 削除
+                  .preview-box__lower__btns
+                    .preview-box__lower__btns--edit
+                      .edit-btn
+                        %span 編集                    
+                    .preview-box__lower__btns--delete
+                      .delete-btn
+                        %span 削除
           .label-content
-
             //プレビューの数に合わせてforオプションを指定
-            = f.label :"item_imgs_attributes_#{@item.item_imgs.length}_image", class: "label-box", id: "label-box--#{@item.item_imgs.length}" do
+            = f.label :"item_imgs_attributes_#{@item.item_imgs.length}_url", class: "label-box", id: "label-box--#{@item.item_imgs.length}" do
               %pre.label-box__text-visible 
                 %i.fas.fa-camera
                   %p.fa-camera__text 
                     写真を追加
           .hidden-content
-            = f.fields_for :images do |i|
-
+            = f.fields_for :item_imgs do |i|
               //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
-              = i.file_field :image, class: "hidden-field"
-              = i.check_box:_destroy, class: "hidden-checkbox"
-
+              = i.file_field :url, class: "hidden-field"
+              = i.check_box :_destroy, class: "hidden-checkbox"
               //5つのfile_fieldを準備するに当たって、足りない分を表示
-            - @item.item_imgs.length.upto(3) do |i|
-              %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+            - @item.item_imgs.length.upto(4) do |i|
+              %input{name: "item[item_imgs_attributes][#{i}][url]", id: "item_imgs_attributes_#{i}_url", class:"hidden-field", type:"file"}
+
+
         .itemsEdit__container
           .container-display
             = f.label :商品名
