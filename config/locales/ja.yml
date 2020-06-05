@@ -1,4 +1,19 @@
-ja: 
+ja:
+  activerecord:
+    models:
+      item:           
+    attributes:
+      item:
+        item_img_ids: 商品画像
+        name: 商品名
+        introduction: 商品の説明
+        price: 価格
+        prefecture_code: 発送元の地域
+        postage_payer: 配送料の負担
+        preparation_day: 発送までの日数
+        category: カテゴリー
+        item_condition: 商品の状態
+
   enum:
     item:
       item_condition:
