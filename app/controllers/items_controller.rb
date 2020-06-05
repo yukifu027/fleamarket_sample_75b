@@ -54,12 +54,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_img = ItemImg.all
-    @user = User.find_by_id @item.seller_id
-    @category = Category.find_by_id @item.category_id
-    @item_condition = ItemCondition.find_by_id @item.item_condition_id
-    @postage_payer = PostagePayer.find_by_id @item.postage_payer_id
-    @prefecture = Prefecture.find_by_id @item.prefecture_code
-    @preparation_day = PreparationDay.find_by_id @item.preparation_day_id
   end
 
   def update
