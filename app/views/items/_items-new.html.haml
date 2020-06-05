@@ -1,21 +1,23 @@
+
 .items-new
-  %section.items
+  .items
     = form_with model:@item, local:true do |f|
+      .error-message
+        = render 'layouts/error_messages', model: f.object
       .items__picture
-        .picture
+        .title
           出品画像
           %span 
             必須
-        %p 
-          最大10枚までアップロードできます
-        .camera
-          #image-box-1
-            .item-num-0#image-box__container
-              = f.fields_for :item_imgs do |i|
-                .input-area
-                  = i.file_field :url, type: 'file', name: "item[item_imgs_attributes][][url]", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    %i.fas.fa-camera
+          %p 
+            最大5枚までアップロードできます
+        .image-box
+          .item-num-0#image-box__container
+            = f.fields_for :item_imgs,@item.item_imgs do |i|
+              .input-area
+                = i.file_field :url, type: 'file', style: "display:none", id:"img-file"
+                %label{for: "img-file"}
+                  %i.fas.fa-camera
       .items__name
         .name
           = f.label :商品名
@@ -37,15 +39,18 @@
           %span
             必須
           %p
-            = f.select :category, [["選択してください",0],["レディース",1],["メンズ",2],["ベビー・キッズ",3],["インテリア・住まい・小物",4],["本・音楽・ゲーム",5],["おもちゃ・ホビー・グッズ",6],["コスメ・香水・美容",7],["家電・スマホ・カメラ",8],["スポーツ・レジャー",9],["ハンドメイド",10],["チケット",11],["自動車・オートバイ",12],["その他",13]],{},class: 'items__detail__select'
+            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, prompt: "--", class: 'items__delivery__select'
         .brand
           = f.label :ブランド
           %p
             = f.text_field :brand, class: 'items__detail__select', type: "text", placeholder: '例：シャネル'
         .status
           = f.label :商品の状態
+          %span
+            必須
           %p
-            = f.select :status, [["選択してください",0],["新品・未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]],{},class: 'items__detail__select'
+
+            = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, prompt: "--", class: 'items__delivery__select'
       .items__delivery
         .title
           = link_to "#", class: "link" do
@@ -55,19 +60,23 @@
           %span
             必須
           %p
-            = f.select :fee, [["選択してください",0],["送料込み(出品者負担)",1],["着払い(購入者負担)",2]],{},class: 'items__delivery__select'
+
+            = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name, prompt: "--", class: 'items__delivery__select'
+
         .area
           = f.label :発送元の地域
           %span
             必須
           %p
-            = f.select :prefecture_code, [["選択してください",0],["北海道",1],["青森県",2],["岩手県",3],["宮城県",4],["秋田県",5],["山形県",6],["福島県",7],["茨城県",8],["栃木県",9],["群馬県",10],["埼玉県",11],["千葉県",12],["東京都",13],["神奈川県",14],["新潟県",15],["富山県",16],["石川県",17],["福井県",18],["山梨県",19],["長野県",20],["岐阜県",21],["静岡県",22],["愛知県",23],["三重県",24],["滋賀県",25],["京都府",26],["大阪府",27],["兵庫県",28],["奈良県",29],["和歌山県",30],["鳥取県",31],["島根県",32],["岡山県",33],["広島県",34],["山口県",35],["徳島県",36],["香川県",37],["愛媛県",38],["高知県",39],["福岡県",40],["佐賀県",41],["長崎県",42],["熊本県",43],["大分県",44],["宮崎県",45],["鹿児島県",46],["沖縄県",47],["未定",48]],{},class: 'items__delivery__select'
+            = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--", class: 'items__delivery__select'
         .day
           = f.label :発送までの日数
           %span
             必須
           %p
-            = f.select :day, [["選択してください",0],["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]],{},class: 'items__delivery__select'
+
+            = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, prompt: "--", class: 'items__delivery__select'
+
       .items__price
         .title
           = link_to "#", class: "link" do
@@ -93,7 +102,7 @@
             円
       .items__exhibit
         .exibit-btn
-          = f.submit "出品する",class: "link"
+          = f.submit "出品する",class: "submit-btn"
         .draft-btn
           = link_to "#",class: "link" do
             下書きに保存

@@ -6,13 +6,11 @@
   background-color: #35c8cb;
   text-decoration: none;
   color: white;
-  padding: 3px 20px;
-  border-radius: 10px;
-  font-size: 30px;
+  padding: 13px 60px;
+  // border-radius: 5px;
+  font-size: 13px;
   font-weight: bold;
 }
-
-
 
 .items-show{
   width: 100%;	  
@@ -252,8 +250,8 @@
 
 .buyerBtn {
   @include sellerBtn;
-  font-size: 30px;
-  padding: 10px 0;
+  // font-size: 30px;
+  // padding: 10px 0;
 }
 
 .editSpan {

@@ -1,4 +1,5 @@
 @import "reset";
+@import "config/background-color";
 @import "confirm-main";
 @import "confirm-new-login-header";
 @import "confirm-new-login-footer";
@@ -10,7 +11,10 @@
 @import "items-show";
 @import "users";
 @import "credit_cards.scss";
+@import "error_messages";
 @import "items-destroy";
 @import "items-update";
 @import "items-edit";
+@import "category";
 @import "search";
+
