@@ -6,8 +6,7 @@
       .TP-header__main__searchBox
         = form_with url: items_searches_path, class: 'TP-header__main__searchBox--form', method: :get, local: true do |f|
           = f.text_field :keyword, placeholder: 'キーワードから探す', rows: '1', class: 'TP-header__main__searchBox--textfield'
-          = f.submit class: 'TP-header__main__searchBox--button'
-          = image_tag 'material/icon/icon-search 1.png', alt: 'SearchIcon', class: 'TP-header__main__searchBox--icon2'
+          = f.submit value: "",class: 'TP-header__main__searchBox--button'
     .TP-header__navi
       %ul.TP-header__navi__left
         %li
