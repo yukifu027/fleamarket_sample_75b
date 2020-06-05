@@ -1,0 +1,31 @@
+.search-result {
+  font-size: 20px;
+  font-weight: bold;
+  width: 100vw;
+  background-color: #f3f3f3;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+.TP-main__pickupItems__productBox.search_box{
+  height: 100%;
+  overflow: scroll;
+  margin: 0 auto;
+
+  .TP-main__pickupItems__productBox__productLists {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .TP-main__pickupItems__productBox__productList {
+      margin: 30px 0 40px 80px;
+      width: 220px;
+    }
+  }
+}
+.pagenate-box {
+  font-size: 20px;
+  width: 100vw;
+  height: 50px;
+  text-align: center;
+}

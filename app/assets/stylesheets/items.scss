@@ -54,6 +54,8 @@ $text-shadow: 0 0 5px rgba(0,0,0,0.4);
         height: 35px;
         padding-left: 5px;
         line-height: 25px;
+        border: solid 1px;
+        border-right: none;
       }
       &--button {
         width: 36px;
@@ -62,15 +64,13 @@ $text-shadow: 0 0 5px rgba(0,0,0,0.4);
         padding: 8px;
         height: 35px;
         position: relative;
-      }
-      &--icon2 {
-        background-color: $main-color;
-        height: 35px;
-        width: 37px;
-        padding: 8px;
-        position: absolute;
-        top: 0;
-        right: 0;
+        background-image: image-url('material/icon/icon-search1.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px 20px;
+        color: transparent;
+        font-size: 0;
+        cursor: pointer;
       }
     }
   }

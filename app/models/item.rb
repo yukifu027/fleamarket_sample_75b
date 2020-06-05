@@ -20,20 +20,12 @@ class Item < ApplicationRecord
   # enum trading_status: [:selling, :sold]
   
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
-
-
-
-
-
-  validates  :item_img_ids, :name, :introduction, :prefecture_code,  :price, :postage_payer, :preparation_day, :category, :item_condition, presence: true
-  
-
-
-  module BoardApp
-    class Application < Rails::Application
-      config.i18n.default_locale = :ja
+  def self.search(search)
+    if search
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
     end
   end
-
-
+  validates  :item_img_ids, :name, :introduction, :prefecture_code,  :price, :postage_payer, :preparation_day, :category, :item_condition, presence: true
 end
