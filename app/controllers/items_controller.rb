@@ -1,10 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_parents
-  require "payjp"
 
+  before_action :set_parents
   before_action :authenticate_user!,    only:[:edit]
-  before_action :set_items,             only:[:edit]
-  before_action :item_update_params,    only:[:update]
+  before_action :set_items,             except:[:index, :new]
+  require "payjp"
 
   def index
 
@@ -41,7 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
     if @item.save
       @item.update(seller_id: current_user.id)
       redirect_to root_path
@@ -52,7 +50,6 @@ class ItemsController < ApplicationController
   end 
 
   def show
-    @item = Item.find(params[:id])
     @item_img = ItemImg.all
     @user = User.find_by_id @item.seller_id
     @category = Category.find_by_id @item.category_id
@@ -63,30 +60,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    # @images = @item.item_imgs.order(id: "DESC")
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.update(item_params)
-
-       #もし写真がnilだったら、item_update_paramsだけ更新、showへredirect
-    # if params[:item][:item_imgs_attributes] == nil
-    #    @item.update(item_update_params)
-    #    redirect_to action: 'show'
-       #それ以外は今までデーターにあるurlを一旦削除して
-    # else
-    #   @item.url.destroy_all
-    #   if @item.update!(item_params)
-    #      redirect_to action: 'show'
-    #   else
-    #     redirect_to(edit_item_path, notice: '編集できませんでした')
-    #   end
-    # end
+    if @item.update(item_params)
+      redirect_to root_path 
+    else
+      render :edit
+    end
   end
-
-  # @item.destroy if @item.user_id == current_user.id
 
   def destroy
     if @item.update(item_params)
@@ -97,7 +79,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to delete_items_path
     else
@@ -109,8 +90,6 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-    # 購入する商品を引っ張ってきます。
-    @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
     @image = @item.item_imgs[0].url.to_s
     @sending_destination = SendingDestination.find_by(user_id: current_user.id)
@@ -163,9 +142,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:id])
-    # @images = @item.images.all
-
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
     # (２重で決済されることを防ぐ)
     if @item.buyer_id.present?
@@ -196,6 +172,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_items
+    @item = Item.find(params[:id])
+  end
   
   def item_params
     params.require(:item).permit(
