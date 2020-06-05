@@ -21,32 +21,27 @@
             %td 出品者
             %td 
               = link_to "#", class: "link" do
-                = @user.nickname
+                Ron-Jeff
           %tr
             %td カテゴリー
             %td
               = link_to "#", class: "link" do
-                = @category.name
+                インテリア・住まい・小物
           %tr
             %td ブランド
-            %td 
-              = @item.brand
+            %td 75-b
           %tr
             %td 商品の状態：
-            %td 
-              = @item_condition.name
+            %td 少し汚れあり
           %tr
             %td 配送料の負担
-            %td 
-              = @postage_payer.name
+            %td 着払い(購入者負担)
           %tr
             %td 発送元の地域
-            %td 
-              = @prefecture.name
+            %td 東京都
           %tr
             %td 発送までの日数
-            %td 
-              = @preparation_day.name
+            %td ４〜７日で発送
     .price
       .price__pay
         = "#{@item.price}円"
