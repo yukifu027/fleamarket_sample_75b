@@ -5,7 +5,7 @@
     .TP-main__pickupItems__productBox__productLists
       - @items.each do |item|
         .TP-main__pickupItems__productBox__productList
-          = link_to "/items/#{item.id}" do
+          = link_to item_path(item.id) do
             %figure.TP-main__pickupItems__productBox__productList__img
               = image_tag item.item_imgs[0].url.to_s, alt: 'TPPickUpItem', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
             .TP-main__pickupItems__productBox__productList__body
