@@ -143,7 +143,7 @@ class ItemsController < ApplicationController
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
     # (２重で決済されることを防ぐ)
     if @item.buyer_id.present?
-      redirect_to item_path(@item.id), alert: "売り切れています。"
+      redirect_to item_path(@item.id), alert: "売り切れています"
     else
       # 同時に2人が同時に購入し、二重で購入処理がされることを防ぐための記述
       @item.with_lock do
@@ -161,9 +161,9 @@ class ItemsController < ApplicationController
             currency: 'jpy'
           )
           @item.update(buyer_id: current_user.id)
-          redirect_to root_path, alert: "購入が完了しました。"
+          redirect_to root_path, alert: "購入が完了しました"
         else
-          redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
+          redirect_to item_path(@item.id), alert: "マイページからクレジットカードを登録してください"
         end
       end
     end

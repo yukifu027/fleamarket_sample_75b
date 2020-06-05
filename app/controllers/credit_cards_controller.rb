@@ -87,7 +87,7 @@ class CreditCardsController < ApplicationController
       @card.delete
       # 削除が完了しているか判断
       if @card.destroy
-        redirect_to new_credit_card_path
+        redirect_to new_credit_card_path, notice: '削除されました'
       else
         # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
         redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
