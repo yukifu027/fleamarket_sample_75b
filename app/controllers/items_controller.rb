@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_parents
   before_action :authenticate_user!,    only:[:edit]
-  before_action :set_items,             except:[:index, :new]
+  before_action :set_items,             except:[:index, :new, :create]
   require "payjp"
 
   def index
@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(item_params)
     if @item.save
       @item.update(seller_id: current_user.id)
       redirect_to root_path
