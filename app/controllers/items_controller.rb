@@ -54,6 +54,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_img = ItemImg.all
+    @user = User.find_by_id @item.seller_id
+    @category = Category.find_by_id @item.category_id
+    @item_condition = ItemCondition.find_by_id @item.item_condition_id
+    @postage_payer = PostagePayer.find_by_id @item.postage_payer_id
+    @prefecture = Prefecture.find_by_id @item.prefecture_code
+    @preparation_day = PreparationDay.find_by_id @item.preparation_day_id
   end
 
   def update
@@ -87,6 +93,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
     @image = @item.item_imgs[0].url.to_s
+    @sending_destination = SendingDestination.find_by(user_id: current_user.id)
+    @prefecture = Prefecture.find_by_id @sending_destination.prefecture_code
 
     # まずはログインしているか確認
     if user_signed_in?
@@ -141,7 +149,7 @@ class ItemsController < ApplicationController
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
     # (２重で決済されることを防ぐ)
     if @item.buyer_id.present?
-      redirect_to item_path(@item.id), alert: "売り切れています。"
+      redirect_to item_path(@item.id), alert: "売り切れています"
     else
       # 同時に2人が同時に購入し、二重で購入処理がされることを防ぐための記述
       @item.with_lock do
@@ -159,9 +167,9 @@ class ItemsController < ApplicationController
             currency: 'jpy'
           )
           @item.update(buyer_id: current_user.id)
-          redirect_to root_path, alert: "購入が完了しました。"
+          redirect_to root_path, alert: "購入が完了しました"
         else
-          redirect_to item_path(@item.id), alert: "クレジットカードを登録してください"
+          redirect_to item_path(@item.id), alert: "マイページからクレジットカードを登録してください"
         end
       end
     end
