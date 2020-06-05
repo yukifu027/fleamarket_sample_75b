@@ -1,15 +1,30 @@
 .wrapper
   = render "/items/header"
   .search-result 検索結果
-  %ul.content_search
-    - @items.each do |item|
-      %li.search_item
-        = link_to item_path(item.id), method: :get, class: "link__group" do
-          .item_image
-            = image_tag item.item_imgs[0].url.to_s, width: '100%',height:'100%'
-          %ul.item_title
-            %li
-              = truncate(item.name, length: 14, omission: "..")
+  .TP-main__pickupItems__productBox.search_box
+    .TP-main__pickupItems__productBox__productLists
+      - @items.each do |item|
+        .TP-main__pickupItems__productBox__productList
+          = link_to "/items/#{item.id}" do
+            %figure.TP-main__pickupItems__productBox__productList__img
+              = image_tag item.item_imgs[0].url.to_s, alt: 'TPPickUpItem', class: 'TP-main__pickupItems__productBox__productList__img--jpeg'
+            .TP-main__pickupItems__productBox__productList__body
+              %h3.TP-main__pickupItems__productBox__productList__name
+                = "#{item.name}"
+              .TP-main__pickupItems__productBox__productList__details
+                %ul#pickupItemPriceLikeSpace
+                  %li
+                    = "#{item.price}円"
+                  %li 
+                  ★ 0
+                %p.TP-main__pickupItems__productBox__productList__details--tax
+                  （税込）
+          -if item.buyer_id.present? 
+            .itemSold
+              .itemSold__inner
+                SOLD
+  .pagenate-box
+    = paginate(@items)
   = render "/items/appBanner"
   = render "/items/footer"
   = render "/items/purchaseBtn"
