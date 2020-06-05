@@ -4,8 +4,8 @@
 
 .items-new{
   width: 100%;
-  height: 1650px;
-  background-color: #eeeeee;
+  height: 100%;
+  background-color: $gray;
   .items{
     width: 700px;
     height: 100%;
@@ -16,7 +16,7 @@
       height: 100%;
       border-bottom: 1px dashed;
       padding: 30px;
-      .picture{
+      .title{
         font-weight: bold;
         font-size: 16px;
         padding-top: 14px;
@@ -34,20 +34,62 @@
           font-size: 14px;
           padding: 14px 0;
         }
-       .camera{
-            margin: 20px 50px;
-            padding: 30px;
-            background: rgb(230, 221, 221);
-            border-radius: 10px; 
-            text-align: center;
+      }
+      
+      .image-box{     
+        display:flex;
+        .item-image{
+          padding: 10px;}
+        .item-image__operetion{
+          color :rgb(226, 76, 79);
+        }
+        .item-num-0#image-box__container{
+          margin: 10px ;
+          padding: 20px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width:100%;
+        }
+        .item-num-1#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
+        } 
+        .item-num-2#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
+        } 
+        .item-num-3#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
+        }
+        .item-num-4#image-box__container{
+          margin: 10px 50px;
+          padding: 50px ;
+          background: rgb(230, 221, 221);
+          border-radius: 10px; 
+          text-align: center;
+          width: 100%;
         }
       }
     }
     &__name{
       width: 100%;
-      height: 200px;
+      height: 100%;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .name{
         font-weight: bold;
         font-size: 16px;
@@ -85,9 +127,9 @@
     }
     &__detail{
       width: 100%;
-      height: 320px;
+      height: 100%;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .title{
         font-size: 12px;
         padding-top: 14px;
@@ -115,6 +157,21 @@
         font-weight: bold;
         font-size: 16px;
         padding-top: 14px;
+        span{
+          color: white;
+          background-color: red;
+          border-radius: 2px;
+          display: inline-block;
+          font-weight: bold;
+          line-height: 18px; 
+          margin: 0;
+        }
+      }
+      select{
+        font-weight: normal;
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
       }
       .items__detail__select{
         font-weight: normal;
@@ -125,9 +182,9 @@
     }
     &__delivery{
       width: 100%;
-      height: 320px;
+      height: 100;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .title{
         font-size: 12px;
         padding-top: 14px;
@@ -183,12 +240,18 @@
         width: 100%;
         height: 40px;
       }
+      select{
+        font-weight: normal;
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
+      }
     }
     &__price{
       width: 100%;
-      height: 200px;
+      height: 100%;
       border-bottom: 1px dashed;
-      padding: 0 30px;
+      padding: 20px 30px;
       .title{
         font-size: 12px;
         padding-top: 14px;
@@ -233,15 +296,18 @@
     }  
     &__exhibit{
       width: 100%;
-      padding: 0 30px;
-      height: 260px;
+      height: 100%;
+      padding: 20px 30px;
       .link{
         text-decoration: none;
         display: block; 
         color: white;
       }
-      .exibit-btn{
-        margin: 30px 150px;
+      .submit-btn{
+        display: block; 
+        color: white;
+        width: 400px;
+        margin: 0 auto;
         padding: 15px;
         text-align:center;
         background: #3ccace;
@@ -257,7 +323,8 @@
         border-radius: 10px; 
       }
       .back-btn{
-        margin: 15px 270px;
+        width: 100px;
+        margin: 0 auto;
         padding: 5px;
         text-align:center;
         background: black;
@@ -266,7 +333,7 @@
     }
     &__attention{
       width: 100%;
-      padding: 0 70px;
+      padding: 20px 70px;
       height: 100px;
       font-size: 13px;
     }

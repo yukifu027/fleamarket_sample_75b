@@ -11,8 +11,12 @@
     .TP-header__navi
       %ul.TP-header__navi__left
         %li
-          = link_to '', class: 'TP-header__navi__left--links' do
+          = link_to '', class: 'TP-header__navi__left--links', id: 'TPcategoryBtn' do
             カテゴリー
+          .category_list
+            %ul.parents_list
+            %ul.children_list
+            %ul.grand_children_list
         %li
           = link_to '', class: 'TP-header__navi__left--links', id: 'TPbrandBtm' do
             ブランド
@@ -31,3 +35,10 @@
           -else
             = link_to new_user_registration_path, class: 'TP-header__navi__right--links' do
               新規会員登録
+    -# .category_list
+    -#   %ul.parents_list
+    -#     %li
+    -#       - @parents.each do |parent|
+    -#         = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+    -#     .children_list
+    -#     .grand_children_list

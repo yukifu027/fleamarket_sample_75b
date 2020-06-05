@@ -54,11 +54,13 @@
         = link_to "#", class: 'change-btn' do
           変更する
       .address
-        〒123-4567
+        = "〒#{@sending_destination.post_code}"
         %br
-        東京都 千代田区 丸の内１丁目 TECHCAMPビルディング303
         %br
-        山田 太郎
+        = "#{@prefecture.name} #{@sending_destination.city} #{@sending_destination.house_number} #{@sending_destination.building_name}"
+        %br
+        %br
+        = "#{@sending_destination.destination_first_name} #{@sending_destination.destination_family_name}"
     .confirm__buy
       .alert-text
         郵便局/コンビニ受取をご希望の方は、購入後に
