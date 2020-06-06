@@ -1,4 +1,3 @@
-
 .items-new
   .items
     = form_with model:@item, local:true do |f|
@@ -49,7 +48,6 @@
           %span
             必須
           %p
-
             = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, prompt: "--", class: 'items__delivery__select'
       .items__delivery
         .title
@@ -60,9 +58,7 @@
           %span
             必須
           %p
-
             = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name, prompt: "--", class: 'items__delivery__select'
-
         .area
           = f.label :発送元の地域
           %span
@@ -74,9 +70,7 @@
           %span
             必須
           %p
-
             = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name, prompt: "--", class: 'items__delivery__select'
-
       .items__price
         .title
           = link_to "#", class: "link" do
@@ -90,7 +84,6 @@
             = f.text_field :price, class: 'items__price__value', type: "text"
             %span
               円
-       
       .items__exhibit
         .exibit-btn
           = f.submit "出品する",class: "submit-btn"
