@@ -4,6 +4,8 @@
       %h2.inner__head
         商品の情報を編集
     = form_with model:@item, local:true do |f|
+      .error-message
+        = render 'layouts/error_messages', model: f.object
       .edit-form
         .edit-form__photo
           %h3.edit-form__photo--head
