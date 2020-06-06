@@ -41,6 +41,7 @@
               //5つのfile_fieldを準備するに当たって、足りない分を表示
             - @item.item_imgs.length.upto(4) do |i|
               %input{name: "item[item_imgs_attributes][#{i}][url]", id: "item_imgs_attributes_#{i}_url", class:"hidden-field", type:"file"}
+              %input{name: "item[item_imgs_attributes][#{i}][destroy]", id: "item_imgs_attributes_#{i}__destroy", class:"hidden-checkbox", type:"checkbox"}
         .itemsEdit__container
           .container-display
             = f.label :商品名
