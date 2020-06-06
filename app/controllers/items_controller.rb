@@ -171,6 +171,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name, 
       :price, 
+      :brand,
       :prefecture_code, 
       :introduction, 
       :postage_payer_id, 
