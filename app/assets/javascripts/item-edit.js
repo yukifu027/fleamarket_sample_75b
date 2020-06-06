@@ -60,7 +60,7 @@ $(function(){
     //hidden-fieldのidの数値のみ取得
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
     //labelボックスのidとforを更新
-    $('.label-box').attr({id: `label-box--${id}`,for: `item_imgs_attributes_${id}_url`});
+    // $('.label-box').attr({id: `label-box--${id}`,for: `item_imgs_attributes_${id}_url`});
     //選択したfileのオブジェクトを取得
     var file = this.files[0];
     var reader = new FileReader();
@@ -81,9 +81,9 @@ $(function(){
       $(`#preview-box__${id} img`).attr('src', `${image}`);
       var count = $('.preview-box').length;
       //プレビューが5個あったらラベルを隠す 
-      if (count == 5) { 
-        $('.label-content').hide();
-      }
+      // if (count == 5) { 
+      //   $('.label-content').hide();
+      // }
 
       //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
       // if ($(`#item_imgs_attributes_${id}__destroy`)){
@@ -99,6 +99,16 @@ $(function(){
     }
   });
 
+  // カメラアイコンを隠したり、また表示させたり
+
+  // if ($('.preview-box').length == 5) {
+  //   $('.label-content').hide();
+  // } else {
+  //   $('.label-content').show();
+  // }
+
+
+
   // 画像の編集
   $(document).on('click', '.preview-box__lower__btns--edit', function() {
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
@@ -109,6 +119,8 @@ $(function(){
   // 画像を追加
   $(document).on('click', '.label-box', function() {
     let id = $('.preview-box').length;
+    console.log(id);
+    // debugger
     $(`#item_imgs_attributes_${id}_url`).click();
   });
 
@@ -160,7 +172,7 @@ $(function(){
       if (count == 4) {
         $('.label-content').show();
       }
-      setLabel(count);
+      // setLabel(count);
       if(id < 5){
         $('.label-box').attr({id: `label-box--${id}`,for: `item_imgs_attributes_${id}_url`});
       }
@@ -177,12 +189,12 @@ $(function(){
   });
 
 
-  var r = 0
-  var photoNum = $(`#preview-box__${id}`).length;
-  while (r <= photoNum) {
-    $(`#item_item_imgs_attributes_${r}__destroy`).prop('checked',false);
-    photoNum++;
-  }
+  // var r = 0
+  // var photoNum = $('.preview-box').length;
+  // while (r <= photoNum) {
+  //   $(`#item_item_imgs_attributes_${r}__destroy`).prop('checked',false);
+  //   photoNum++;
+  // }
 
 });
 
