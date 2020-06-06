@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
       @item.update(seller_id: current_user.id)
       redirect_to root_path
     else
-      @item.item_imgs.new
+      @item.item_imgs.new()
       render :new
     end
   end 
