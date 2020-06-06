@@ -79,9 +79,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def delete
-  end
-
   def confirm
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
     @image = @item.item_imgs[0].url.to_s
