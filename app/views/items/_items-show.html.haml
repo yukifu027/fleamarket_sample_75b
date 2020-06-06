@@ -57,23 +57,20 @@
         -if @item.buyer_id == nil
           = link_to edit_item_path, class: "editBtn" do
             商品を編集
+          = link_to item_path(@item), method: :delete, class: "deleteBtn" do
+            商品を削除
         -else
           = link_to item_path(@item), method: :delete, class: "deleteBtn" do
             商品を削除
-      -else
-        - if @item.buyer_id == nil
-          -if user_signed_in?
-            = link_to confirm_item_url do
-              %p.buyerBtn
-                購入画面に進む
-          -else 
-            = link_to new_user_session_path do
-              %p.buyerBtn
-                購入画面に進む
-        - else 
-          = link_to root_path do
+      -else 
+        - if user_signed_in?
+          = link_to confirm_item_url do
             %p.buyerBtn
-              トップページへ戻る
+              購入画面に進む
+        - else 
+          = link_to new_user_session_path do
+            %p.buyerBtn
+              購入画面に進む
     .explanation
       %p 
         = "#{@item.introduction}"
