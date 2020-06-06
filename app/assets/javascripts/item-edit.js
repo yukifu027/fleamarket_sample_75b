@@ -116,44 +116,46 @@ $(function(){
   // });
 
   // 画像の削除
-  $(document).on('click', '.preview-box__lower__btns--delete', function() {
-    var id = $(this).attr('id').replace(/[^0-9]/g, '');
-    $(`#preview-box__${id}`).remove();
-    $(`#item_item_imgs_attributes_${id}__destroy`).click();
+  if (count >= 2) {
+    $(document).on('click', '.preview-box__lower__btns--delete', function() {
+      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      $(`#preview-box__${id}`).remove();
+      $(`#item_item_imgs_attributes_${id}__destroy`).click();
 
-    //新規登録時と編集時の場合分け==========================================================
-    //新規投稿時
-    //削除用チェックボックスの有無で判定
-    if ($(`#item_imgs_attributes_${id}__destroy`).length == 0) {
-      //フォームの中身を削除 
-      $(`#item_imgs_attributes_${id}_ulr`).val("");
-      var count = $('.preview-box').length;
-      //5個めが消されたらラベルを表示
-      if (count == 4) {
-        $('.label-content').show();
-      }
-      setLabel(count);
-      if(id < 5){
-        $('.label-box').attr({id: `label-box--${id}`,for: `item_imgs_attributes_${id}_url`});
-      }
+      //新規登録時と編集時の場合分け==========================================================
+      //新規投稿時
+      //削除用チェックボックスの有無で判定
+      if ($(`#item_imgs_attributes_${id}__destroy`).length == 0) {
+        //フォームの中身を削除 
+        $(`#item_imgs_attributes_${id}_ulr`).val("");
+        var count = $('.preview-box').length;
+        //5個めが消されたらラベルを表示
+        if (count == 4) {
+          $('.label-content').show();
+        }
+        setLabel(count);
+        if(id < 5){
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_imgs_attributes_${id}_url`});
+        }
 
-    } else {
+      } else {
 
-      //投稿編集時
-      $(`#item_imgs_attributes_${id}__destroy`).prop('checked',true);
-      //5個めが消されたらラベルを表示
-      if (count == 4) {
-        $('.label-content').show();
-      }
+        //投稿編集時
+        $(`#item_imgs_attributes_${id}__destroy`).prop('checked',true);
+        //5個めが消されたらラベルを表示
+        if (count == 4) {
+          $('.label-content').show();
+        }
 
-      //ラベルのwidth操作
-      setLabel();
-      //ラベルのidとforの値を変更
-      //削除したプレビューのidによって、ラベルのidを変更する
-      if(id < 5){
-        $('.label-box').attr({id: `label-box--${id}`,for: `item_imgs_attributes_${id}_url`});
+        //ラベルのwidth操作
+        setLabel();
+        //ラベルのidとforの値を変更
+        //削除したプレビューのidによって、ラベルのidを変更する
+        if(id < 5){
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_imgs_attributes_${id}_url`});
+        }
       }
-    }
-  });
+    });
+  }
 });
 
