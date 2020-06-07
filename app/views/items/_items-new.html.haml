@@ -1,4 +1,10 @@
 .items-new
+  .items-new__pan
+    = link_to root_path, class: "panLink" do
+      トップページ
+    %p#spacing >
+    %p#spacing
+      = "商品を出品"
   .items
     = form_with model:@item, local:true do |f|
       .error-message
