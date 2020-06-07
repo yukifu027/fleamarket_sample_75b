@@ -1,5 +1,11 @@
 .mypage__main
   .main__contents
+    .itemsEdit__pan
+      = link_to root_path, class: "panLink" do
+        トップページ
+      %p#spacing >
+      %p#spacing
+        = "#{@name}さんのマイページ"
     .main__content__first
       .mypage__user__image
         = link_to "#" do
