@@ -17,6 +17,16 @@
   height: 1300px;
   background-color: #EEEEEE;
   padding: 50px;
+  &__pan {
+    color: #35c8cb;
+    display: flex;
+    width: 700px;
+    margin: 0 auto 6px;
+    .panLink {
+      color: #35c8cb;
+      text-decoration: underline;
+    }
+  }
   .show{ 
     width: 700px;
     height: 100%;
@@ -279,4 +289,8 @@
 
 .detailsTable {
   height: 100%;
+}
+
+#spacing {
+  margin-left: 10px;
 }
