@@ -1,4 +1,14 @@
 .confirm-main
+  .confirm-main__pan
+    = link_to root_path, class: "panLink" do
+      トップページ
+    %p#spacing >
+    = link_to "/items/#{@item.id}", class: "panLink" do
+      %p#spacing
+        = "商品の詳細"
+    %p#spacing >
+    %p#spacing
+      = "商品の購入(#{@item.name})"
   .confirm
     .confirm__title
       .text
