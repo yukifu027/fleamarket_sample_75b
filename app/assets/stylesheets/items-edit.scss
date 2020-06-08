@@ -68,6 +68,16 @@
 
 .itemsEdit {
   display: block;
+  &__pan {
+    color: #35c8cb;
+    display: flex;
+    width: 700px;
+    margin: 0 auto 6px;
+    .panLink {
+      color: #35c8cb;
+      text-decoration: underline;
+    }
+  }
   &__mainContainer {
     background-color: white;
     width: 700px;
@@ -100,7 +110,7 @@
       }
       &__photo {
         width: 620px;
-        padding: 40px;
+        padding: 40px 0 20px 0;
         &--head {
           font-size: 16px;
           font-weight: bold;

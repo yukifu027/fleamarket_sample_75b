@@ -1,4 +1,14 @@
 %main.itemsEdit
+  .itemsEdit__pan
+    = link_to root_path, class: "panLink" do
+      トップページ
+    %p#spacing >
+    = link_to item_path, class: "panLink" do
+      %p#spacing
+        = "商品の詳細"
+    %p#spacing >
+    %p#spacing
+      = "商品の編集(#{@item.name})"
   %section.itemsEdit__mainContainer
     .inner
       %h2.inner__head
@@ -67,6 +77,7 @@
               = f.text_field :brand, class: 'container-display__text', type: "text", placeholder: '例：75Beegies'
           .container-display
             = f.label :商品の状態
+            %span.edit-form__photo--must 必須
             %p
               = f.select :item_condition_id, [["選択してください",0],["新品・未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]],{},class: 'container-display__text'
         .itemsEdit__container

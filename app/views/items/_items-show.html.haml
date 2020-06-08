@@ -1,4 +1,10 @@
 .items-show
+  .items-show__pan
+    = link_to root_path, class: "panLink" do
+      トップページ
+    %p#spacing >
+    %p#spacing
+      = "商品の詳細(#{@item.name})"
   .show
     .title
       = "#{@item.name}"

@@ -6,6 +6,16 @@
   width: 100%;
   height: 100%;
   background-color: $gray;
+  &__pan {
+    color: #35c8cb;
+    display: flex;
+    width: 700px;
+    margin: 0 auto 6px;
+    .panLink {
+      color: #35c8cb;
+      text-decoration: underline;
+    }
+  }
   .items{
     width: 700px;
     height: 100%;
