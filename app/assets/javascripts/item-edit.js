@@ -122,7 +122,10 @@ $(function(){
   $(document).on('click', '.preview-box__lower__btns--delete', function() {
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
     // idが1~4の画像ボックスが押されたなら、プレビューを消し、checkboxにもチェックを入れる
-    if (id >= 1) {
+    var length = ($('.preview-box').length);
+    if (id == 0 ) {
+      $(`#item_item_imgs_attributes_${id}_url`).click();
+    } else if (id == (length - 1)) {
       $(`#preview-box__${id}`).remove();
       $(`#item_item_imgs_attributes_${id}__destroy`).click();
       $(`#item_imgs_attributes_${id}__destroy`).prop('checked',true);
@@ -134,7 +137,7 @@ $(function(){
     if (num == 4) {
       $('.label-content').show();
     }
-    
+
   });
 
 });
