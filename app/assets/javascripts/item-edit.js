@@ -199,7 +199,10 @@ $(function(){
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
     // var count = $('.preview-box').length;
     // idが1~4の画像ボックスが押されたなら、プレビューを消し、checkboxにもチェックを入れる
-    if (id >= 1) {
+    var length = ($('.preview-box').length);
+    if (id == 0 ) {
+      $(`#item_item_imgs_attributes_${id}_url`).click();
+    } else if (id == (length - 1)) {
       $(`#preview-box__${id}`).remove();
       $(`#item_item_imgs_attributes_${id}__destroy`).click();
       $(`#item_imgs_attributes_${id}__destroy`).prop('checked',true);
@@ -238,9 +241,6 @@ $(function(){
     // }
   });
 
-  $(document).scroll(function () {
-    
-  });
   // var r = 0
   // var photoNum = $('.preview-box').length;
   // while (r <= photoNum) {
