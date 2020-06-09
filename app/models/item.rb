@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :postage_payer
   belongs_to_active_hash :item_condition
-  belongs_to_active_hash :category
+  belongs_to :category
   # enum item_condition: [:new, :like_new, :good, :fair, :poor, :bad]
   # enum trading_status: [:selling, :sold]
   

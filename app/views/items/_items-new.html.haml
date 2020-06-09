@@ -1,10 +1,4 @@
 .items-new
-  .items-new__pan
-    = link_to root_path, class: "panLink" do
-      トップページ
-    %p#spacing >
-    %p#spacing
-      = "商品を出品"
   .items
     = form_with model:@item, local:true do |f|
       .error-message
@@ -40,11 +34,11 @@
         .title
           商品の詳細
         .category
+          .category__title
           = f.label :カテゴリー
-          %span
-            必須
-          %p
-            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, prompt: "--", class: 'items__delivery__select'
+          %span 必須
+          .category__select
+            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '--'}, {id: 'parent_category'}
         .brand
           = f.label :ブランド
           %p

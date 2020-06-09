@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_parents
   before_action :authenticate_user!,    only:[:edit]
-  before_action :set_items,             except:[:index, :new, :create, :delete]
+  before_action :set_items,             except:[:index, :new, :create, :delete, :get_category_children, :get_category_grandchildren]
   require "payjp"
 
   def index
@@ -37,6 +37,16 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_imgs.new
+    @category_parent_array = ["--"]
+    @category_parent_array = Category.where(ancestry: nil)
+  end
+
+  def get_category_children
+    @category_children = Category.find(params[:parent_id]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def create
