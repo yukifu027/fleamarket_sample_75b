@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'sending_destinations', to: 'users/registrations#new__sending_destination'
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
+
+
   root "items#index"
 
   resources :users do
@@ -18,13 +20,15 @@ Rails.application.routes.draw do
   namespace :items do
     resources :searches, only: :index
   end
-  resources :items do
+  resources :items do  
     member do 
       get 'confirm'
       post 'pay'
     end
     collection do
       get 'delete'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   resources :credit_cards

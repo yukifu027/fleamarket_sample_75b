@@ -40,11 +40,12 @@
         .title
           商品の詳細
         .category
-          = f.label :カテゴリー
+          = f.label :カテゴリー ,class:'category__label'
           %span
             必須
-          %p
-            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, prompt: "--", class: 'items__delivery__select'
+          .select-wrapper
+            .select-wrapper__box
+              = f.collection_select :category_id, Category.roots, :id, :name ,{prompt: "--"}, {class: 'select-wrapper__box--select', id: 'parent_category', name: "" }
         .brand
           = f.label :ブランド
           %p

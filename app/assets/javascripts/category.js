@@ -1,80 +1,86 @@
-// 現状リンク先がないのと子要素を追加するときに親要素も重複して追加されてしまうので下記にて応急措置対応
-$(function() {
-  function buildParentHTML(parent){
-    var html =`<a class="li parent_category" id="${parent.id}" 
-                href="/category/${parent.id}">${parent.name}</a>`;
-    $(".parents_list").append(html);
-  }
-  $("#TPcategoryBtn").on("mouseenter", function() {
-    $.ajax({
-      type: 'GET',
-      url: '/',
-      dataType: 'json'
-    })
-      .done(function(parents) {
-        $('.parent_category').remove();
-        parents.forEach(function (parent) {
-          buildParentHTML(parent);
-        })
-      });
-  });
-
-  $(".TP-header__navi__left").on("mouseleave", function () {
-    $(".parent_category").remove();
-  });
-
-  function buildChildHTML(child){
-    var html =`<a class="li child_category" id="${child.id}" 
-                href="/category/${child.id}">${child.name}</a>`;
+$(function(){
+  function appendOption(category){
+    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
-  $(document).on("mouseenter",".parent_category", function() {
-    var id = this.id;
-    $(".child_category").remove();
-    $(".grand_child_category").remove();
-    $.ajax({
-      type: 'GET',
-      url: '/',
-      data: {parent_id: id},
-      dataType: 'json'
-    }).done(function(children) {
-      children.forEach(function (child) {
-        // こちらで親要素の追加を無理やり防いでいる状況
-        if (child.id != 1 && child.id != 200 && child.id != 346 && child.id != 481 && child.id != 625 && child.id != 685 && child.id != 798 && child.id != 898 && child.id != 984 && child.id != 1093 && child.id != 1147 && child.id != 1207 && child.id != 1270){
-          var html = buildChildHTML(child);
-          $(".children_list").append(html);
-        }
-      })
-    });
-  });
-  $(".TP-header__navi__left").on("mouseleave", function () {
-    $(".child_category").remove();
-  });
-
-  function buildGrandChildHTML(child){
-    var html =`<a class="li grand_child_category" id="${child.id}" 
-                href="/category/${child.id}">${child.name}</a>`;
-    return html;
+  
+  function appendChildrenBox(insertHTML){
+    var childSelectHtml = '';
+    childSelectHtml = `<div class='select-wrapper__added' id= 'children_wrapper'>
+                        <div class='select-wrapper__box'>
+                          <select class="select-wrapper__box--select" id="child_category" name="category_id">
+                            <option value="--" data-category="--">---</option>
+                            ${insertHTML}
+                          <select>
+                        </div>
+                      </div>`;
+    $('.category').append(childSelectHtml);
   }
-  $(document).on("mouseover",".child_category", function() {
-    var id = this.id;
-    $(".grand_child_category").remove();
-    $.ajax({
-      type: 'GET',
-      url: '/',
-      data: {parent_id: id},
-      dataType: 'json'
-    }).done(function(children) {
-      children.forEach(function (child) {
-        if (child.id != 1 && child.id != 200 && child.id != 346 && child.id != 481 && child.id != 625 && child.id != 685 && child.id != 798 && child.id != 898 && child.id != 984 && child.id != 1093 && child.id != 1147 && child.id != 1207 && child.id != 1270){
-          var html = buildGrandChildHTML(child);
-          $(".grand_children_list").append(html);
+
+  function appendGrandchildrenBox(insertHTML){
+    var grandchildSelectHtml = '';
+    grandchildSelectHtml = `<div class='select-wrapper__added' id= 'grandchildren_wrapper'>
+                              <div class='select-wrapper__box'>
+                                <select class="select-wrapper__box--select" id="grandchild_category" name="">
+                                  <option value="--" data-category="--">---</option>
+                                  ${insertHTML}
+                                </select>
+                              </div>
+                            </div>`;
+    $('.category').append(grandchildSelectHtml);
+  }
+  
+  $('#parent_category').on('change', function(){
+    var parentCategory = document.getElementById('parent_category').value; 
+    if (parentCategory != "--"){ 
+      $.ajax({
+        url: 'get_category_children',
+        type: 'GET',
+        data: { parent_name: parentCategory },
+        dataType: 'json'
+      })
+      .done(function(children){
+        $('#children_wrapper').remove(); 
+        $('#grandchildren_wrapper').remove();
+        var insertHTML = '';
+        children.forEach(function(child){
+          insertHTML += appendOption(child);
+        });
+        appendChildrenBox(insertHTML);
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#children_wrapper').remove(); 
+      $('#grandchildren_wrapper').remove();
+    }
+  });
+  
+  $('.category').on('change', '#child_category', function(){
+    var childId = $('#child_category option:selected').data('category'); 
+    if (childId != "--"){ 
+      $.ajax({
+        url: '/items/get_category_grandchildren',
+        type: 'GET',
+        data: { child_id: childId },
+        dataType: 'json'
+      })
+      .done(function(grandchildren){
+        if (grandchildren.length != 0) {
+          $('#grandchildren_wrapper').remove(); 
+          var insertHTML = '';
+          grandchildren.forEach(function(grandchild){
+            insertHTML += appendOption(grandchild);
+          });
+          appendGrandchildrenBox(insertHTML);
         }
       })
-    });
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#grandchildren_wrapper').remove(); 
+    }
   });
-  $(".TP-header__navi__left").on("mouseleave", function () {
-    $(".grand_child_category").remove();
-  });
-}); 
-
+});
