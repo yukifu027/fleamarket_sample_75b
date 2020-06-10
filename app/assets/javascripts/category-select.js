@@ -6,7 +6,6 @@ $(function(){
 
   function appendChildrenBox(insertHTML){
     var childSelectHtml = `<div class='category__select__add' id= 'children_wrapper'>
-                            <i class='fas fa-chevron-down'></i>
                             <select class="items__delivery__select" id="child_category" name="item[category_id]">
                               <option value="--" data-category="--">--</option>
                               ${insertHTML}
@@ -17,7 +16,6 @@ $(function(){
 
   function appendGrandchildrenBox(insertHTML){
     var grandchildSelectHtml = `<div class='category__select__add' id= 'grandchildren_wrapper'>
-                                  <i class='fas fa-chevron-down'></i>
                                   <select class="items__delivery__select" id="grandchild_category" name="item[category_id]">
                                     <option value="--" data-category="--">--</option>
                                     ${insertHTML}
@@ -29,7 +27,6 @@ $(function(){
   $('#parent_category').on('change', function(){
     var parent_category_id = document.getElementById
     ('parent_category').value;
-    console.log(parent_category_id)
     if (parent_category_id != "--"){
       $.ajax({
         url: '/items/get_category_children',
