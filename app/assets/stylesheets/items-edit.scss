@@ -1,3 +1,11 @@
+@mixin category {
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
 #editSpan {
   background-color: #35c8cb;
   font-size: 14px;
@@ -179,6 +187,24 @@
       text-decoration: underline;
       font-style: italic;
     }
+    .category {
+      &__title {
+        label {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      &__select {
+        padding: 0 40px;
+        margin-bottom: 5px;
+        #parent_category {
+          @include category;
+        }
+        .items__delivery__select {
+          @include category;
+        }
+      }
+    }
     .container-display {
       padding: 10px 40px;
       margin-bottom: 5px;
@@ -187,16 +213,26 @@
         font-weight: bold;
       }
       &__text {
-        width: 100%;
-        height: 40px;
-        margin-top: 5px;
-        padding: 10px;
+        @include category;
         &--price {
           width: 95%;
           height: 40px;
           margin-top: 5px;
           padding: 10px;
         }
+      }
+      &__text1 {
+        @include category;
+        display: flex;
+        justify-content: space-between;
+      }
+      &__text2 {
+        @include category;
+        display: flex;
+        justify-content: space-between;
+      }
+      &__text3 {
+        @include category;
       }
       .otherPrice {
         display: flex;
@@ -269,6 +305,30 @@
   width: 100%;
   object-fit: cover;
 }
+
+#categoryBox {
+  border: solid 1px black;
+  border-radius: 3px;
+}
+
+#changeCategory1 {
+  background-color: #35c8cb;
+  font-size: 16px;
+}
+
+#changeCategory2 {
+  background-color: #35c8cb;
+  font-size: 16px;
+}
+
+.container-category {
+  padding: 0 40px;
+}
+
+#lessPadding {
+  padding: 10px 40px 10px 0;
+}
+
 
 .hidden-field {
   display: none;

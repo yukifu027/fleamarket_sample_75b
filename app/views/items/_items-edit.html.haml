@@ -66,11 +66,26 @@
         .itemsEdit__container
           = link_to "#", class: "moreInfo" do
             商品の詳細
-          .container-display
-            = f.label :カテゴリー 
-            %span.edit-form__photo--must 必須
+          .category
+            .category__title
+              .container-display
+                = f.label :カテゴリー
+                %span.edit-form__photo--must 必須
+            .category__select
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '--'}, {id: 'parent_category'}
+          .container-category
+            .category__title
+              .container-display#lessPadding
+                = f.label :カテゴリー
+                %span.edit-form__photo--must 必須
+            %p.container-display__text1#categoryBox 
+              = "#{@item.category.parent.parent.name}"
+              %span.edit-form__photo--must#changeCategory1 編集する
+            %p.container-display__text2#categoryBox 
+              = "#{@item.category.parent.name}"
+              %span.edit-form__photo--must#changeCategory2 編集する
             %p
-              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {},class: 'container-display__text'
+              = f.collection_select :category_id, Category.where(ancestry: @item.category.ancestry), :id, :name, {}, class: 'container-display__text3'
           .container-display
             = f.label :ブランド
             %p
