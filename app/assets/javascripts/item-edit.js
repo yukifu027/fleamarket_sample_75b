@@ -34,6 +34,8 @@ $(function(){
       $(box).attr('id', `delete_btn_${index}`);
     })
 
+    $('.category').hide();
+
     var count = $('.preview-box').length;
     //画像ボックスが既に5つある時は、カメラアイコンを消す
     if (count == 5) {
