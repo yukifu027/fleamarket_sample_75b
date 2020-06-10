@@ -104,6 +104,13 @@
             &__main{
               .card-info{
                 display: flex;
+                &__brand{
+                  .card_info__brand__img{
+                    width: 100px;
+                    height: 60px;
+                    object-fit: cover;
+                  }
+                }
                 &__content{
                   .number{
                     margin-left: 20px;
