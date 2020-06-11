@@ -109,7 +109,6 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-    # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
     @image = @item.item_imgs[0].url.to_s
     @sending_destination = SendingDestination.find_by(user_id: current_user.id)
     @prefecture = Prefecture.find_by_id @sending_destination.prefecture_code
@@ -119,11 +118,10 @@ class ItemsController < ApplicationController
       @user = current_user
       # クレジットカードが登録されているか確認
       if @user.credit_card.present?
-        # 前前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+        # redentials.yml.encに記載したAPI秘密鍵を呼び出します。
         Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
         # ログインユーザーのクレジットカード情報を引っ張ってきます。
         @card = CreditCard.find_by(user_id: current_user.id)
-        # (以下は以前のcredit_cardsコントローラーのshowアクションとほぼ一緒です)
         # ログインユーザーのクレジットカード情報からPay.jpに登録されているカスタマー情報を引き出す
         customer = Payjp::Customer.retrieve(@card.customer_id)
         # カスタマー情報からカードの情報を引き出す
@@ -162,7 +160,6 @@ class ItemsController < ApplicationController
 
   def pay
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
-    # (２重で決済されることを防ぐ)
     if @item.buyer_id.present?
       redirect_to item_path(@item.id), alert: "売り切れています"
     else
