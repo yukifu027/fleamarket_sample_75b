@@ -19,9 +19,9 @@
             =f.text_field :destination_first_name_kana, placeholder: "例) ヤマダ",class: 'input-default'
             =f.text_field :destination_family_name_kana, placeholder: "例) タロウ",class: 'input-default'
           .form-group
-            %label  郵便番号
+            %label  郵便番号(ハイフン無し)
             %span.form-require 必須
-            =f.text_field :post_code, placeholder: "例) 123-4567",class: 'input-default'
+            =f.text_field :post_code, placeholder: "例) 1234567",class: 'input-default'
           .form-group
             %label 都道府県
             %span.form-require 必須

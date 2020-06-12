@@ -5,4 +5,6 @@ class SendingDestination < ApplicationRecord
   belongs_to_active_hash :prefecture
   
   validates :destination_first_name,:destination_family_name,:destination_first_name_kana,:destination_family_name_kana,:post_code,:prefecture_code,:city,:house_number, presence: true
+  validates :post_code, format: {with: /\A\d{7}\z/ }
+  validates :post_code, format: {with: /\A[0-9]+\z/ }
 end
