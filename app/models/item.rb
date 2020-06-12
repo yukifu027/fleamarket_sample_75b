@@ -27,5 +27,8 @@ class Item < ApplicationRecord
       Item.all
     end
   end
-  validates  :item_img_ids, :name, :introduction, :prefecture_code,  :price, :postage_payer, :preparation_day, :category, :item_condition, presence: true
+
+  validates  :item_img_ids, :name, :introduction, :prefecture_code, :postage_payer, :preparation_day, :category, :item_condition, presence: true
+  validates  :price, numericality: { only_integer: true },presence: true
+
 end
