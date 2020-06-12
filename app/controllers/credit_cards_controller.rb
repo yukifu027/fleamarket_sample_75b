@@ -8,7 +8,7 @@ class CreditCardsController < ApplicationController
   end
   
   def create
-    # 前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+    # credentials.yml.encに記載したAPI秘密鍵を呼び出します。
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
     # 後ほどトークン作成処理を行いますが、そちらの完了の有無でフラッシュメッセージを表示させます。
@@ -89,7 +89,6 @@ class CreditCardsController < ApplicationController
       if @card.destroy
         redirect_to new_credit_card_path, notice: '削除されました'
       else
-        # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
         redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
       end
     end
