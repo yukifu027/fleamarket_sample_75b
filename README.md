@@ -1,28 +1,11 @@
-# README
+<h2 align="center">FURIMA</h2>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Image from Gyazo](https://i.gyazo.com/c9fc6af4b558d42bc23456426900347f.jpg)](https://gyazo.com/c9fc6af4b558d42bc23456426900347f)
 
-Things you may want to cover:
+# 詳細
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+# DB設計
 # ユーザー系
 
 ## usersテーブル
