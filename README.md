@@ -3,7 +3,7 @@
 [![Image from Gyazo](https://i.gyazo.com/c9fc6af4b558d42bc23456426900347f.jpg)](https://gyazo.com/c9fc6af4b558d42bc23456426900347f)
 
 # 詳細
-
+https://docs.google.com/document/d/1ZLodv2ol7FlkoPj9fp0sunFAR1XV0hEFnlB0cBZ5feI/edit
 
 # DB設計
 # ユーザー系
